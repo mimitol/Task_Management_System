@@ -9,7 +9,7 @@ public class EnigneerImplementation : IEngineer
     {
         Engineer? engineer = DataSource.Engineers.FirstOrDefault(engineer => engineer.Id == item.Id);
         if (engineer == null)
-            DataSource.Engineers.Add(engineer);
+            DataSource.Engineers.Add(item);
         return item.Id;
     }
     public Engineer? Read(int id)
