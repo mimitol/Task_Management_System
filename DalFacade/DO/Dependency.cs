@@ -8,9 +8,9 @@
 /// <param name="dependsOnTask">Previous assignment ID number</param>
 public record Dependency
 (
-    int id,
-    int dependentTask,
-    int dependsOnTask
+    int Id,
+    int DependentTask,
+    int DependsOnTask
 )
 {
     public Dependency() : this(0, 0, 0) { } // empty ctor
