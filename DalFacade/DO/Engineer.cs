@@ -16,12 +16,12 @@ public record Engineer
     double cost
 )
 {
-    public Engineer() :this(0) { } //empty ctor
-    public Engineer(string? name, string? email, EngineerExperience level, double cost) //full ctor
-    {
-        this.name = name;
-        this.email = email;
-        this.level = level;
-        this.cost = cost;
-    }
+    public Engineer() :this(0,"","",0,0.0) { } //empty ctor
+    //public Engineer(string? name, string? email, EngineerExperience level, double cost) //full ctor
+    //{
+    //    this.name = name;
+    //    this.email = email;
+    //    this.level = level;
+    //    this.cost = cost;
+    //}
 }

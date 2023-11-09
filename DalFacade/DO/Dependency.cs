@@ -13,10 +13,13 @@ public record Dependency
     int dependsOnTask
 )
 {
-    public Dependency() : this(0) { } //empty ctor
-    public Dependency(int dependentTask, int dependsOnTask) //full ctor
-    {
-        this.dependentTask = dependentTask;
-        this.dependsOnTask = dependsOnTask;
-    }
+    public Dependency() : this(0, 0, 0) { } // empty ctor
+
+    //public Dependency(int id, int dependentTask, int dependsOnTask) // full ctor
+    //{
+    //    this.id = id;
+    //    this.dependentTask = dependentTask;
+    //    this.dependsOnTask = dependsOnTask;
+    //}
 }
+
