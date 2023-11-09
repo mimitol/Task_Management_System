@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net7.0</TargetFramework>
@@ -11,5 +11,9 @@
 		<UseCommonOutputDirectory>true</UseCommonOutputDirectory>
 		<RootNamespace />
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Folder Include="DalApi\" />
+	</ItemGroup>
 
 </Project>
