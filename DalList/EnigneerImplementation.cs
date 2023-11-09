@@ -3,21 +3,21 @@
 using DalApi;
 using DO;
 
-public class EnigneerImplementation : IEnigneer
+public class EnigneerImplementation : IEngineer
 {
-    public int Create(Enigneer item)
+    public int Create(Engineer item)
     {
         throw new NotImplementedException();
     }
-    public Enigneer? Read(int id)
+    public Engineer? Read(int id)
     {
         throw new NotImplementedException();
     }
-    public List<Enigneer> ReadAll()
+    public List<Engineer> ReadAll()
     {
         throw new NotImplementedException();
     }
-    public void Update(Enigneer item)
+    public void Update(Engineer item)
     {
         throw new NotImplementedException();
     }
