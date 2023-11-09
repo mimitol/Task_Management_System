@@ -19,6 +19,9 @@ public class TaskImplementation : ITask
     public Task? Read(int id)
     {
         Task? task = DataSource.Tasks.FirstOrDefault(task => task.Id == id);
+        if (task == null) {
+            throw new Exception($"Task with ID={id} does Not exist");
+        }
         return task;
     }
     public List<Task> ReadAll()
@@ -30,18 +33,21 @@ public class TaskImplementation : ITask
     public void Update(Task item)
     {
         Task? taskToUpdate = DataSource.Tasks.FirstOrDefault(task => task.Id == item.Id);
-        if (taskToUpdate != null)
+        if (taskToUpdate == null)
         {
-            DataSource.Tasks.Remove(taskToUpdate);
-            DataSource.Tasks.Add(item);
+            throw new Exception($"Task with ID={item.Id} does Not exist, you can't update it");
         }
+        DataSource.Tasks.Remove(taskToUpdate);
+        DataSource.Tasks.Add(item);
     }
     public void Delete(int id)
     {
         Task? taskToDelete = DataSource.Tasks.FirstOrDefault(task => task.Id == id);
-        if (taskToDelete != null)
+        if (taskToDelete == null)
         {
-            DataSource.Tasks.Remove(taskToDelete);
+            throw new Exception($"Task with ID={id} does Not exist, you can't delete it");
         }
+        DataSource.Tasks.Remove(taskToDelete);
+
     }
 }

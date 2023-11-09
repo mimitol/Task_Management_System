@@ -1,6 +1,8 @@
 ﻿namespace Dal;
+
 using DalApi;
 using DO;
+using System.Threading.Tasks;
 
 public class DependencyImplementation : IDependency
 {
@@ -14,8 +16,12 @@ public class DependencyImplementation : IDependency
     }
     public Dependency? Read(int id)
     {
-        Dependency? Dependency = DataSource.Dependencys.FirstOrDefault(Dependency => Dependency.Id == id);
-        return Dependency;
+        Dependency? dependency = DataSource.Dependencys.FirstOrDefault(dependency => dependency.Id == id);
+        if (dependency == null)
+        {
+            throw new Exception($"Dependency with ID={id} does Not exist");
+        }
+        return dependency;
     }
     public List<Dependency> ReadAll()
     {
@@ -25,20 +31,22 @@ public class DependencyImplementation : IDependency
     public void Update(Dependency item)
     {
         Dependency? dependencyToUpdate = DataSource.Dependencys.FirstOrDefault(dependency => dependency.Id == item.Id);
-        if (dependencyToUpdate != null)
+        if (dependencyToUpdate == null)
         {
-            DataSource.Dependencys.Remove(dependencyToUpdate);
-            DataSource.Dependencys.Add(item);
+            throw new Exception($"Dependency with ID={item.Id} does Not exist,you can't update it"); 
         }
+        DataSource.Dependencys.Remove(dependencyToUpdate);
+        DataSource.Dependencys.Add(item);
     }
     public void Delete(int id)
     {
         Dependency? dependencyToDelete = DataSource.Dependencys.FirstOrDefault(dependency => dependency.Id == id);
-        if (dependencyToDelete != null)
+        if (dependencyToDelete == null)
         {
-            DataSource.Dependencys.Remove(dependencyToDelete);
+            throw new Exception($"Dependency with ID={id} does Not exist,you can't delete it");
+
         }
+        DataSource.Dependencys.Remove(dependencyToDelete);
+
     }
 }
-
-
