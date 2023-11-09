@@ -7,23 +7,37 @@ public class EnigneerImplementation : IEngineer
 {
     public int Create(Engineer item)
     {
-        throw new NotImplementedException();
+        Engineer? engineer = DataSource.Engineers.FirstOrDefault(engineer => engineer.Id == item.Id);
+        if (engineer == null)
+            DataSource.Engineers.Add(engineer);
+        return item.Id;
     }
     public Engineer? Read(int id)
     {
-        throw new NotImplementedException();
+        Engineer? engineer = DataSource.Engineers.FirstOrDefault(engineer => engineer.Id == id);
+        return engineer;
     }
     public List<Engineer> ReadAll()
     {
-        throw new NotImplementedException();
+        List<Engineer> engineers = DataSource.Engineers;
+        return engineers;
     }
     public void Update(Engineer item)
     {
-        throw new NotImplementedException();
+        Engineer? engineerToUpdate = DataSource.Engineers.FirstOrDefault(engineer => engineer.Id == item.Id);
+        if (engineerToUpdate != null)
+        {
+            DataSource.Engineers.Remove(engineerToUpdate);
+            DataSource.Engineers.Add(item);
+        }
     }
     public void Delete(int id)
     {
-        throw new NotImplementedException();
+        Engineer? engineerToDelete = DataSource.Engineers.FirstOrDefault(engineer => engineer.Id == id);
+        if (engineerToDelete != null)
+        {
+            DataSource.Engineers.Remove(engineerToDelete);
+        }
     }
 
 }

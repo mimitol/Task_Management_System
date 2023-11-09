@@ -9,11 +9,11 @@
 /// <param name="cost">cost per hour</param>
 public record Engineer
 (
-    int id,
-    string? name,
-    string? email,
-    EngineerExperience level,
-    double cost
+    int Id,
+    string? Name,
+    string? Email,
+    EngineerExperience Level,
+    double Cost
 )
 {
     public Engineer() :this(0,"","",0,0.0) { } //empty ctor
