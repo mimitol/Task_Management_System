@@ -11,7 +11,6 @@ namespace DalTest
         private static ITask? s_dalTask = new TaskImplementation(); // stage 1
         private static IDependency? s_dalDependency = new DependencyImplementation(); // stage 1
         private static readonly Random s_rand = new();
-
         static void Main(string[] args)
         {
             Initialization.Do( s_dalTask,s_dalEngineer ,s_dalDependency);
