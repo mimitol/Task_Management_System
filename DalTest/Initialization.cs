@@ -2,6 +2,7 @@
 
 using DalApi;
 using DO;
+using System.Security.Cryptography;
 
 public static class Initialization
 {
@@ -12,11 +13,11 @@ public static class Initialization
     private static readonly Random s_rand = new();
 
 
-    public static void Do(IEngineer s_dalEngineer, ITask s_dalTask, IDependency s_dalDependency)
+    public static void Do(ITask? tasks, IEngineer? engineers, IDependency? dependencies)
     {
-        s_dalEngineer = dalEngineer ?? throw new NullReferenceException("DAL can not be null!");
-        s_dalTask = dalTask ?? throw new NullReferenceException("DAL can not be null!");
-        s_dalDependency = dalDependency ?? throw new NullReferenceException("DAL can not be null!");
+        s_dalEngineer = engineers ?? throw new NullReferenceException("DAL can not be null!");
+        s_dalTask = tasks ?? throw new NullReferenceException("DAL can not be null!");
+        s_dalDependency = dependencies ?? throw new NullReferenceException("DAL can not be null!");
         createEngineers();
         createTasks();
         createDependencies();
@@ -45,7 +46,7 @@ public static class Initialization
             int _id;
             do
                 _id = s_rand.Next(MIN_ID, MAX_ID);
-            while (s_dalEngineer!.Read(_id) != null);
+            while (s_dalEngineer!.ReadAll().FirstOrDefault(e=>e.Id==_id) != null);
 
             string _nameForEmail = _name.Substring(0, _name.IndexOf(' '));
             string _email = ($"{_nameForEmail}{_id}@gmail.com");
@@ -119,7 +120,9 @@ public static class Initialization
             string _deliverables = "Product of " + _description;
             string _remarks = "Remarks of " + _description;
             EngineerExperience _comlexityLevel = levels[i];
-            int? _engineerId = null;
+            int? _engineerId;
+            List<Engineer> engineers = s_dalEngineer!.ReadAll().Where(engineer=> engineer.Level>= _comlexityLevel).ToList();
+            _engineerId = engineers[s_rand.Next(0, engineers.Count()-1)].Id;
             Task newTask = new Task(0, _description, _alias, _isMileStone, _createdAtDate, _startedDate, _scheduledDate, _foreCastDate, _deadLineDate, _completeDate, _deliverables, _remarks, _engineerId, _comlexityLevel);
             s_dalTask!.Create(newTask);
         }
