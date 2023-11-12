@@ -16,5 +16,7 @@ namespace Dal;
         internal const int startDependencyId = 1000;
         private static int nextDependencyId = startDependencyId;
         internal static int NextDependencyId { get => nextDependencyId++; }
+
+
     }
 }
