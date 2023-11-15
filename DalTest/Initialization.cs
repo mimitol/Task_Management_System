@@ -6,18 +6,20 @@ using System.Security.Cryptography;
 
 public static class Initialization
 {
-    private static IEngineer? s_dalEngineer; //stage 1
-    private static ITask? s_dalTask; //stage 1
-    private static IDependency? s_dalDependency; //stage 1
+    private static IDal? s_dal;
+    //private static IEngineer? s_dalEngineer; //stage 1
+    //private static ITask? s_dalTask; //stage 1
+    //private static IDependency? s_dalDependency; //stage 1
 
     private static readonly Random s_rand = new();
 
 
-    public static void Do(ITask? tasks, IEngineer? engineers, IDependency? dependencies)
+    public static void Do(IDal? dal)
     {
-        s_dalEngineer = engineers ?? throw new NullReferenceException("DAL can not be null!");
-        s_dalTask = tasks ?? throw new NullReferenceException("DAL can not be null!");
-        s_dalDependency = dependencies ?? throw new NullReferenceException("DAL can not be null!");
+        s_dal = dal ?? throw new NullReferenceException("DAL object can not be null!"); //stage 2
+        //s_dalEngineer = engineers ?? throw new NullReferenceException("DAL can not be null!");
+        //s_dalTask = tasks ?? throw new NullReferenceException("DAL can not be null!");
+        //s_dalDependency = dependencies ?? throw new NullReferenceException("DAL can not be null!");
         createEngineers();
         createTasks();
         createDependencies();
@@ -46,7 +48,7 @@ public static class Initialization
             int _id;
             do
                 _id = s_rand.Next(MIN_ID, MAX_ID);
-            while (s_dalEngineer!.ReadAll().FirstOrDefault(e=>e.Id==_id) != null);
+            while (s_dal!.Engineer.ReadAll().FirstOrDefault(e=>e.Id==_id) != null);
 
             string _nameForEmail = _name.Substring(0, _name.IndexOf(' '));
             string _email = ($"{_nameForEmail}{_id}@gmail.com");
@@ -74,7 +76,7 @@ public static class Initialization
             }
 
             Engineer newEngineer = new(_id, _name, _email, _level, _cost);
-            s_dalEngineer!.Create(newEngineer);
+            s_dal!.Engineer!.Create(newEngineer);
         }
     }
     private static void createTasks()
@@ -121,103 +123,103 @@ public static class Initialization
             string _remarks = "Remarks of " + _description;
             EngineerExperience _comlexityLevel = levels[i];
             int? _engineerId;
-            List<Engineer> engineers = s_dalEngineer!.ReadAll().Where(engineer=> engineer.Level>= _comlexityLevel).ToList();
+            List<Engineer> engineers = s_dal!.Engineer!.ReadAll().Where(engineer=> engineer.Level>= _comlexityLevel).ToList();
             _engineerId = engineers[s_rand.Next(0, engineers.Count()-1)].Id;
             Task newTask = new Task(0, _description, _alias, _isMileStone, _createdAtDate, _startedDate, _scheduledDate, _foreCastDate, _deadLineDate, _completeDate, _deliverables, _remarks, _engineerId, _comlexityLevel);
-            s_dalTask!.Create(newTask);
+            s_dal!.Task!.Create(newTask);
         }
     }
     private static void createDependencies()
     {
         Dependency newDependency1 = new Dependency(0, 3, 0);
-        s_dalDependency?.Create(newDependency1);
+        s_dal!.Dependency?.Create(newDependency1);
 
         Dependency newDependency2 = new Dependency(0, 4, 0);
-        s_dalDependency?.Create(newDependency2);
+        s_dal!.Dependency?.Create(newDependency2);
 
         Dependency newDependency3 = new Dependency(0, 5, 0);
-        s_dalDependency?.Create(newDependency3);
+        s_dal!.Dependency?.Create(newDependency3);
 
         Dependency newDependency4 = new Dependency(0, 22, 0);
-        s_dalDependency?.Create(newDependency4);
+        s_dal!.Dependency?.Create(newDependency4);
 
         Dependency newDependency5 = new Dependency(0, 6, 0);
-        s_dalDependency?.Create(newDependency5);
+        s_dal!.Dependency?.Create(newDependency5);
 
         Dependency newDependency6 = new Dependency(0, 21, 0);
-        s_dalDependency?.Create(newDependency6);
+        s_dal!.Dependency?.Create(newDependency6);
 
         Dependency newDependency7 = new Dependency(0, 11, 0);
-        s_dalDependency?.Create(newDependency7);
+        s_dal!.Dependency?.Create(newDependency7);
 
         Dependency newDependency8 = new Dependency(0, 3, 1);
-        s_dalDependency?.Create(newDependency8);
+        s_dal!.Dependency?.Create(newDependency8);
 
         Dependency newDependency9 = new Dependency(0, 4, 1);
-        s_dalDependency?.Create(newDependency9);
+        s_dal!.Dependency?.Create(newDependency9);
 
         Dependency newDependency10 = new Dependency(0, 9, 1);
-        s_dalDependency?.Create(newDependency10);
+        s_dal!.Dependency?.Create(newDependency10);
 
         Dependency newDependency11 = new Dependency(0, 13, 2);
-        s_dalDependency?.Create(newDependency11);
+        s_dal!.Dependency?.Create(newDependency11);
 
         Dependency newDependency12 = new Dependency(0, 12, 2);
-        s_dalDependency?.Create(newDependency12);
+        s_dal!.Dependency?.Create(newDependency12);
 
         Dependency newDependency13 = new Dependency(0, 3, 2);
-        s_dalDependency?.Create(newDependency13);
+        s_dal!.Dependency?.Create(newDependency13);
 
         Dependency newDependency14 = new Dependency(0, 10, 2);
-        s_dalDependency?.Create(newDependency14);
+        s_dal!.Dependency?.Create(newDependency14);
 
         Dependency newDependency15 = new Dependency(0, 8, 4);
-        s_dalDependency?.Create(newDependency15);
+        s_dal!.Dependency?.Create(newDependency15);
 
         Dependency newDependency16 = new Dependency(0, 14, 10);
-        s_dalDependency?.Create(newDependency16);
+        s_dal!.Dependency?.Create(newDependency16);
 
         Dependency newDependency17 = new Dependency(0, 16, 10);
-        s_dalDependency?.Create(newDependency17);
+        s_dal!.Dependency?.Create(newDependency17);
 
         Dependency newDependency18 = new Dependency(0, 13, 10);
-        s_dalDependency?.Create(newDependency18);
+        s_dal!.Dependency?.Create(newDependency18);
 
         Dependency newDependency19 = new Dependency(0, 12, 10);
-        s_dalDependency?.Create(newDependency19);
+        s_dal!.Dependency?.Create(newDependency19);
 
         Dependency newDependency20 = new Dependency(0, 11, 10);
-        s_dalDependency?.Create(newDependency20);
+        s_dal!.Dependency?.Create(newDependency20);
 
         Dependency newDependency21 = new Dependency(0, 15, 10);
-        s_dalDependency?.Create(newDependency21);
+        s_dal!.Dependency?.Create(newDependency21);
 
         Dependency newDependency22 = new Dependency(0, 13, 12);
-        s_dalDependency?.Create(newDependency22);
+        s_dal!.Dependency?.Create(newDependency22);
 
         Dependency newDependency23 = new Dependency(0, 14, 12);
-        s_dalDependency?.Create(newDependency23);
+        s_dal!.Dependency?.Create(newDependency23);
 
         Dependency newDependency24 = new Dependency(0, 19, 13);
-        s_dalDependency?.Create(newDependency24);
+        s_dal!.Dependency?.Create(newDependency24);
 
         Dependency newDependency25 = new Dependency(0, 16, 13);
-        s_dalDependency?.Create(newDependency25);
+        s_dal!.Dependency?.Create(newDependency25);
 
         Dependency newDependency26 = new Dependency(0, 15, 13);
-        s_dalDependency?.Create(newDependency26);
+        s_dal!.Dependency?.Create(newDependency26);
 
         Dependency newDependency27 = new Dependency(0, 21, 20);
-        s_dalDependency?.Create(newDependency27);
+        s_dal!.Dependency?.Create(newDependency27);
 
         Dependency newDependency28 = new Dependency(0, 22, 20);
-        s_dalDependency?.Create(newDependency28);
+        s_dal!.Dependency?.Create(newDependency28);
 
         Dependency newDependency29 = new Dependency(0, 18, 16);
-        s_dalDependency?.Create(newDependency29);
+        s_dal!.Dependency?.Create(newDependency29);
 
         Dependency newDependency30 = new Dependency(0, 17, 14);
-        s_dalDependency?.Create(newDependency30);
+        s_dal!.Dependency?.Create(newDependency30);
     }
    
 

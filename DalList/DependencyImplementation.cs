@@ -4,7 +4,7 @@ using DalApi;
 using DO;
 using System.Threading.Tasks;
 
-public class DependencyImplementation : IDependency
+internal class DependencyImplementation : IDependency
 {
     public int Create(Dependency item)
     {

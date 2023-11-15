@@ -6,7 +6,7 @@ using System.Linq;
 
 
 
-public class TaskImplementation : ITask
+internal class TaskImplementation : ITask
 {
     public int Create(Task item)
     {
