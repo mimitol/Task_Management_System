@@ -20,10 +20,18 @@ internal class EngineerImplementation : IEngineer
             throw new Exception($"Engineer with ID={id} is not exist");
         return engineer;
     }
-    public List<Engineer> ReadAll()
+    public Engineer? Read(Func<Engineer, bool> filter)
     {
-        List<Engineer> engineers = DataSource.Engineers;
-        return engineers;
+        Engineer? engineer = DataSource.Engineers.FirstOrDefault(filter);
+        return engineer;
+    }
+
+    public IEnumerable<Engineer?> ReadAll(Func<Engineer?, bool>? filter = null)
+    {
+        if (filter == null)
+            return DataSource.Engineers.Select(item => item);
+        else
+            return DataSource.Engineers.Where(filter);
     }
     public void Update(Engineer item)
     {

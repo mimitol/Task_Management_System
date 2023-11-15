@@ -23,10 +23,18 @@ internal class DependencyImplementation : IDependency
         }
         return dependency;
     }
-    public List<Dependency> ReadAll()
+    public Dependency? Read(Func<Dependency, bool> filter)
     {
-        List<Dependency> dependencys = DataSource.Dependencys;
-        return dependencys;
+        Dependency? dependency = DataSource.Dependencys.FirstOrDefault(filter);
+        return dependency; 
+    }
+
+    public IEnumerable<Dependency?> ReadAll(Func<Dependency?, bool>? filter = null)
+    {
+        if (filter == null)
+            return DataSource.Dependencys.Select(item => item);
+        else
+            return DataSource.Dependencys.Where(filter);
     }
     public void Update(Dependency item)
     {

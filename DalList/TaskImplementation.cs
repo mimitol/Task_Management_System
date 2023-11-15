@@ -23,10 +23,18 @@ internal class TaskImplementation : ITask
             throw new Exception($"Task with ID={id} does Not exist");
         return task;
     }
-    public List<Task> ReadAll()
+    public Task? Read(Func<Task, bool> filter)
     {
-        List<Task> tasks = DataSource.Tasks;
-        return tasks;
+        Task? task = DataSource.Tasks.FirstOrDefault(filter);
+        return task;
+    }
+
+    public IEnumerable<Task?> ReadAll(Func<Task, bool>? filter = null)
+    {
+        if (filter == null)
+            return DataSource.Tasks.Select(item => item);
+        else
+            return DataSource.Tasks.Where(filter);
     }
 
     public void Update(Task item)
