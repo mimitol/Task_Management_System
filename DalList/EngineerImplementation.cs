@@ -9,7 +9,7 @@ internal class EngineerImplementation : IEngineer
     {
         Engineer? engineer = DataSource.Engineers.FirstOrDefault(engineer => engineer.Id == item.Id);
         if (engineer != null)
-            throw new Exception($"Engineer with ID={item.Id} is exist");
+            throw new DalAlreadyExistsException($"Engineer with ID={item.Id} is exist");
         DataSource.Engineers.Add(item);
         return item.Id;
     }
@@ -17,12 +17,14 @@ internal class EngineerImplementation : IEngineer
     {
         Engineer? engineer = DataSource.Engineers.FirstOrDefault(engineer => engineer.Id == id);
         if (engineer == null)
-            throw new Exception($"Engineer with ID={id} is not exist");
+            throw new DalDoesNotExistException($"Engineer with ID={id} is not exist");
         return engineer;
     }
     public Engineer? Read(Func<Engineer, bool> filter)
     {
         Engineer? engineer = DataSource.Engineers.FirstOrDefault(filter);
+        if(engineer == null)
+            throw new DalDoesNotExistException($"There is no engineer who fulfills the requested condition");
         return engineer;
     }
 
@@ -37,7 +39,7 @@ internal class EngineerImplementation : IEngineer
     {
         Engineer? engineerToUpdate = DataSource.Engineers.FirstOrDefault(engineer => engineer.Id == item.Id);
         if (engineerToUpdate == null)
-            throw new Exception($"Engineer with ID={item.Id} is not exist");
+            throw new DalDoesNotExistException($"Engineer with ID={item.Id} does not exist");
         DataSource.Engineers.Remove(engineerToUpdate);
         DataSource.Engineers.Add(item);
 
@@ -46,7 +48,7 @@ internal class EngineerImplementation : IEngineer
     {
         Engineer? engineerToDelete = DataSource.Engineers.FirstOrDefault(engineer => engineer.Id == id);
         if (engineerToDelete == null)
-            throw new Exception($"Engineer with ID={id} is not exist");
+            throw new DalDoesNotExistException($"Engineer with ID={id} does not exist");
         DataSource.Engineers.Remove(engineerToDelete);
     }
 

@@ -20,12 +20,14 @@ internal class TaskImplementation : ITask
     {
         Task? task = DataSource.Tasks.FirstOrDefault(task => task.Id == id);
         if (task == null)
-            throw new Exception($"Task with ID={id} does Not exist");
+            throw new DalDoesNotExistException($"Task with ID={id} does Not exist");
         return task;
     }
     public Task? Read(Func<Task, bool> filter)
     {
         Task? task = DataSource.Tasks.FirstOrDefault(filter);
+        if (task == null)
+            throw new DalDoesNotExistException("There is no Task who fulfills the requested condition");
         return task;
     }
 
@@ -41,7 +43,7 @@ internal class TaskImplementation : ITask
     {
         Task? taskToUpdate = DataSource.Tasks.FirstOrDefault(task => task.Id == item.Id);
         if (taskToUpdate == null)
-            throw new Exception($"Task with ID={item.Id} does Not exist, you can't update it");
+            throw new DalDoesNotExistException($"Task with ID={item.Id} does Not exist, you can't update it");
         DataSource.Tasks.Remove(taskToUpdate);
         DataSource.Tasks.Add(item);
     }
@@ -49,7 +51,7 @@ internal class TaskImplementation : ITask
     {
         Task? taskToDelete = DataSource.Tasks.FirstOrDefault(task => task.Id == id);
         if (taskToDelete == null)
-            throw new Exception($"Task with ID={id} does Not exist, you can't delete it");
+            throw new DalDoesNotExistException($"Task with ID={id} does Not exist, you can't delete it");
         DataSource.Tasks.Remove(taskToDelete);
 
     }
