@@ -18,14 +18,14 @@ internal class DependencyImplementation : IDependency
     {
         Dependency? dependency = DataSource.Dependencys.FirstOrDefault(dependency => dependency.Id == id);
         if (dependency == null)
-        {
-            throw new Exception($"Dependency with ID={id} does Not exist");
-        }
+            throw new DalDoesNotExistException($"Dependency with ID={id} does Not exist");
         return dependency;
     }
     public Dependency? Read(Func<Dependency, bool> filter)
     {
         Dependency? dependency = DataSource.Dependencys.FirstOrDefault(filter);
+        if (dependency == null)
+            throw new DalDoesNotExistException("There is no dependency who fulfills the requested condition");
         return dependency; 
     }
 
@@ -40,9 +40,7 @@ internal class DependencyImplementation : IDependency
     {
         Dependency? dependencyToUpdate = DataSource.Dependencys.FirstOrDefault(dependency => dependency.Id == item.Id);
         if (dependencyToUpdate == null)
-        {
-            throw new Exception($"Dependency with ID={item.Id} does Not exist,you can't update it"); 
-        }
+            throw new DalDoesNotExistException($"Dependency with ID={item.Id} does Not exist,you can't update it"); 
         DataSource.Dependencys.Remove(dependencyToUpdate);
         DataSource.Dependencys.Add(item);
     }
@@ -50,10 +48,7 @@ internal class DependencyImplementation : IDependency
     {
         Dependency? dependencyToDelete = DataSource.Dependencys.FirstOrDefault(dependency => dependency.Id == id);
         if (dependencyToDelete == null)
-        {
-            throw new Exception($"Dependency with ID={id} does Not exist,you can't delete it");
-
-        }
+            throw new DalDeletionImpossible($"Dependency with ID={id} does Not exist,you can't delete it");
         DataSource.Dependencys.Remove(dependencyToDelete);
 
     }
