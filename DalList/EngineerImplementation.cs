@@ -42,7 +42,6 @@ internal class EngineerImplementation : IEngineer
             throw new DalDoesNotExistException($"Engineer with ID={item.Id} does not exist");
         DataSource.Engineers.Remove(engineerToUpdate);
         DataSource.Engineers.Add(item);
-
     }
     public void Delete(int id)
     {
@@ -51,5 +50,4 @@ internal class EngineerImplementation : IEngineer
             throw new DalDoesNotExistException($"Engineer with ID={id} does not exist");
         DataSource.Engineers.Remove(engineerToDelete);
     }
-
 }
