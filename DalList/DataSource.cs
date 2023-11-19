@@ -9,7 +9,7 @@ namespace Dal;
 
     internal static class config
     {
-        internal const int startTaskId = 1000;
+        internal const int startTaskId = 0;
         private static int nextTaskId = startTaskId;
         internal static int NextTaskId { get => nextTaskId++; }
 
