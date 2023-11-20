@@ -12,24 +12,34 @@ internal class DependencyImplementation : IDependency
     {
         int newId = XMLTools.GetAndIncreaseNextId("data-config", "NextDependencyId");
 
-        Dependency newDependency = new Dependency(newId, item.DependentTask, item.DependsOnTask);
+        Dependency? newDependency = new Dependency(newId, item.DependentTask, item.DependsOnTask);
         XElement dependencies = XMLTools.LoadListFromXMLElement("dependencies");
-        //להמיר את item Xelemnt,
-        ////להוסיף לרשימה ששלפנו מהסוג הזה, ו
-        ///load
-        //DataSource.Dependencys.Add(newDependency);
-        XMLTools.SaveListToXMLElement(dependencies, "dependencies");//?
+        dependencies.Add(newDependency);   
+        XMLTools.SaveListToXMLElement(dependencies, "dependencies");
         return newId;
     }
 
     public void Delete(int id)
-    {
-        throw new NotImplementedException();
+    { 
+        XElement dependencies = XMLTools.LoadListFromXMLElement("dependencies");
+        XElement dependency = (from p in dependencies.Elements() 
+                               where Convert.ToInt32(p.Element("id").Value)==id select p).FirstOrDefault();
+        dependency.Remove();
+        XMLTools.SaveListToXMLElement(dependencies, "dependencies");
     }
 
     public Dependency? Read(int id)
     {
-        throw new NotImplementedException();
+        XElement dependencies = XMLTools.LoadListFromXMLElement("dependencies");
+        //Dependency dependency = (from p in dependencies.Elements()
+        //                         where Convert.ToInt32(p.Element("id").Value) == id
+        //                         select new Dependency()
+        //                         {
+        //                             Id = Convert.ToInt32(p.Element("Id").Value),
+        //                             DependentTask = Convert.ToInt32(p.Element("DependentTask").Value),
+        //                             DependsOnTask = Convert.ToInt32(p.Element("DependentTask").Value)
+        //                         }).ToList();
+    
     }
 
     public Dependency? Read(Func<Dependency, bool> filter)

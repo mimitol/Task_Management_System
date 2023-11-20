@@ -50,6 +50,5 @@ internal class DependencyImplementation : IDependency
         if (dependencyToDelete == null)
             throw new DalDeletionImpossible($"Dependency with ID={id} does Not exist,you can't delete it");
         DataSource.Dependencys.Remove(dependencyToDelete);
-
     }
 }
