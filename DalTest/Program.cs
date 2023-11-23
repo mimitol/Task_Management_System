@@ -2,6 +2,7 @@
 using DalApi;
 using DO;
 
+
 namespace DalTest
 {
     internal class Program
@@ -11,7 +12,9 @@ namespace DalTest
         //private static ITask? s_dalTask = new TaskImplementation(); // stage 1
         //private static IDependency? s_dalDependency = new DependencyImplementation(); // stage 1
         private static readonly Random s_rand = new();
-        static readonly IDal s_dal = new Dal.DalList(); //stage 2
+        //static readonly IDal s_dal = new Dal.DalList(); //stage 2
+        static readonly IDal s_dal = new Dal.DalXml(); //stage 3
+
         static void Main(string[] args)
         {
             Initialization.Do(s_dal);
@@ -71,7 +74,7 @@ namespace DalTest
                                             break;
 
                                         case (int)Crud.UPDATE:
-                                            Console.WriteLine("Enter your ID, Name, Email, Level, and Cost: ");
+                                            Console.WriteLine("Enter your ID, Name, Email,Cost , and Level: ");
                                             int _idUpdate = int.Parse(Console.ReadLine());
                                             string _nameUpdate = Console.ReadLine();
                                             string _emailUpdate = Console.ReadLine();
@@ -213,7 +216,9 @@ namespace DalTest
                                         case (int)Crud.READ:
                                             Console.WriteLine("Enter Dependency ID: ");
                                             int _idRead = int.Parse(Console.ReadLine());
-                                            Console.WriteLine(s_dal!.Dependency.Read(_idRead));
+                                            Dependency dependencyb = s_dal!.Dependency.Read(_idRead);
+                                            Console.WriteLine(dependencyb);
+                                            //Console.WriteLine(s_dal!.Dependency.Read(_idRead));
                                             break;
                                         case (int)Crud.READALL:
                                             foreach (Dependency dependency in s_dal!.Dependency.ReadAll())

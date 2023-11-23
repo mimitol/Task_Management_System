@@ -9,7 +9,6 @@ internal class DependencyImplementation : IDependency
     public int Create(Dependency item)
     {
         int newId = DataSource.config.NextDependencyId;
-
         Dependency newDependency = new Dependency(newId,item.DependentTask,item.DependsOnTask);
         DataSource.Dependencys.Add(newDependency);
         return newId;

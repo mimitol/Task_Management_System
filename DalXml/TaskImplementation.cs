@@ -3,15 +3,12 @@ using DalApi;
 using DO;
 using System.Linq;
 
-internal class TaskImplemetation : ITask
+internal class TaskImplementation : ITask
 {
     public int Create(Task item)
     {
         int newId = XMLTools.GetAndIncreaseNextId("data-config", "NextTaskId");
         List<Task?> tasks = XMLTools.LoadListFromXMLSerializer<Task>("tasks");
-        Task? task = tasks.FirstOrDefault(task => task.Id == item.Id);
-        if (task != null)
-            throw new DalAlreadyExistsException($"Task with ID={item.Id} is exist");
         tasks.Add(item);
         XMLTools.SaveListToXMLSerializer<Task>(tasks, "tasks");
         return item.Id;
