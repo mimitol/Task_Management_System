@@ -37,8 +37,8 @@ static class XMLTools
         return element is null ? null : new DO.Dependency()
         {
             Id = Convert.ToInt32(element.Element("Id")!.Value),
-            DependentTask = (int)element.Element("DependentTask"),
-            DependsOnTask = (int)element.Element("DependsOnTask")
+            DependentTask = Convert.ToInt32(element.Element("DependentTask")),
+            DependsOnTask = Convert.ToInt32(element.Element("DependsOnTask"))
         };
     }
 

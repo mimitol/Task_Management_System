@@ -37,8 +37,9 @@ internal class DependencyImplementation : IDependency
     public Dependency? Read(int id)
     {
         XElement dependencies = XMLTools.LoadListFromXMLElement("dependencies");
-       // return XMLTools.creatDependencyFromXLement(dependencies.Elements("Dependencies").FirstOrDefault(x=> XMLTools.creatDependencyFromXLement(x)!.Id==id))
-        return XMLTools.creatDependencyFromXLement(dependencies.Elements("Dependencies").FirstOrDefault(x => (int)x.Element("Id")! == id)); 
+        // return XMLTools.creatDependencyFromXLement(dependencies.Elements("Dependencies").FirstOrDefault(x=> XMLTools.creatDependencyFromXLement(x)!.Id==id))
+        Dependency? dependency= XMLTools.creatDependencyFromXLement(dependencies.Elements("Dependencies").FirstOrDefault(x => Convert.ToInt32(x.Element("Id")!) == id));
+        return dependency;
     }
 
     public Dependency? Read(Func<Dependency, bool> filter)
