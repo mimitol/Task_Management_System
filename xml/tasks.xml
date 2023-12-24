@@ -4224,4 +4224,388 @@
     <EngineerId>224167460</EngineerId>
     <ComlexityLevel>Teacher</ComlexityLevel>
   </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>Reserving a hotel</Description>
+    <Alias>Alias forReserving a hotel</Alias>
+    <IsMileStone>false</IsMileStone>
+    <CreatedAtDate>2023-12-24T12:35:13.0360352+02:00</CreatedAtDate>
+    <StartedDate>2023-12-28T12:35:13.0360352+02:00</StartedDate>
+    <ScheduledDate>2024-01-01T12:35:13.0360352+02:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-01-02T12:35:13.0360352+02:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of Reserving a hotel</Deliverables>
+    <Remarks>Remarks of Reserving a hotel</Remarks>
+    <EngineerId>225814759</EngineerId>
+    <ComlexityLevel>Coordinator</ComlexityLevel>
+  </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>Government approvals</Description>
+    <Alias>Alias forGovernment approvals</Alias>
+    <IsMileStone>false</IsMileStone>
+    <CreatedAtDate>2023-12-24T12:35:20.7434028+02:00</CreatedAtDate>
+    <StartedDate>2023-12-29T12:35:20.7434028+02:00</StartedDate>
+    <ScheduledDate>2023-12-31T12:35:20.7434028+02:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-01-04T12:35:20.7434028+02:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of Government approvals</Deliverables>
+    <Remarks>Remarks of Government approvals</Remarks>
+    <EngineerId>212766981</EngineerId>
+    <ComlexityLevel>Coordinator</ComlexityLevel>
+  </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>Management approvals</Description>
+    <Alias>Alias forManagement approvals</Alias>
+    <IsMileStone>false</IsMileStone>
+    <CreatedAtDate>2023-12-24T12:35:20.792719+02:00</CreatedAtDate>
+    <StartedDate>2023-12-28T12:35:20.792719+02:00</StartedDate>
+    <ScheduledDate>2023-12-30T12:35:20.792719+02:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2023-12-30T12:35:20.792719+02:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of Management approvals</Deliverables>
+    <Remarks>Remarks of Management approvals</Remarks>
+    <EngineerId>359629624</EngineerId>
+    <ComlexityLevel>Coordinator</ComlexityLevel>
+  </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>Reserving attractions</Description>
+    <Alias>Alias forReserving attractions</Alias>
+    <IsMileStone>false</IsMileStone>
+    <CreatedAtDate>2023-12-24T12:35:20.8404171+02:00</CreatedAtDate>
+    <StartedDate>2024-01-16T12:35:20.8404171+02:00</StartedDate>
+    <ScheduledDate>2024-01-21T12:35:20.8404171+02:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-01-25T12:35:20.8404171+02:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of Reserving attractions</Deliverables>
+    <Remarks>Remarks of Reserving attractions</Remarks>
+    <EngineerId>274446961</EngineerId>
+    <ComlexityLevel>Coordinator</ComlexityLevel>
+  </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>Choosing itineraries</Description>
+    <Alias>Alias forChoosing itineraries</Alias>
+    <IsMileStone>false</IsMileStone>
+    <CreatedAtDate>2023-12-24T12:35:20.9038482+02:00</CreatedAtDate>
+    <StartedDate>2024-01-17T12:35:20.9038482+02:00</StartedDate>
+    <ScheduledDate>2024-01-23T12:35:20.9038482+02:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-01-26T12:35:20.9038482+02:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of Choosing itineraries</Deliverables>
+    <Remarks>Remarks of Choosing itineraries</Remarks>
+    <EngineerId>225814759</EngineerId>
+    <ComlexityLevel>Coordinator</ComlexityLevel>
+  </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>Reserving external programs</Description>
+    <Alias>Alias forReserving external programs</Alias>
+    <IsMileStone>false</IsMileStone>
+    <CreatedAtDate>2023-12-24T12:35:20.9400521+02:00</CreatedAtDate>
+    <StartedDate>2024-01-15T12:35:20.9400521+02:00</StartedDate>
+    <ScheduledDate>2024-01-21T12:35:20.9400521+02:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-01-24T12:35:20.9400521+02:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of Reserving external programs</Deliverables>
+    <Remarks>Remarks of Reserving external programs</Remarks>
+    <EngineerId>359629624</EngineerId>
+    <ComlexityLevel>Coordinator</ComlexityLevel>
+  </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>Reserving catering</Description>
+    <Alias>Alias forReserving catering</Alias>
+    <IsMileStone>false</IsMileStone>
+    <CreatedAtDate>2023-12-24T12:35:20.9922167+02:00</CreatedAtDate>
+    <StartedDate>2024-01-13T12:35:20.9922167+02:00</StartedDate>
+    <ScheduledDate>2024-01-17T12:35:20.9922167+02:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-01-17T12:35:20.9922167+02:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of Reserving catering</Deliverables>
+    <Remarks>Remarks of Reserving catering</Remarks>
+    <EngineerId>221978840</EngineerId>
+    <ComlexityLevel>Coordinator</ComlexityLevel>
+  </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>Hiring security guards</Description>
+    <Alias>Alias forHiring security guards</Alias>
+    <IsMileStone>false</IsMileStone>
+    <CreatedAtDate>2023-12-24T12:35:21.0243402+02:00</CreatedAtDate>
+    <StartedDate>2024-01-20T12:35:21.0243402+02:00</StartedDate>
+    <ScheduledDate>2024-01-26T12:35:21.0243402+02:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-02-01T12:35:21.0243402+02:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of Hiring security guards</Deliverables>
+    <Remarks>Remarks of Hiring security guards</Remarks>
+    <EngineerId>323933940</EngineerId>
+    <ComlexityLevel>Coordinator</ComlexityLevel>
+  </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>Hiring a tour guide</Description>
+    <Alias>Alias forHiring a tour guide</Alias>
+    <IsMileStone>false</IsMileStone>
+    <CreatedAtDate>2023-12-24T12:35:21.0580036+02:00</CreatedAtDate>
+    <StartedDate>2024-01-16T12:35:21.0580036+02:00</StartedDate>
+    <ScheduledDate>2024-01-20T12:35:21.0580036+02:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-01-22T12:35:21.0580036+02:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of Hiring a tour guide</Deliverables>
+    <Remarks>Remarks of Hiring a tour guide</Remarks>
+    <EngineerId>223659418</EngineerId>
+    <ComlexityLevel>Coordinator</ComlexityLevel>
+  </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>Budgets</Description>
+    <Alias>Alias forBudgets</Alias>
+    <IsMileStone>false</IsMileStone>
+    <CreatedAtDate>2023-12-24T12:35:21.0944663+02:00</CreatedAtDate>
+    <StartedDate>2024-01-18T12:35:21.0944663+02:00</StartedDate>
+    <ScheduledDate>2024-01-21T12:35:21.0944663+02:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-01-26T12:35:21.0944663+02:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of Budgets</Deliverables>
+    <Remarks>Remarks of Budgets</Remarks>
+    <EngineerId>318530317</EngineerId>
+    <ComlexityLevel>Coordinator</ComlexityLevel>
+  </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>choosing a concept</Description>
+    <Alias>Alias forchoosing a concept</Alias>
+    <IsMileStone>false</IsMileStone>
+    <CreatedAtDate>2023-12-24T12:35:21.1308752+02:00</CreatedAtDate>
+    <StartedDate>2023-12-26T12:35:21.1308752+02:00</StartedDate>
+    <ScheduledDate>2023-12-29T12:35:21.1308752+02:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-01-04T12:35:21.1308752+02:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of choosing a concept</Deliverables>
+    <Remarks>Remarks of choosing a concept</Remarks>
+    <EngineerId>228619391</EngineerId>
+    <ComlexityLevel>Guide</ComlexityLevel>
+  </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>Request a lecture</Description>
+    <Alias>Alias forRequest a lecture</Alias>
+    <IsMileStone>false</IsMileStone>
+    <CreatedAtDate>2023-12-24T12:35:21.1581215+02:00</CreatedAtDate>
+    <StartedDate>2024-01-23T12:35:21.1581215+02:00</StartedDate>
+    <ScheduledDate>2024-01-28T12:35:21.1581215+02:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-02-03T12:35:21.1581215+02:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of Request a lecture</Deliverables>
+    <Remarks>Remarks of Request a lecture</Remarks>
+    <EngineerId>223659418</EngineerId>
+    <ComlexityLevel>Teacher</ComlexityLevel>
+  </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>choosing students for roles</Description>
+    <Alias>Alias forchoosing students for roles</Alias>
+    <IsMileStone>false</IsMileStone>
+    <CreatedAtDate>2023-12-24T12:35:21.1886945+02:00</CreatedAtDate>
+    <StartedDate>2024-01-22T12:35:21.1886945+02:00</StartedDate>
+    <ScheduledDate>2024-01-28T12:35:21.1886945+02:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-01-29T12:35:21.1886945+02:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of choosing students for roles</Deliverables>
+    <Remarks>Remarks of choosing students for roles</Remarks>
+    <EngineerId>335657032</EngineerId>
+    <ComlexityLevel>Guide</ComlexityLevel>
+  </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>preparing internal programs</Description>
+    <Alias>Alias forpreparing internal programs</Alias>
+    <IsMileStone>false</IsMileStone>
+    <CreatedAtDate>2023-12-24T12:35:21.2165914+02:00</CreatedAtDate>
+    <StartedDate>2024-01-26T12:35:21.2165914+02:00</StartedDate>
+    <ScheduledDate>2024-01-28T12:35:21.2165914+02:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-02-01T12:35:21.2165914+02:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of preparing internal programs</Deliverables>
+    <Remarks>Remarks of preparing internal programs</Remarks>
+    <EngineerId>227903685</EngineerId>
+    <ComlexityLevel>Student</ComlexityLevel>
+  </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>recordings</Description>
+    <Alias>Alias forrecordings</Alias>
+    <IsMileStone>false</IsMileStone>
+    <CreatedAtDate>2023-12-24T12:35:21.2466059+02:00</CreatedAtDate>
+    <StartedDate>2024-01-25T12:35:21.2466059+02:00</StartedDate>
+    <ScheduledDate>2024-01-29T12:35:21.2466059+02:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-01-30T12:35:21.2466059+02:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of recordings</Deliverables>
+    <Remarks>Remarks of recordings</Remarks>
+    <EngineerId>217976183</EngineerId>
+    <ComlexityLevel>Student</ComlexityLevel>
+  </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>filming</Description>
+    <Alias>Alias forfilming</Alias>
+    <IsMileStone>false</IsMileStone>
+    <CreatedAtDate>2023-12-24T12:35:21.2833995+02:00</CreatedAtDate>
+    <StartedDate>2024-01-28T12:35:21.2833995+02:00</StartedDate>
+    <ScheduledDate>2024-01-31T12:35:21.2833995+02:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-01-31T12:35:21.2833995+02:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of filming</Deliverables>
+    <Remarks>Remarks of filming</Remarks>
+    <EngineerId>397574986</EngineerId>
+    <ComlexityLevel>Student</ComlexityLevel>
+  </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>graphic work</Description>
+    <Alias>Alias forgraphic work</Alias>
+    <IsMileStone>false</IsMileStone>
+    <CreatedAtDate>2023-12-24T12:35:21.3305652+02:00</CreatedAtDate>
+    <StartedDate>2024-01-24T12:35:21.3305652+02:00</StartedDate>
+    <ScheduledDate>2024-01-30T12:35:21.3305652+02:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-02-05T12:35:21.3305652+02:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of graphic work</Deliverables>
+    <Remarks>Remarks of graphic work</Remarks>
+    <EngineerId>359629624</EngineerId>
+    <ComlexityLevel>Teacher</ComlexityLevel>
+  </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>choir training</Description>
+    <Alias>Alias forchoir training</Alias>
+    <IsMileStone>false</IsMileStone>
+    <CreatedAtDate>2023-12-24T12:35:21.3612821+02:00</CreatedAtDate>
+    <StartedDate>2024-01-29T12:35:21.3612821+02:00</StartedDate>
+    <ScheduledDate>2024-01-31T12:35:21.3612821+02:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-02-04T12:35:21.3612821+02:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of choir training</Deliverables>
+    <Remarks>Remarks of choir training</Remarks>
+    <EngineerId>397574986</EngineerId>
+    <ComlexityLevel>Guide</ComlexityLevel>
+  </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>printing</Description>
+    <Alias>Alias forprinting</Alias>
+    <IsMileStone>false</IsMileStone>
+    <CreatedAtDate>2023-12-24T12:35:21.3958998+02:00</CreatedAtDate>
+    <StartedDate>2024-01-26T12:35:21.3958998+02:00</StartedDate>
+    <ScheduledDate>2024-01-31T12:35:21.3958998+02:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-02-06T12:35:21.3958998+02:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of printing</Deliverables>
+    <Remarks>Remarks of printing</Remarks>
+    <EngineerId>344266706</EngineerId>
+    <ComlexityLevel>Student</ComlexityLevel>
+  </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>buying equipment for programs</Description>
+    <Alias>Alias forbuying equipment for programs</Alias>
+    <IsMileStone>false</IsMileStone>
+    <CreatedAtDate>2023-12-24T12:35:21.423901+02:00</CreatedAtDate>
+    <StartedDate>2024-01-29T12:35:21.423901+02:00</StartedDate>
+    <ScheduledDate>2024-02-01T12:35:21.423901+02:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-02-04T12:35:21.423901+02:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of buying equipment for programs</Deliverables>
+    <Remarks>Remarks of buying equipment for programs</Remarks>
+    <EngineerId>221978840</EngineerId>
+    <ComlexityLevel>Coordinator</ComlexityLevel>
+  </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>student registration</Description>
+    <Alias>Alias forstudent registration</Alias>
+    <IsMileStone>false</IsMileStone>
+    <CreatedAtDate>2023-12-24T12:35:21.4515432+02:00</CreatedAtDate>
+    <StartedDate>2024-01-30T12:35:21.4515432+02:00</StartedDate>
+    <ScheduledDate>2024-02-05T12:35:21.4515432+02:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-02-11T12:35:21.4515432+02:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of student registration</Deliverables>
+    <Remarks>Remarks of student registration</Remarks>
+    <EngineerId>318530317</EngineerId>
+    <ComlexityLevel>Guide</ComlexityLevel>
+  </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>Booking buses</Description>
+    <Alias>Alias forBooking buses</Alias>
+    <IsMileStone>false</IsMileStone>
+    <CreatedAtDate>2023-12-24T12:35:21.4956801+02:00</CreatedAtDate>
+    <StartedDate>2024-02-10T12:35:21.4956801+02:00</StartedDate>
+    <ScheduledDate>2024-02-16T12:35:21.4956801+02:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-02-19T12:35:21.4956801+02:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of Booking buses</Deliverables>
+    <Remarks>Remarks of Booking buses</Remarks>
+    <EngineerId>365312118</EngineerId>
+    <ComlexityLevel>Teacher</ComlexityLevel>
+  </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>Allocating rooms</Description>
+    <Alias>Alias forAllocating rooms</Alias>
+    <IsMileStone>false</IsMileStone>
+    <CreatedAtDate>2023-12-24T12:35:21.5305407+02:00</CreatedAtDate>
+    <StartedDate>2024-02-10T12:35:21.5305407+02:00</StartedDate>
+    <ScheduledDate>2024-02-12T12:35:21.5305407+02:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-02-12T12:35:21.5305407+02:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of Allocating rooms</Deliverables>
+    <Remarks>Remarks of Allocating rooms</Remarks>
+    <EngineerId>225814759</EngineerId>
+    <ComlexityLevel>Coordinator</ComlexityLevel>
+  </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>Collecting permits</Description>
+    <Alias>Alias forCollecting permits</Alias>
+    <IsMileStone>false</IsMileStone>
+    <CreatedAtDate>2023-12-24T12:35:21.5594026+02:00</CreatedAtDate>
+    <StartedDate>2024-02-12T12:35:21.5594026+02:00</StartedDate>
+    <ScheduledDate>2024-02-15T12:35:21.5594026+02:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-02-18T12:35:21.5594026+02:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of Collecting permits</Deliverables>
+    <Remarks>Remarks of Collecting permits</Remarks>
+    <EngineerId>323933940</EngineerId>
+    <ComlexityLevel>Teacher</ComlexityLevel>
+  </Task>
 </ArrayOfTask>
