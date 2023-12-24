@@ -37,9 +37,7 @@ internal class DependencyImplementation : IDependency
     public Dependency? Read(int id)
     {
         XElement dependencies = XMLTools.LoadListFromXMLElement("dependencies");
-        // return XMLTools.creatDependencyFromXLement(dependencies.Elements("Dependencies").FirstOrDefault(x=> XMLTools.creatDependencyFromXLement(x)!.Id==id))
-        Dependency? dependency= XMLTools.creatDependencyFromXLement(dependencies.Elements("Dependencies").FirstOrDefault(x => Convert.ToInt32(x.Element("Id")!) == id));
-        return dependency;
+        return dependencies.Elements("Dependency").Select(x => XMLTools.creatDependencyFromXLement(x)).FirstOrDefault(x => x?.Id == id);
     }
 
     public Dependency? Read(Func<Dependency, bool> filter)
@@ -72,7 +70,6 @@ internal class DependencyImplementation : IDependency
                        DependsOnTask = d.ToIntNullable("DependsOnTask") ?? throw new FormatException("id")
                    };
     }
-
     public void Update(Dependency item)
     {
         Delete(item.Id);

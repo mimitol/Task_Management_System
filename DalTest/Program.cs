@@ -12,12 +12,14 @@ namespace DalTest
         //private static ITask? s_dalTask = new TaskImplementation(); // stage 1
         //private static IDependency? s_dalDependency = new DependencyImplementation(); // stage 1
         private static readonly Random s_rand = new();
-        //static readonly IDal s_dal = new Dal.DalList(); //stage 2
-        static readonly IDal s_dal = new Dal.DalXml(); //stage 3
+        //static readonly IDal s_dal = new DalList(); //stage 2
+        //static readonly IDal s_dal = new Dal.DalXml(); //stage 3
+        static readonly IDal s_dal = Factory.Get; //stage 4
+
 
         static void Main(string[] args)
         {
-            Initialization.Do(s_dal);
+            Initialization.Do();
             int choice1;
             do
             {
@@ -111,7 +113,7 @@ namespace DalTest
                             int choice3;
                             do
                             {
-                                Console.WriteLine("Enter your choice: 0-Back to Main Menu, 1-CREATE, 2-READ, 3-READALL, 4-DELETE, 5-DELETE");
+                                Console.WriteLine("Enter your choice: 0-Back to Main Menu, 1-CREATE, 2-READ, 3-READALL, 4-DELETE, 5-UPDATE");
                                 string input3 = Console.ReadLine();
                                 if (int.TryParse(input3, out choice3))
                                 {
@@ -199,7 +201,7 @@ namespace DalTest
                             int choice4;
                             do
                             {
-                                Console.WriteLine("Enter your choice: 0-Back to Main Menu, 1-CREATE, 2-READ, 3-READALL, 4-DELETE, 5-DELETE");
+                                Console.WriteLine("Enter your choice: 0-Back to Main Menu, 1-CREATE, 2-READ, 3-READALL, 4-DELETE, 5-UPDATE");
                                 string input3 = Console.ReadLine();
                                 if (int.TryParse(input3, out choice4))
                                 {

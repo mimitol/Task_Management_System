@@ -118,7 +118,6 @@ static class XMLTools
             return x.Deserialize(file) as List<T> ?? new();
             //XmlSerializer x = new(typeof(List<T?>));
             //return x.Deserialize(file) as List<T?> ?? new();
-
         }
         catch (Exception ex)
         {

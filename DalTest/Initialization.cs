@@ -14,12 +14,14 @@ public static class Initialization
     private static readonly Random s_rand = new();
 
 
-    public static void Do(IDal? dal)
+    //public static void Do(IDal? dal)//stage 2
+    public static void Do()
     {
-        s_dal = dal ?? throw new NullReferenceException("DAL object can not be null!"); //stage 2
+        //s_dal = dal ?? throw new NullReferenceException("DAL object can not be null!"); //stage 2
         //s_dalEngineer = engineers ?? throw new NullReferenceException("DAL can not be null!");
         //s_dalTask = tasks ?? throw new NullReferenceException("DAL can not be null!");
         //s_dalDependency = dependencies ?? throw new NullReferenceException("DAL can not be null!");
+        s_dal = DalApi.Factory.Get; //stage 4
         createEngineers();
         createTasks();
         createDependencies();
@@ -48,7 +50,7 @@ public static class Initialization
             int _id;
             do
                 _id = s_rand.Next(MIN_ID, MAX_ID);
-            while (s_dal!.Engineer.ReadAll().FirstOrDefault(e=>e.Id==_id) != null);
+            while (s_dal!.Engineer.ReadAll().FirstOrDefault(e => e.Id == _id) != null);
 
             string _nameForEmail = _name.Substring(0, _name.IndexOf(' '));
             string _email = ($"{_nameForEmail}{_id}@gmail.com");
@@ -110,7 +112,7 @@ public static class Initialization
             {
                 //משימות שתלויות במשימות שנגמרות עד שבועיים מתאריך ההתחלה
                 if (i > 0 && i < 21)
-                    _startedDate = _createdAtDate.AddDays(s_rand.Next(14, 21)+i);
+                    _startedDate = _createdAtDate.AddDays(s_rand.Next(14, 21) + i);
                 //משימות שמתבצעות לקראת הסוף
                 else
                     _startedDate = _createdAtDate.AddDays(s_rand.Next(45, 52));
@@ -123,8 +125,8 @@ public static class Initialization
             string _remarks = "Remarks of " + _description;
             EngineerExperience _comlexityLevel = levels[i];
             int? _engineerId;
-            List<Engineer> engineers = s_dal!.Engineer!.ReadAll().Where(engineer=> engineer.Level>= _comlexityLevel).ToList();
-            _engineerId = engineers[s_rand.Next(0, engineers.Count()-1)].Id;
+            List<Engineer> engineers = s_dal!.Engineer!.ReadAll().Where(engineer => engineer.Level >= _comlexityLevel).ToList();
+            _engineerId = engineers[s_rand.Next(0, engineers.Count() - 1)].Id;
             Task newTask = new Task(0, _description, _alias, _isMileStone, _createdAtDate, _startedDate, _scheduledDate, _foreCastDate, _deadLineDate, _completeDate, _deliverables, _remarks, _engineerId, _comlexityLevel);
             s_dal!.Task!.Create(newTask);
         }
@@ -221,6 +223,6 @@ public static class Initialization
         Dependency newDependency30 = new Dependency(0, 17, 14);
         s_dal!.Dependency?.Create(newDependency30);
     }
-   
+
 
 }
