@@ -13,9 +13,9 @@ public interface ITask
     /// <summary>
     /// Creates new Task 
     /// </summary>
-    /// <param name="item">new task to add</param>
+    /// <param name="boTask">new task to add</param>
     /// <returns>id of the new task</returns>
-    public int Create(BO.Task item);
+    public int Create(BO.Task boTask);
     /// <summary>
     /// Read a task
     /// </summary>

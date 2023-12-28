@@ -34,6 +34,7 @@ namespace BO
         public DateTime? ForeCastDate { get; set; }
         public DateTime? DeadLineDate { get; set; }
         public DateTime? CompleteDate { get; set; }
+        public Milestone Milestone { get; set; }
         public string? Deliverables { get; set; }
         public string? Remarks { get; set; }
         public int? EngineerId { get; set; }
