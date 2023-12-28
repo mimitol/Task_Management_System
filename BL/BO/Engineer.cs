@@ -9,7 +9,7 @@ namespace BO
 {
     /// <summary>
     /// Engineer logic Entity
-    ///  "id"-Engineer ID number
+    /// "id"-Engineer ID number
     /// "name"-Engineer's name
     /// "email"-Engineer's Email
     /// "level"-Engineer level

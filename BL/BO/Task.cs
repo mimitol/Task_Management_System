@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace BO
 {/// <summary>
-/// 
+/// Task logic Entity
+/// "Id"-automatic running id
+/// "Description"-Description of task
+/// "Alias"-ickname for the task
+/// "IsMileStone"-IsMileStone
+/// "CreatedAtDate"-The task creation date
+/// "StartedDate"-Date of starting work on the task
+/// "ScheduledDate"-Planned for completion (first planning)
+/// "ForeCastDate"-Forecast updated date for completion
+/// "DeadLineDate"-Possible last day
+/// "CompleteDate"-Actual end date
+/// "Deliverables"-product
+/// "Remarks"-Remarks
+/// "EngineerId"-id of engineer that will do the task
+/// "ComlexityLevel"-The difficulty level of the task
 /// </summary>
     public class Task
     {
@@ -14,16 +28,16 @@ namespace BO
         public string? Description { get; set; }
         public string? Alias { get; set; }
         public bool IsMileStone { get; set; }
-
-      DateTime? CreatedAtDate,
-      DateTime? StartedDate,
-      DateTime? ScheduledDate,
-      DateTime? ForeCastDate,
-      DateTime? DeadLineDate,
-      DateTime? CompleteDate,
-      string? Deliverables,
-      string? Remarks,
-      int? EngineerId,
-      EngineerExperience ComlexityLevel
+        public DateTime? CreatedAtDate { get; set; }
+        public DateTime? StartedDate { get; set; }
+        public DateTime? ScheduledDate { get; set; }
+        public DateTime? ForeCastDate { get; set; }
+        public DateTime? DeadLineDate { get; set; }
+        public DateTime? CompleteDate { get; set; }
+        public string? Deliverables { get; set; }
+        public string? Remarks { get; set; }
+        public int? EngineerId { get; set; }
+        public EngineerExperience ComlexityLevel { get; set; }
+        //public override string ToString() => this.ToStringProperty();
     }
 }
