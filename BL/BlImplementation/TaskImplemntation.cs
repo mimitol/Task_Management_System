@@ -12,7 +12,7 @@ internal class TaskImplemntation : ITask
             throw new ArgumentException();
         if (boTask.Alias == null)
             throw new ArgumentException();
-        DO.Task doTask = new DO.Task(0, boTask.Description, boTask.Alias, boTask.IsMileStone, boTask.CreatedAtDate, boTask.StartedDate, boTask.ScheduledDate, boTask.ForeCastDate, boTask.DeadLineDate, boTask.CompleteDate, boTask.Deliverables, boTask.Remarks, null, (DO.EngineerExperience)boTask.ComlexityLevel);
+        DO.Task doTask = new DO.Task(0, boTask.Description, boTask.Alias, boTask.IsMileStone,boTask.RequiredEffortTime, boTask.CreatedAtDate, boTask.StartedDate, boTask.ScheduledDate, boTask.ForeCastDate, boTask.DeadLineDate, boTask.CompleteDate, boTask.Deliverables, boTask.Remarks, null, (DO.EngineerExperience)boTask.ComlexityLevel);
         try
         {
             int taskId = _dal.Task.Create(doTask);
@@ -26,14 +26,17 @@ internal class TaskImplemntation : ITask
 
     public void Delete(int id)
     {
-        throw new NotImplementedException();
+        
     }
 
     public Task? Read(int id)
     {
+
         try
         {
             DO.Task doTask = _dal.Task.Read(id);
+            DO.Dependency? dependency = _dal.Dependency.Read(d => d.DependentTask == id);
+            //BO.Milestone? milestone=
             return new BO.Task
             {
                 Id = doTask.Id,
@@ -46,6 +49,7 @@ internal class TaskImplemntation : ITask
                 ForeCastDate = doTask.ForeCastDate,
                 DeadLineDate = doTask.DeadLineDate,
                 CompleteDate = doTask.CompleteDate,
+                //Milestone= 
                 Deliverables = doTask.Deliverables,
                 Remarks = doTask.Remarks,
                 EngineerId = doTask.EngineerId,

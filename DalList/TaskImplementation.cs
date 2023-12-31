@@ -3,16 +3,12 @@
 using DalApi;
 using DO;
 using System.Linq;
-
-
-
 internal class TaskImplementation : ITask
 {
     public int Create(Task item)
     {
         int newId = DataSource.config.NextTaskId;
-
-        Task newTask = new Task(newId, item.Description, item.Alias, item.IsMileStone, item.CreatedAtDate, item.StartedDate, item.ScheduledDate, item.ForeCastDate, item.DeadLineDate, item.CompleteDate, item.Deliverables, item.Remarks, item.EngineerId, item.ComlexityLevel);
+        Task newTask = new Task(newId, item.Description, item.Alias, item.IsMileStone,item.RequiredEffortTime, item.CreatedAtDate, item.StartedDate, item.ScheduledDate, item.ForeCastDate, item.DeadLineDate, item.CompleteDate, item.Deliverables, item.Remarks, item.EngineerId, item.ComlexityLevel);
         DataSource.Tasks.Add(newTask);
         return newId;
     }

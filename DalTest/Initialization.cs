@@ -127,7 +127,7 @@ public static class Initialization
             int? _engineerId;
             List<Engineer> engineers = s_dal!.Engineer!.ReadAll().Where(engineer => engineer.Level >= _comlexityLevel).ToList();
             _engineerId = engineers[s_rand.Next(0, engineers.Count() - 1)].Id;
-            Task newTask = new Task(0, _description, _alias, _isMileStone, _createdAtDate, _startedDate, _scheduledDate, _foreCastDate, _deadLineDate, _completeDate, _deliverables, _remarks, _engineerId, _comlexityLevel);
+            Task newTask = new Task(0, _description, _alias, _isMileStone,null, _createdAtDate, _startedDate, _scheduledDate, _foreCastDate, _deadLineDate, _completeDate, _deliverables, _remarks, _engineerId, _comlexityLevel);
             s_dal!.Task!.Create(newTask);
         }
     }

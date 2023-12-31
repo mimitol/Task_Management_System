@@ -28,6 +28,7 @@ namespace BO
         public string? Description { get; set; }
         public string? Alias { get; set; }
         public bool IsMileStone { get; set; }
+        public TimeSpan RequiredEffortTime { get; set; }
         public DateTime? CreatedAtDate { get; set; }
         public DateTime? StartedDate { get; set; }
         public DateTime? ScheduledDate { get; set; }

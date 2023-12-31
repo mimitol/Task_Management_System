@@ -29,6 +29,7 @@ public record Task
       string? Description,
       string? Alias,
       bool IsMileStone,
+      TimeSpan? RequiredEffortTime,
       DateTime? CreatedAtDate,
       DateTime? StartedDate,
       DateTime? ScheduledDate,
@@ -38,10 +39,10 @@ public record Task
       string? Deliverables,
       string? Remarks,
       int? EngineerId,
-      EngineerExperience ComlexityLevel
+      EngineerExperience? ComlexityLevel
 )
 {
-    public Task() : this(0,"","",false,null,null, null, null, null, null, "","",0,0) { }//empty ctor
+    public Task() : this(0,"","",false,null,null,null, null, null, null, null, "","",0,0) { }//empty ctor
     //public Task(int Id,string? Description,string? Alias,bool IsMileStone,DateTime CreatedAtDate,DateTime StartedDate,DateTime ScheduledDate,DateTime ForeCastDate,DateTime DeadLineDate,DateTime CompleteDate,string? Deliverables,string? Remarks,int EngineerId, EngineerExperience ComlexityLevel)
     //{
     //    this.Id = Id;

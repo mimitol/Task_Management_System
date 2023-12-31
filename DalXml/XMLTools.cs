@@ -54,6 +54,7 @@ static class XMLTools
         return nextId;
     }
 
+    
     #endregion
 
     #region SaveLoadWithXElement

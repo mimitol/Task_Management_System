@@ -135,7 +135,7 @@ namespace DalTest
                                             string? _remarks = Console.ReadLine();
                                             int _engineerId = int.Parse(Console.ReadLine());
                                             EngineerExperience _complexityLevel = (EngineerExperience)Enum.Parse(typeof(EngineerExperience), Console.ReadLine());
-                                            DO.Task newTask = new DO.Task(_id, _description, _alias, _milestone, _creatAt, _start, _scheduledDate, null,  _deadLine, _complete, _productDescription, _remarks, _engineerId, _complexityLevel);
+                                            DO.Task newTask = new DO.Task(_id, _description, _alias, _milestone,null, _creatAt, _start, _scheduledDate, null,  _deadLine, _complete, _productDescription, _remarks, _engineerId, _complexityLevel);
                                             s_dal!.Task.Create(newTask);
                                             break;
                                         case (int)Crud.READ:
@@ -171,7 +171,7 @@ namespace DalTest
                                                 bool _milestoneUpdate = bool.Parse(Console.ReadLine());
                                                 DateTime _creatAtUpdate = DateTime.Parse(Console.ReadLine());
                                                 EngineerExperience _complexityLevelUpdate = (EngineerExperience)Enum.Parse(typeof(EngineerExperience), Console.ReadLine());
-                                                DO.Task updateTask = new DO.Task(_idUpdate, _descriptionUpdate, _aliasUpdate, _milestoneUpdate, _creatAtUpdate, null, null, null, null, null, null, null, null, _complexityLevelUpdate);
+                                                DO.Task updateTask = new DO.Task(_idUpdate, _descriptionUpdate, _aliasUpdate, _milestoneUpdate,null, _creatAtUpdate, null, null, null, null, null, null, null, null, _complexityLevelUpdate);
                                                 s_dal!.Task.Update(updateTask);
                                             }
                                             catch (Exception ex)
