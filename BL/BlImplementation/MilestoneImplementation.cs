@@ -137,7 +137,7 @@ internal class MilestoneImplementation : IMilestone
 
     public Milestone? Read(int id)
     {
-        throw new NotImplementedException();
+        
     }
 
     public Milestone? Update(Milestone milestone)

@@ -1,38 +1,95 @@
 ﻿using BlApi;
 using BO;
+using DalApi;
+using DO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace BlImplementation
 {
     internal class EngineerImplementation : IEngineer
     {
-        public int Create(Engineer item)
+        private DalApi.IDal _dal = DalApi.Factory.Get;
+        public int? Create(BO.Engineer boEngineer)
         {
-            throw new NotImplementedException();
+            if (boEngineer.Id < 0)
+                throw new BO.BlInvalidPropertyException("you entered an invalid Id");
+            if(boEngineer.Cost<0)
+                throw new BO.BlInvalidPropertyException("you entered an invalid cost");
+            if(boEngineer.Name=="")
+                throw new BO.BlInvalidPropertyException("you entered an invalid name");
+            if (!Regex.IsMatch(boEngineer.Email, @"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"))
+                throw new BO.BlInvalidPropertyException("you entered an invalid email");
+            DO.Engineer doEngineer = new DO.Engineer(boEngineer.Id, boEngineer.Name, boEngineer.Email,(DO.EngineerExperience) boEngineer.Level, boEngineer.Cost);
+            try
+            {
+                return _dal.Engineer.Create(doEngineer);
+            }
+            catch (DO.DalAlreadyExistsException exception)
+            {
+                throw new BO.BlAlreadyExistsException($"Engineer with id:{boEngineer.Id} already Exist",exception);
+            }
+            
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            if(_dal.Task.Read(t => t.EngineerId == id)!=null)
+                throw new BO.BlDeletionImpossible ("you can't delete an engineer who's working on a task");
+            try
+            {
+                _dal.Engineer.Delete(id);
+            }
+            catch(DO.DalDoesNotExistException exception)
+            {
+                throw new BO.BlDoesNotExistException($"Engineer with id:{boEngineer.Id} does not Exist", exception);
+            }
         }
 
-        public Engineer? Read(int id)
+        public BO.Engineer? Read(int id)
+        {
+            try
+            {
+                 DO.Engineer doEngineer=_dal.Engineer.Read(id);
+                BO.Engineer boEngineer = new BO.Engineer
+                {
+                    Id = doEngineer.Id, Name = doEngineer.Name, Email = doEngineer.Email,
+                }
+            }
+            catch (DO.DalDoesNotExistException exception)
+            {
+                throw new BO.BlAlreadyExistsException($"Engineer with id:{id} Does Not Exist", exception);
+            }
+        }
+
+        public IEnumerable<DO.Engineer> ReadAll(Func<DO.Engineer, bool>? filter = null)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Engineer> ReadAll()
+        public void Update(BO.Engineer boEngineer)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Update(Engineer item)
-        {
-            throw new NotImplementedException();
+            if (boEngineer.Id < 0)
+                throw new BO.BlInvalidPropertyException("you entered an invalid Id");
+            if (boEngineer.Cost < 0)
+                throw new BO.BlInvalidPropertyException("you entered an invalid cost");
+            if (boEngineer.Name == "")
+                throw new BO.BlInvalidPropertyException("you entered an invalid name");
+            if (!Regex.IsMatch(boEngineer.Email, @"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"))
+                throw new BO.BlInvalidPropertyException("you entered an invalid email");
+            DO.Engineer doEngineer = new DO.Engineer(boEngineer.Id, boEngineer.Name, boEngineer.Email, (DO.EngineerExperience)boEngineer.Level, boEngineer.Cost);
+            try
+            {
+                _dal.Engineer.Update(doEngineer);
+            }
+            catch (DO.DalDoesNotExistException exception)
+            {
+                throw new BO.BlDoesNotExistException($"Engineer with id:{boEngineer.Id} does not Exist", exception);
+            }
         }
     }
 }

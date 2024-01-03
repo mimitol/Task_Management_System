@@ -22,6 +22,7 @@ namespace BO
         public string? Email { get; init; }
         public EngineerExperience Level { get; init; }
         public double Cost { get; init; }
+        public TaskInList EngineersTask { get; set; }
         public override string ToString() => this.ToStringProperty();
 
     }
