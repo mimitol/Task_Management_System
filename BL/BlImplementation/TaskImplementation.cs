@@ -3,7 +3,7 @@ using BlApi;
 using BO;
 using System.Collections.Generic;
 
-internal class TaskImplemntation : ITask
+internal class TaskImplementation : ITask
 {
     private DalApi.IDal _dal = DalApi.Factory.Get;
     public int Create(Task boTask)

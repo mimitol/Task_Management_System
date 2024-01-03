@@ -140,7 +140,7 @@ internal class MilestoneImplementation : IMilestone
         throw new NotImplementedException();
     }
 
-    public Milestone? Update(int id)
+    public Milestone? Update(Milestone milestone)
     {
         throw new NotImplementedException();
     }

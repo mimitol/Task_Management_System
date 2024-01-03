@@ -22,7 +22,7 @@ namespace BO
         public string? Email { get; init; }
         public EngineerExperience Level { get; init; }
         public double Cost { get; init; }
-        //public override string ToString() => this.ToStringProperty();
+        public override string ToString() => this.ToStringProperty();
 
     }
 }

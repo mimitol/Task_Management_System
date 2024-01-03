@@ -35,11 +35,14 @@ namespace BO
         public DateTime? ForeCastDate { get; set; }
         public DateTime? DeadLineDate { get; set; }
         public DateTime? CompleteDate { get; set; }
-        public Milestone Milestone { get; set; }
+        public MilestoneInList Milestone { get; set; }
         public string? Deliverables { get; set; }
         public string? Remarks { get; set; }
-        public int? EngineerId { get; set; }
-        public EngineerExperience ComlexityLevel { get; set; }
-        //public override string ToString() => this.ToStringProperty();
+        public EngineerInTask? Engineer { get; set; }
+        public List<BO.TaskInList>? Dependencies { get; set; }
+
+        public EngineerExperience ComplexityLevel { get; set; }
+        public override string ToString() => this.ToStringProperty();
+        public Status Status { get; set; }
     }
 }

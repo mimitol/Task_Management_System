@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,7 @@ public interface IMilestone
     /// <summary>
     /// Update Milestone
     /// </summary>
-    /// <param name="id">id of Milestone to update</param>
+    /// <param name="milestone">Milestone to update</param>
     /// <returns>A Milestone</returns>
-    public BO.Milestone? Update(int id);
+    public BO.Milestone? Update(Milestone milestone);
 }
