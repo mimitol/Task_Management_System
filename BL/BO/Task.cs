@@ -27,8 +27,7 @@ namespace BO
         public int Id { get; init; }
         public string? Description { get; set; }
         public string? Alias { get; set; }
-        public bool IsMileStone { get; set; }
-        public TimeSpan RequiredEffortTime { get; set; }
+        public TimeSpan? RequiredEffortTime { get; set; }
         public DateTime? CreatedAtDate { get; set; }
         public DateTime? StartedDate { get; set; }
         public DateTime? ScheduledDate { get; set; }
@@ -39,7 +38,7 @@ namespace BO
         public string? Deliverables { get; set; }
         public string? Remarks { get; set; }
         public EngineerInTask? Engineer { get; set; }
-        public List<BO.TaskInList>? Dependencies { get; set; }
+        public IEnumerable<BO.TaskInList>? Dependencies { get; set; }
 
         public EngineerExperience ComplexityLevel { get; set; }
         public override string ToString() => this.ToStringProperty();

@@ -1,6 +1,7 @@
 ﻿
 using BlApi;
 using BO;
+using System.Security.Cryptography;
 
 namespace BlImplementation;
 
@@ -12,9 +13,6 @@ internal class MilestoneImplementation : IMilestone
     {
         //יצירת אבני דרך
         IEnumerable<DO.Dependency> dependencies = _dal.Dependency.ReadAll();
-        //מחזיר אוסף של קבוצות תלות - לכל משימה את קבוצת המשימות שהיא תלויה בהן
-        var dependenciesGroups = dependencies.GroupBy(d => d.DependentTask, d => d.DependsOnTask)
-            .Select(g => new { Key = g.Key, DependsOn = g.OrderBy(d => d) });
         int index = 1;
         int milestoneId;
         List<DO.Dependency> newDependencies = new List<DO.Dependency>();
@@ -29,7 +27,24 @@ internal class MilestoneImplementation : IMilestone
         //כל המשימות שלא תלויות באף משימה תלויות באבן הדרך ההתחלתית
         IEnumerable<DO.Task> StartTasks = _dal.Task.ReadAll(t => dependencies.All(d => d.DependentTask != t.Id));
         newDependencies.AddRange(StartTasks.Select(t => new DO.Dependency(0, t.Id, milestoneId)));
+                              
 
+
+        //מחזיר אוסף של קבוצות תלות - לכל משימה את קבוצת המשימות שהיא תלויה בהן
+        var dependenciesGroups = dependencies.GroupBy(d => d.DependentTask, d => d.DependsOnTask)
+            .Select(g => new { Key = g.Key, DependsOn = g.OrderBy(d => d) });
+
+        //newDependencies.AddRange(
+        //    from item in dependenciesGroups.Select(g => g.DependsOn).Distinct()
+        //    let milestoneID = _dal.Task.Create(new DO.Task()
+        //    {
+        //        Description = $"milestone{index++}",
+        //        Alias = $"M{index++}",
+        //        IsMileStone = true,
+        //        CreatedAtDate = DateTime.Now
+        //    })
+        //    from d in item
+        //    select new DO.Dependency(0, milestoneID, d));
         foreach (var item in dependenciesGroups.Select(g => g.DependsOn).Distinct())
         {
             //הוספת אבן דרך
@@ -70,7 +85,7 @@ internal class MilestoneImplementation : IMilestone
             _dal.Dependency.Create(dependency);
         }
 
-        UpdateDedLineDate(_dal.Task.Read(milestoneId), DateTime.Now);//TODO End Date
+        UpdateDedLineDate(_dal.Task.Read(milestoneId), _dal.ProjectEndDate ?? throw new BO.BlNullPropertyException("End date of the project is null"));
 
         DateTime scheduledDate;
         //עדכון תאריכי התחלה לאבני דרך
@@ -78,7 +93,7 @@ internal class MilestoneImplementation : IMilestone
         {
 
             if (milestone.Alias == "Start")
-                scheduledDate = DateTime.Now; //TODO Start Date
+                scheduledDate = _dal.ProjectStartDate ?? throw new BO.BlNullPropertyException("Start date of the project is null");
             else
                 scheduledDate = _dal.Task.ReadAll(t => _dal.Dependency.ReadAll().Any(d => d.DependentTask == t.Id && d.DependsOnTask == milestone.Id))
                     .Min(t => t.ScheduledDate!.Value);
@@ -137,11 +152,21 @@ internal class MilestoneImplementation : IMilestone
 
     public Milestone? Read(int id)
     {
-        
+
     }
 
     public Milestone? Update(Milestone milestone)
     {
         throw new NotImplementedException();
     }
+    public void SetStartDate(DateTime? startDate)
+    {
+        _dal.ProjectStartDate = startDate;
+    }
+    public void SetEndDate(DateTime? endDate)
+    {
+        _dal.ProjectEndDate = endDate;
+    }
+
 }
+

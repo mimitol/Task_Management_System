@@ -1,5 +1,7 @@
 ﻿namespace Dal;
 using DalApi;
+using System;
+
 sealed internal class DalList : IDal
 {
     public static IDal Instance { get; } = new DalList();
@@ -9,5 +11,7 @@ sealed internal class DalList : IDal
     public IEngineer Engineer => new EngineerImplementation();
 
     public IDependency Dependency => new DependencyImplementation();
-  
+
+    public DateTime? ProjectStartDate { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    public DateTime? ProjectEndDate { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 }

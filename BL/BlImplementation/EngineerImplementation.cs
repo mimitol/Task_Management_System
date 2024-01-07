@@ -55,31 +55,33 @@ namespace BlImplementation
             try
             {
                 DO.Engineer doEngineer = _dal.Engineer.Read(id);
+                DO.Task? doEngineersTask = (from t in _dal.Task.ReadAll()
+                                            where t.EngineerId == id
+                                            select t).FirstOrDefault(); ;
+                BO.Engineer boEngineer = new BO.Engineer
+                {
+                    Id = doEngineer.Id,
+                    Name = doEngineer.Name,
+                    Email = doEngineer.Email,
+                    Level = (BO.EngineerExperience)doEngineer.Level,
+                    Cost = doEngineer.Cost,
+                    EngineersTask = new BO.TaskInList
+                    {
+                        Id = doEngineersTask.Id,
+                        Description = doEngineersTask.Description,
+                        Alias = doEngineersTask.Alias
+                    }
+                };
+                return boEngineer;
             }
             catch (DO.DalDoesNotExistException exception)
             {
                 throw new BO.BlAlreadyExistsException($"Engineer with id:{id} Does Not Exist", exception);
             }
 
-            DO.Task? doEngineersTask = from t in _dal.Task.ReadAll()
-                                       where t.EngineerId == id
-                                       select t;
-            BO.Engineer boEngineer = new BO.Engineer
-            {
-                Id = doEngineer.Id,
-                Name = doEngineer.Name,
-                Email = doEngineer.Email,
-                Level = (BO.EngineerExperience)doEngineer.Level,
-                Cost = doEngineer.Cost,
-                EngineersTask = new BO.TaskInList
-                {
-                    Id = doEngineersTask.Id,
-                    Description = doEngineersTask.Description,
-                    Alias = doEngineersTask.Alias
-                }
-            };
+           
 
-            return b
+            
         }
 
         public IEnumerable<DO.Engineer> ReadAll(Func<DO.Engineer, bool>? filter = null)

@@ -53,8 +53,19 @@ static class XMLTools
         XMLTools.SaveListToXMLElement(root, data_config_xml);
         return nextId;
     }
+    public static DateTime? GetDateFromConfig(string data_config_xml, string elemName)
+    {
+        XElement root = XMLTools.LoadListFromXMLElement(data_config_xml);
+        return (DateTime?)root.Element(elemName) ?? throw new FormatException($"can't find element.  {data_config_xml}, {elemName}");
+    }
+    public static void SetDateFromConfig(string data_config_xml, string elemName,DateTime? date)
+    {
+        XElement root = XMLTools.LoadListFromXMLElement(data_config_xml);
+        XElement element =  root.Element(elemName) ?? throw new FormatException($"can't find element.  {data_config_xml}, {elemName}");
+        element.SetValue(date);
+        XMLTools.SaveListToXMLElement(root, data_config_xml);
+    }
 
-    
     #endregion
 
     #region SaveLoadWithXElement
