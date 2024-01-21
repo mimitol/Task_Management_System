@@ -1,6 +1,5 @@
 ﻿using BlApi;
 using BO;
-using DalApi;
 using DO;
 using System;
 using System.Collections.Generic;
@@ -38,7 +37,7 @@ namespace BlImplementation
 
         public void Delete(int id)
         {
-            if (_dal.Task.Read(t => t.EngineerId == id) != null)
+            if (_dal.Task.ReadAll(t => t.EngineerId == id).Count()>0)
                 throw new BO.BlDeletionImpossible("you can't delete an engineer who's working on a task");
             try
             {
@@ -55,38 +54,26 @@ namespace BlImplementation
             try
             {
                 DO.Engineer doEngineer = _dal.Engineer.Read(id);
-                DO.Task? doEngineersTask = (from t in _dal.Task.ReadAll()
-                                            where t.EngineerId == id
-                                            select t).FirstOrDefault(); ;
-                BO.Engineer boEngineer = new BO.Engineer
-                {
-                    Id = doEngineer.Id,
-                    Name = doEngineer.Name,
-                    Email = doEngineer.Email,
-                    Level = (BO.EngineerExperience)doEngineer.Level,
-                    Cost = doEngineer.Cost,
-                    EngineersTask = new BO.TaskInList
-                    {
-                        Id = doEngineersTask.Id,
-                        Description = doEngineersTask.Description,
-                        Alias = doEngineersTask.Alias
-                    }
-                };
-                return boEngineer;
+                return ConvertFromDOEngineerToBOEngineer(doEngineer);
             }
             catch (DO.DalDoesNotExistException exception)
             {
                 throw new BO.BlAlreadyExistsException($"Engineer with id:{id} Does Not Exist", exception);
             }
-
-           
-
-            
         }
 
-        public IEnumerable<DO.Engineer> ReadAll(Func<DO.Engineer, bool>? filter = null)
+        public IEnumerable<BO.Engineer> ReadAll(Predicate<BO.Engineer>? filter = null)
         {
-            throw new NotImplementedException();
+            if (filter != null)
+            {
+               return (from e in _dal.Engineer.ReadAll()
+                       let boEngineer = ConvertFromDOEngineerToBOEngineer(e)
+                       where filter(boEngineer)
+                 select boEngineer);
+            }
+            return (from e in _dal.Engineer.ReadAll()
+                    select ConvertFromDOEngineerToBOEngineer(e));
+
         }
 
         public void Update(BO.Engineer boEngineer)
@@ -108,6 +95,27 @@ namespace BlImplementation
             {
                 throw new BO.BlDoesNotExistException($"Engineer with id:{boEngineer.Id} does not Exist", exception);
             }
+        }
+        private BO.Engineer ConvertFromDOEngineerToBOEngineer(DO.Engineer doEngineer)
+        {
+            DO.Task? doEngineersTask = (from t in _dal.Task.ReadAll()
+                                        where t.EngineerId == doEngineer.Id
+                                        select t).FirstOrDefault(); 
+            BO.Engineer boEngineer = new BO.Engineer
+            {
+                Id = doEngineer.Id,
+                Name = doEngineer.Name,
+                Email = doEngineer.Email,
+                Level = (BO.EngineerExperience)doEngineer.Level,
+                Cost = doEngineer.Cost,
+                EngineersTask = doEngineersTask!=null? new BO.TaskInList
+                {
+                    Id = doEngineersTask.Id,
+                    Description = doEngineersTask.Description,
+                    Alias = doEngineersTask.Alias
+                } :null
+            };
+            return boEngineer;
         }
     }
 }

@@ -102,32 +102,33 @@ public static class Initialization
             string _alias = "Alias for" + _description;
             bool _isMileStone = false;
             DateTime _createdAtDate = DateTime.Now;
-            DateTime _startedDate;
+            // DateTime _startedDate;
             //משימות שרב המשימות תלויות בהן
-            if (_description == "Reserving a hotel" || _description == "choosing a concept" || _description == "Government approvals" || _description == "Management approvals")
-            {
-                _startedDate = _createdAtDate.AddDays(s_rand.Next(0, 6));
-            }
-            else
-            {
-                //משימות שתלויות במשימות שנגמרות עד שבועיים מתאריך ההתחלה
-                if (i > 0 && i < 21)
-                    _startedDate = _createdAtDate.AddDays(s_rand.Next(14, 21) + i);
-                //משימות שמתבצעות לקראת הסוף
-                else
-                    _startedDate = _createdAtDate.AddDays(s_rand.Next(45, 52));
-            }
-            DateTime _scheduledDate = _startedDate.AddDays(s_rand.Next(2, 7));
-            DateTime? _foreCastDate = null;
-            DateTime _deadLineDate = _scheduledDate.AddDays(s_rand.Next(0, 7));
-            DateTime? _completeDate = null;
+            //if (_description == "Reserving a hotel" || _description == "choosing a concept" || _description == "Government approvals" || _description == "Management approvals")
+            //{
+            //    _startedDate = _createdAtDate.AddDays(s_rand.Next(0, 6));
+            //}
+            //else
+            //{
+            //    //משימות שתלויות במשימות שנגמרות עד שבועיים מתאריך ההתחלה
+            //    if (i > 0 && i < 21)
+            //        _startedDate = _createdAtDate.AddDays(s_rand.Next(14, 21) + i);
+            //    //משימות שמתבצעות לקראת הסוף
+            //    else
+            //        _startedDate = _createdAtDate.AddDays(s_rand.Next(45, 52));
+            //}
+            //DateTime _scheduledDate = _startedDate.AddDays(s_rand.Next(2, 7));
+            //DateTime? _foreCastDate = null;
+            //DateTime _deadLineDate = null;
+            //DateTime? _completeDate = null;
+            TimeSpan _requiredEffortTime = new TimeSpan(s_rand.Next(0, 4),0,0,0);
             string _deliverables = "Product of " + _description;
             string _remarks = "Remarks of " + _description;
             EngineerExperience _comlexityLevel = levels[i];
             int? _engineerId;
             List<Engineer> engineers = s_dal!.Engineer!.ReadAll().Where(engineer => engineer.Level >= _comlexityLevel).ToList();
             _engineerId = engineers[s_rand.Next(0, engineers.Count() - 1)].Id;
-            Task newTask = new Task(0, _description, _alias, _isMileStone,null, _createdAtDate, _startedDate, _scheduledDate, _foreCastDate, _deadLineDate, _completeDate, _deliverables, _remarks, _engineerId, _comlexityLevel);
+            Task newTask = new Task(0, _description, _alias, _isMileStone, _requiredEffortTime, _createdAtDate, null, null, null, null, null, _deliverables, _remarks, _engineerId, _comlexityLevel);
             s_dal!.Task!.Create(newTask);
         }
     }

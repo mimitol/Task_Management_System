@@ -15,7 +15,7 @@ public interface IEngineer
     /// </summary>
     /// <param name="item">new task to add</param>
     /// <returns>id of the new Engineer</returns>
-    public int Create(BO.Engineer item);
+    public int? Create(BO.Engineer item);
     /// <summary>
     /// Read a Engineer
     /// </summary>
@@ -26,7 +26,7 @@ public interface IEngineer
     /// Read All Engineers
     /// </summary>
     /// <returns>list of Engineers</returns>
-    public IEnumerable<BO.Engineer> ReadAll();
+    public IEnumerable<BO.Engineer> ReadAll(Predicate<BO.Engineer>? filter = null);
     /// <summary>
     /// Update Engineer
     /// </summary>

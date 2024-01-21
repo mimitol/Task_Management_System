@@ -26,7 +26,7 @@ internal class DependencyImplementation : IDependency
     {
         XElement dependencies = XMLTools.LoadListFromXMLElement("dependencies");
         XElement dependencyToDelete = (from p in dependencies.Elements()
-                                       where Convert.ToInt32(p.Element("id").Value) == id
+                                       where Convert.ToInt32(p.Element("Id").Value) == id
                                        select p).FirstOrDefault();
         if (dependencyToDelete == null)
             throw new DalDoesNotExistException($"dependency with ID={id} does not exist");
@@ -43,7 +43,7 @@ internal class DependencyImplementation : IDependency
     public Dependency? Read(Func<Dependency, bool> filter)
     {
         XElement dependencies = XMLTools.LoadListFromXMLElement("dependencies");
-        return XMLTools.creatDependencyFromXLement(dependencies.Elements("Dependencies").FirstOrDefault(x => filter(XMLTools.creatDependencyFromXLement(x)!), null));
+        return XMLTools.creatDependencyFromXLement(dependencies.Elements("Dependency").FirstOrDefault(x => filter(XMLTools.creatDependencyFromXLement(x)!), null));
     }
 
     public IEnumerable<Dependency?> ReadAll(Func<Dependency, bool>? filter = null)

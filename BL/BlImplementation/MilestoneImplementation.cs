@@ -1,9 +1,18 @@
 ﻿
 using BlApi;
 using BO;
+using System.Diagnostics.CodeAnalysis;
 using System.Security.Cryptography;
 
 namespace BlImplementation;
+
+public class Comparer : IEqualityComparer<IEnumerable<int>>
+{
+    public bool Equals(IEnumerable<int>? d1, IEnumerable<int>? d2) => d1!.SequenceEqual(d2!);
+    public int GetHashCode([DisallowNull] IEnumerable<int> obj) =>
+        obj.OrderBy(x => x)
+          .Aggregate(17, (current, val) => current * 23 + val.GetHashCode());
+}
 
 internal class MilestoneImplementation : IMilestone
 {
@@ -11,11 +20,17 @@ internal class MilestoneImplementation : IMilestone
 
     public void CreateProjectSchedule()
     {
+
+        Comparer _comparer = new();
+
         //יצירת אבני דרך
         IEnumerable<DO.Dependency> dependencies = _dal.Dependency.ReadAll();
         int index = 1;
         int milestoneId;
         List<DO.Dependency> newDependencies = new List<DO.Dependency>();
+        //כל המשימות שלא תלויות באף משימה תלויות באבן הדרך ההתחלתית
+        IEnumerable<DO.Task> StartTasks = _dal.Task.ReadAll(t => dependencies.All(d => d.DependentTask != t.Id));
+
         //הוספת אבן דרך לתחילת הפרוייקט
         milestoneId = _dal.Task.Create(new DO.Task()
         {
@@ -24,11 +39,7 @@ internal class MilestoneImplementation : IMilestone
             IsMileStone = true,
             CreatedAtDate = DateTime.Now
         });
-        //כל המשימות שלא תלויות באף משימה תלויות באבן הדרך ההתחלתית
-        IEnumerable<DO.Task> StartTasks = _dal.Task.ReadAll(t => dependencies.All(d => d.DependentTask != t.Id));
         newDependencies.AddRange(StartTasks.Select(t => new DO.Dependency(0, t.Id, milestoneId)));
-                              
-
 
         //מחזיר אוסף של קבוצות תלות - לכל משימה את קבוצת המשימות שהיא תלויה בהן
         var dependenciesGroups = dependencies.GroupBy(d => d.DependentTask, d => d.DependsOnTask)
@@ -45,7 +56,7 @@ internal class MilestoneImplementation : IMilestone
         //    })
         //    from d in item
         //    select new DO.Dependency(0, milestoneID, d));
-        foreach (var item in dependenciesGroups.Select(g => g.DependsOn).Distinct())
+        foreach (var item in dependenciesGroups.Select(g => g.DependsOn).Distinct(_comparer))
         {
             //הוספת אבן דרך
             milestoneId = _dal.Task.Create(new DO.Task()
@@ -71,8 +82,8 @@ internal class MilestoneImplementation : IMilestone
             CreatedAtDate = DateTime.Now
         });
         //אבן דרך הסיום תלויה בכל המשימות שאף משימה לא תלויה בהן
-        IEnumerable<DO.Task> EndTasks = _dal.Task.ReadAll(t => dependencies.All(d => d.DependsOnTask != t.Id));
-        newDependencies.AddRange(StartTasks.Select(t => new DO.Dependency(0, milestoneId, t.Id)));
+        IEnumerable<DO.Task> EndTasks = _dal.Task.ReadAll(t => t.IsMileStone==false && dependencies.All(d => d.DependsOnTask != t.Id));
+        newDependencies.AddRange(EndTasks.Select(t => new DO.Dependency(0, milestoneId, t.Id)));
 
 
         //החלפת רשימת התלויות
@@ -95,7 +106,7 @@ internal class MilestoneImplementation : IMilestone
             if (milestone.Alias == "Start")
                 scheduledDate = _dal.ProjectStartDate ?? throw new BO.BlNullPropertyException("Start date of the project is null");
             else
-                scheduledDate = _dal.Task.ReadAll(t => _dal.Dependency.ReadAll().Any(d => d.DependentTask == t.Id && d.DependsOnTask == milestone.Id))
+                scheduledDate = _dal.Task.ReadAll(t => _dal.Dependency.ReadAll().Any(d => d.DependentTask == milestone.Id && d.DependsOnTask == t.Id))
                     .Min(t => t.ScheduledDate!.Value);
 
             _dal.Task.Update(new DO.Task(milestone.Id,
@@ -128,6 +139,10 @@ internal class MilestoneImplementation : IMilestone
         }
 
         //עדכון תאריכי סיום המשימות
+
+        Dictionary<int, DateTime> milestones = new Dictionary<int, DateTime>();
+        int milestoneId;
+        DateTime milestoneDedLine;
         //מעבר על כל המשימות שהמילסטון תלויה בהן
         foreach (DO.Task task in _dal.Task.ReadAll(t => _dal.Dependency.ReadAll().Any(d => d.DependentTask == milestone.Id && d.DependsOnTask == t.Id)))
         {
@@ -142,9 +157,23 @@ internal class MilestoneImplementation : IMilestone
                 task.CompleteDate, task.Deliverables,
                 task.Remarks, task.EngineerId, task.ComlexityLevel));
 
+                milestoneId = _dal.Dependency.Read(d => d.DependentTask == task.Id).DependsOnTask;
+                milestoneDedLine = DeadLine.Subtract(task.RequiredEffortTime!.Value);
+                if (milestones.ContainsKey(milestoneId))
+                {
+                    if (milestones[milestoneId] > milestoneDedLine)
+                        milestones[milestoneId] = milestoneDedLine;
+                }
+                else
+                    milestones.Add(milestoneId, milestoneDedLine);
                 //הפעלת הפונקצה על המילסטון שהמשימה תלויה בה
-                UpdateDedLineDate(_dal.Task.Read(m => _dal.Dependency.ReadAll().Any(d => d.DependentTask == task.Id && d.DependsOnTask == m.Id)), DeadLine.Subtract(task.RequiredEffortTime!.Value));
+                //UpdateDedLineDate(_dal.Task.Read(m => _dal.Dependency.ReadAll().Any(d => d.DependentTask == task.Id && d.DependsOnTask == m.Id)), DeadLine.Subtract(task.RequiredEffortTime!.Value));
             }
+        }
+
+        foreach (var item in milestones)
+        {
+            UpdateDedLineDate(_dal.Task.Read(item.Key), item.Value);
         }
 
     }
@@ -152,12 +181,52 @@ internal class MilestoneImplementation : IMilestone
 
     public Milestone? Read(int id)
     {
+        try
+        {
+            DO.Task doTask = _dal.Task.Read(id);
+            IEnumerable<DO.Dependency?> dependencies = _dal.Dependency.ReadAll(d => d.DependentTask == id);
+            IEnumerable<TaskInList> tasks = doTask.IsMileStone && dependencies != null ? dependencies.Select(d => ReadTaskInList(d.DependsOnTask)) : null;
+            return new BO.Milestone
+            {
+                Id = doTask.Id,
+                Description = doTask.Description,
+                Alias = doTask.Alias,
+                CreatedAtDate = doTask.CreatedAtDate,
+                ForeCastDate = doTask.ForeCastDate,
+                DeadLineDate = doTask.DeadLineDate,
+                CompleteDate = doTask.CompleteDate,
+                Remarks = doTask.Remarks,
+                Dependencies = tasks,
+                Status = GetStatus(doTask),
+                CompletionPercentage = tasks != null ? (tasks.Count(task => task.Status == Status.InJeopardy) / tasks.Count()) : 1
+            };
+        }
 
+        catch (DO.DalDoesNotExistException exception)
+        {
+            throw new BO.BlDoesNotExistException($"task with id: {id}does not exist");
+        }
     }
 
     public Milestone? Update(Milestone milestone)
     {
-        throw new NotImplementedException();
+        if (milestone.Alias == null)
+            throw new BO.BlInvalidPropertyException("you entered an invalid Alias");
+
+        Milestone ms = Read(milestone.Id);
+        ms.Alias = milestone.Alias;
+        ms.Description = milestone.Description;
+        ms.Remarks = milestone.Remarks;
+        try
+        {
+            _dal.Task.Update(new DO.Task(ms.Id, ms.Description, ms.Alias, true, null, ms.CreatedAtDate, null, null, ms.ForeCastDate, ms.DeadLineDate, ms.CompleteDate, null, ms.Remarks, null, null));
+        }
+        catch (DO.DalDoesNotExistException ex)
+        {
+            throw new BO.BlDoesNotExistException($"Milestone with ID={milestone.Id} does Not exist, you can't update it", ex);
+        }
+
+        return ms;
     }
     public void SetStartDate(DateTime? startDate)
     {
@@ -166,6 +235,28 @@ internal class MilestoneImplementation : IMilestone
     public void SetEndDate(DateTime? endDate)
     {
         _dal.ProjectEndDate = endDate;
+    }
+
+
+    private BO.TaskInList ReadTaskInList(int id)
+    {
+        try
+        {
+            DO.Task doTask = _dal.Task.Read(id);
+            return new TaskInList { Id = id, Alias = doTask.Alias, Description = doTask.Description, Status = GetStatus(doTask) };
+        }
+        catch (DO.DalDoesNotExistException exception)
+        {
+            throw new BO.BlDoesNotExistException($"task with id: {id} does not exist", exception);
+        }
+    }
+
+    private BO.Status GetStatus(DO.Task task)
+    {
+        return task.CompleteDate != null ? Status.InJeopardy
+            : task.StartedDate != null ? Status.OnTrack
+            : task.ScheduledDate != null ? Status.Scheduled
+            : Status.Unscheduled;
     }
 
 }

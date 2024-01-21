@@ -35,15 +35,15 @@ internal class TaskImplementation : ITask
     {
         if (_dal.Task.Read(id).DeadLineDate != null)
             throw new BO.BlDeletionImpossible("project is already scheduled");
-        if (_dal.Dependency.ReadAll(d => d.DependsOnTask == id) != null)
+        if (_dal.Dependency.ReadAll(d => d.DependsOnTask == id).Count() > 0)
             throw new BO.BlDeletionImpossible("can not delete this task, other tasks depants on it");
         try
         {
             _dal.Task.Delete(id);
             foreach (DO.Dependency d in _dal.Dependency.ReadAll(d => d.DependentTask == id))
-                _dal.Dependency.Delete(d.Id);   
+                _dal.Dependency.Delete(d.Id);
         }
-        catch(DO.DalDoesNotExistException exception)
+        catch (DO.DalDoesNotExistException exception)
         {
             throw new BO.BlDoesNotExistException($"task with id: {id} does not exist");
         }
@@ -63,17 +63,31 @@ internal class TaskImplementation : ITask
 
     }
 
-    public IEnumerable<Task> ReadAll(Predicate<BO.Task> condition = null)
+    public IEnumerable<Task?> ReadAll(Predicate<BO.Task>? condition = null)
     {
         IEnumerable<Task> tasks = _dal.Task.ReadAll().Select(ConvertFromDOTaskToBOTask);
         return condition == null ? tasks : tasks.Where(t => condition(t));
     }
 
-    public void Update(Task item)
+    public void Update(Task boTask)
     {
-        //TODO
-        throw new NotImplementedException();
+        if (boTask.Alias == null)
+            throw new BO.BlInvalidPropertyException("you entered an invalid Alias");
+        DO.Task doTask = new DO.Task(boTask.Id, boTask.Description, boTask.Alias, boTask.Milestone == null, boTask.RequiredEffortTime, boTask.CreatedAtDate, boTask.StartedDate, boTask.ScheduledDate, boTask.ForeCastDate, boTask.DeadLineDate, boTask.CompleteDate, boTask.Deliverables, boTask.Remarks, boTask.Engineer.Id, (DO.EngineerExperience)boTask.ComplexityLevel);
+        try
+        {
+            _dal.Task.Update(doTask);
+            foreach (DO.Dependency d in _dal.Dependency.ReadAll(d => d.DependentTask == boTask.Id))
+                _dal.Dependency.Delete(d.Id);
+            foreach (BO.TaskInList t in boTask.Dependencies)
+                _dal.Dependency.Create(new DO.Dependency { DependsOnTask = t.Id, DependentTask = boTask.Id });
+        }
+        catch (DO.DalDoesNotExistException ex)
+        {
+            throw new BO.BlDoesNotExistException($"Task with ID={boTask.Id} does Not exist, you can't update it", ex);
+        }
     }
+
     private BO.TaskInList ReadTaskInList(int id)
     {
         try
@@ -91,8 +105,6 @@ internal class TaskImplementation : ITask
         try
         {
             DO.Task doTask = _dal.Task.Read(id);
-            if (doTask.IsMileStone == false)
-                throw new Exception();//TODO add exception type
             return new MilestoneInList { Id = id, Alias = doTask.Alias, Description = doTask.Description, CreatedAtDate = doTask.CreatedAtDate, Status = GetStatus(doTask) };//TODO CompletionPercentage
         }
         catch (DO.DalDoesNotExistException exception)
@@ -100,7 +112,7 @@ internal class TaskImplementation : ITask
             throw new BO.BlDoesNotExistException($"task with id: {id} does not exist", exception);
         }
     }
-    private BO.EngineerInTask ReadEngineerInTask(int id)
+    public BO.EngineerInTask ReadEngineerInTask(int id)
     {
         try
         {
@@ -112,13 +124,16 @@ internal class TaskImplementation : ITask
             throw new BO.BlDoesNotExistException($"Engineer with id: {id} does not exist", exception);
         }
     }
-    private BO.Status GetStatus(DO.Task task)//TODO
+    private BO.Status GetStatus(DO.Task task)
     {
-        return Status.Scheduled;
+        return task.CompleteDate != null ? Status.InJeopardy
+            : task.StartedDate != null ? Status.OnTrack
+            : task.ScheduledDate != null ? Status.Scheduled
+            : Status.Unscheduled;
     }
     private BO.Task ConvertFromDOTaskToBOTask(DO.Task doTask)
     {
-        IEnumerable<DO.Dependency?> dependencies = _dal.Dependency.ReadAll(d => d.DependentTask == id);
+        IEnumerable<DO.Dependency?> dependencies = _dal.Dependency.ReadAll(d => d.DependentTask == doTask.Id);
         return new BO.Task
         {
             Id = doTask.Id,
@@ -131,11 +146,11 @@ internal class TaskImplementation : ITask
             ForeCastDate = doTask.ForeCastDate,
             DeadLineDate = doTask.DeadLineDate,
             CompleteDate = doTask.CompleteDate,
-            Milestone = doTask.IsMileStone || dependencies == null ? null : ReadMilestoneInList(dependencies.First().DependsOnTask),
+            Milestone = doTask.IsMileStone || dependencies.Count() == 0 ? null : ReadMilestoneInList(dependencies.First().DependsOnTask),
             Deliverables = doTask.Deliverables,
             Remarks = doTask.Remarks,
             Engineer = doTask.EngineerId != null ? ReadEngineerInTask(doTask.EngineerId!.Value) : null,
-            Dependencies = doTask.IsMileStone && dependencies != null ? dependencies.Select(d => ReadTaskInList(d.DependsOnTask)) : null,
+            Dependencies = doTask.IsMileStone && dependencies.Count() > 0 ? dependencies.Select(d => ReadTaskInList(d.DependsOnTask)) : null,
             ComplexityLevel = (BO.EngineerExperience)doTask.ComlexityLevel,
             Status = GetStatus(doTask)
         };

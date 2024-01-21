@@ -101,7 +101,7 @@ namespace BlTest
 
                         try
                         {
-                            int newEngineerId = s_bl.Engineer.Create(newEngineer);
+                            int? newEngineerId = s_bl.Engineer.Create(newEngineer);
                             Console.WriteLine($"Engineer with id: {newEngineerId} was succesfully created!");
                         }
                         catch (BO.BlAlreadyExistsException ex)
@@ -214,8 +214,6 @@ namespace BlTest
                         string taskDescription = Console.ReadLine();
                         Console.Write("Enter Task Alias: ");
                         string taskAlias = Console.ReadLine();
-                        Console.Write("Enter Created Date Time: ");
-                        DateTime createdAt = DateTime.Parse(Console.ReadLine());
                         Console.Write("Enter list of dependencies: ");
                         //the dependencies that this task is dependent on
                         List<BO.TaskInList> dependencies = new List<BO.TaskInList>();
@@ -233,15 +231,6 @@ namespace BlTest
                             });
                             Console.WriteLine("enter another task, your task is dependent on it");
                             dependencyId = int.Parse(Console.ReadLine() ?? "-1");
-                        }
-                        Console.WriteLine("enter y if it is a milestone otherwise press n");
-                        string isMilestone = Console.ReadLine()!;
-                        bool isMilestoneAns = isMilestone == "y" ? true : false;
-                        if (isMilestoneAns)
-                        {
-                            Console.WriteLine("Enter id of milestone");
-                            int milestoneId = int.Parse(Console.ReadLine()!);
-                            BO.MilestoneInList mileStone = new BO.MilestoneInList() { Id = milestoneId, Alias = s_bl.Milestone.Read(milestoneId).Alias };
                         }
                         Console.Write("Enter Required Effort Time: ");
                         TimeSpan requiredEffortTime = TimeSpan.Parse(Console.ReadLine());
@@ -276,7 +265,7 @@ namespace BlTest
                             Id = 0,
                             Description = taskDescription,
                             Alias = taskAlias,
-                            CreatedAtDate = createdAt,
+                            CreatedAtDate = DateTime.Now,
                             Status = (BO.Status)0,
                             Dependencies = dependencies,
                             Milestone = null,
@@ -338,53 +327,44 @@ namespace BlTest
                         Console.WriteLine("Enter Task details to update:");
                         Console.Write("Enter Task ID: ");
                         int taskIdUpdate = int.Parse(Console.ReadLine());
+                        BO.Task updateTask = s_bl.Task.Read(taskIdUpdate);
                         Console.Write("Enter Task Description: ");
-                        string taskDescriptionUpdate = Console.ReadLine();
+                        updateTask.Description = Console.ReadLine();
                         Console.Write("Enter Task Alias: ");
-                        string taskAliasUpdate = Console.ReadLine();
-                        Console.Write("Enter Created Date Time: ");
-                        DateTime createdAtUpdate = DateTime.Parse(Console.ReadLine());
+                        updateTask.Alias = Console.ReadLine();
                         Console.Write("Enter Status: ");
-                        BO.Status statusUpdate = (BO.Status)Enum.Parse(typeof(BO.Status), Console.ReadLine());
-                        List<BO.TaskInList> dependenciesUpdate = new List<BO.TaskInList>();
-                        BO.MilestoneInList milestoneObjUpdate = new BO.MilestoneInList();
-                        Console.Write("Enter Required Effort Time: ");
-                        TimeSpan requiredEffortTimeUpdate = TimeSpan.Parse(Console.ReadLine());
-                        //StartDate
-                        //ScheduledDate
-                        //ForecastDate
-                        //DeadlineDate
-                        //CompleteDate
-                        Console.Write("Enter Short Description for the Product: ");
-                        string productDescriptionUpdate = Console.ReadLine();
-                        Console.Write("Enter Remarks: ");
-                        string remarksUpdate = Console.ReadLine();
-                        BO.EngineerInTask engineerUpdate = new BO.EngineerInTask();
-                        Console.Write("Enter Complexity Level: ");
-                        BO.EngineerExperience complexityLevelUpdate = (BO.EngineerExperience)Enum.Parse(typeof(BO.EngineerExperience), Console.ReadLine());
-                        BO.Task UpdateTask = new BO.Task()
+                        updateTask.Status = (BO.Status)Enum.Parse(typeof(BO.Status), Console.ReadLine());
+                        List<BO.TaskInList> newDependencies = new List<BO.TaskInList>();
+                        Console.WriteLine("Enter dependency id");
+                        int newDependencyId = int.Parse(Console.ReadLine() ?? "-1");
+                        while (newDependencyId > 0)
                         {
-                            Id = taskIdUpdate,
-                            Description = taskDescriptionUpdate,
-                            Alias = taskAliasUpdate,
-                            CreatedAtDate = createdAtUpdate,
-                            Status = statusUpdate,
-                            Dependencies = dependenciesUpdate,
-                            Milestone = milestoneObjUpdate,
-                            RequiredEffortTime = requiredEffortTimeUpdate,
-                            //StartDate
-                            //ScheduledDate
-                            //ForecastDate
-                            //DeadlineDate
-                            //CompleteDate
-                            Deliverables = productDescriptionUpdate,
-                            Remarks = remarksUpdate,
-                            Engineer = engineerUpdate,
-                            ComplexityLevel = complexityLevelUpdate,
-                        };
+                            BO.Task task = s_bl.Task.Read(newDependencyId);
+                            newDependencies.Add(new BO.TaskInList()
+                            {
+                                Id = task.Id,
+                                Alias = task.Alias,
+                                Description = task.Description,
+                                Status = task.Status
+                            });
+                            Console.WriteLine("enter another task, your task is dependent on it");
+                            newDependencyId = int.Parse(Console.ReadLine() ?? "-1");
+                        }
+                        updateTask.Dependencies= newDependencies;
+                        Console.Write("Enter Required Effort Time: ");
+                        updateTask.RequiredEffortTime = TimeSpan.Parse(Console.ReadLine());
+                        Console.Write("Enter Short Description for the Product: ");
+                        updateTask.Deliverables = Console.ReadLine();
+                        Console.Write("Enter Remarks: ");
+                        updateTask.Remarks = Console.ReadLine();
+                        Console.Write("Enter Engineer Id: ");
+                        BO.Engineer newEngineer= s_bl.Engineer.Read(int.Parse(Console.ReadLine()));
+                        updateTask.Engineer = new EngineerInTask { Id = newEngineer.Id, Name = newEngineer.Name };
+                        Console.Write("Enter Complexity Level: ");
+                       updateTask.ComplexityLevel = (BO.EngineerExperience)Enum.Parse(typeof(BO.EngineerExperience), Console.ReadLine());
                         try
                         {
-                            s_bl.Task.Update(UpdateTask);
+                            s_bl.Task.Update(updateTask);
                         }
                         catch (BO.BlDoesNotExistException ex)
                         {

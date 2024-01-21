@@ -8,10 +8,11 @@ internal class TaskImplementation : ITask
     public int Create(Task item)
     {
         int newId = XMLTools.GetAndIncreaseNextId("data-config", "NextTaskId");
+        Task newTask = new Task(newId, item.Description, item.Alias, item.IsMileStone, item.RequiredEffortTime, item.CreatedAtDate, item.StartedDate, item.ScheduledDate, item.ForeCastDate, item.DeadLineDate, item.CompleteDate, item.Deliverables, item.Remarks, item.EngineerId, item.ComlexityLevel);
         List<Task?> tasks = XMLTools.LoadListFromXMLSerializer<Task>("tasks");
-        tasks.Add(item);
+        tasks.Add(newTask);
         XMLTools.SaveListToXMLSerializer<Task>(tasks, "tasks");
-        return item.Id;
+        return newTask.Id;
     }
 
     public void Delete(int id)

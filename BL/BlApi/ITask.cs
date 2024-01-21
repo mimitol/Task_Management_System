@@ -26,7 +26,7 @@ public interface ITask
     /// Read All tasks
     /// </summary>
     /// <returns>list of task</returns>
-    public IEnumerable<BO.TaskInList> ReadAll();
+    public IEnumerable<BO.Task?> ReadAll(Predicate<BO.Task>? condition = null);
     /// <summary>
     /// Update a task
     /// </summary>

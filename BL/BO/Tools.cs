@@ -11,19 +11,25 @@ namespace BO
         public static string ToStringProperty<T>(this T obj)
         {
             string str = "";
-            Type type = typeof(T);
+            if (obj == null) { return str; }
+            Type type = obj.GetType();
             foreach (var property in type.GetProperties())
             {
-                if (property.GetValue(obj) is ValueType || property.GetValue(obj) is string)
-                    str += property.Name + ": " + property.GetValue(obj)+"\n";
+                var value = property.GetValue(obj);
+                if (value != null && value is IEnumerable<object>)
+                {
+                    str += property.Name + ": ";
+                    foreach (var property2 in value as IEnumerable<object>)
+                        str += property2.ToString();
+                }
                 else
-                    str += ToStringProperty(property.GetValue(obj));
+                    str += property.Name + ": " +value + "\n";
             }
             return str;
         }
-        
+
     }
 }
-   
-}
+
+
 
