@@ -102,7 +102,6 @@ public static class Initialization
             string _alias = "Alias for" + _description;
             bool _isMileStone = false;
             DateTime _createdAtDate = DateTime.Now;
-            // DateTime _startedDate;
             //משימות שרב המשימות תלויות בהן
             //if (_description == "Reserving a hotel" || _description == "choosing a concept" || _description == "Government approvals" || _description == "Management approvals")
             //{
