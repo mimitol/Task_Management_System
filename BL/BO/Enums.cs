@@ -1,3 +1,3 @@
 ﻿namespace BO;
 public enum EngineerExperience { Student, Guide, Teacher, Coordinator }
-public enum Status { Unscheduled , Scheduled , OnTrack , InJeopardy }
+public enum Status { Unscheduled , Scheduled , OnTrack ,Done, InJeopardy }

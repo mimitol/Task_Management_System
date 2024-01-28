@@ -126,7 +126,8 @@ internal class TaskImplementation : ITask
     }
     private BO.Status GetStatus(DO.Task task)
     {
-        return task.CompleteDate != null ? Status.InJeopardy
+        return task.DeadLineDate > DateTime.Now && task.CompleteDate == null ? Status.InJeopardy
+            : task.CompleteDate != null ? Status.Done
             : task.StartedDate != null ? Status.OnTrack
             : task.ScheduledDate != null ? Status.Scheduled
             : Status.Unscheduled;
