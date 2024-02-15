@@ -14,5 +14,7 @@ namespace BlImplementation
         public IEngineer Engineer => new EngineerImplementation();
 
         public IMilestone Milestone =>new MilestoneImplementation();
+        public void InitializeDB() => DalTest.Initialization.Do();
+
     }
 }
