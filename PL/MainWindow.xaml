@@ -9,7 +9,7 @@
     <Grid>
         <Button Content="Tasks" HorizontalAlignment="Left" Margin="167,133,0,0" VerticalAlignment="Top" Height="65" Width="98" RenderTransformOrigin="0.787,0.374" Click="BtnTasksClick"/>
         <Button Content="initialize DB" HorizontalAlignment="Left" Margin="302,133,0,0" VerticalAlignment="Top" Height="65" Width="98" Click="BtnInitClick"/>
-        <Button Content="reset DB" HorizontalAlignment="Left" Margin="425,133,0,0" VerticalAlignment="Top" Height="65" Width="104"/>
+        <Button Content="reset DB" HorizontalAlignment="Left" Margin="425,133,0,0" VerticalAlignment="Top" Height="65" Width="104" Click="Button_Click"/>
 
     </Grid>
 </Window>

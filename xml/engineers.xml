@@ -56,4 +56,228 @@
     <Level>Teacher</Level>
     <Cost>100</Cost>
   </Engineer>
+  <Engineer>
+    <Id>345569144</Id>
+    <Name>Miriam Cohen</Name>
+    <Email>Miriam345569144@gmail.com</Email>
+    <Level>Coordinator</Level>
+    <Cost>200</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>345536276</Id>
+    <Name>Leah Friedman</Name>
+    <Email>Leah345536276@gmail.com</Email>
+    <Level>Student</Level>
+    <Cost>0</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>272041519</Id>
+    <Name>Chava Levi</Name>
+    <Email>Chava272041519@gmail.com</Email>
+    <Level>Guide</Level>
+    <Cost>0</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>378312154</Id>
+    <Name>Rebecca Schwartz</Name>
+    <Email>Rebecca378312154@gmail.com</Email>
+    <Level>Teacher</Level>
+    <Cost>100</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>213179139</Id>
+    <Name>Malka Rosenberg</Name>
+    <Email>Malka213179139@gmail.com</Email>
+    <Level>Guide</Level>
+    <Cost>0</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>338932997</Id>
+    <Name>Esther Goldstein</Name>
+    <Email>Esther338932997@gmail.com</Email>
+    <Level>Guide</Level>
+    <Cost>0</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>323410273</Id>
+    <Name>Deborah Weiss</Name>
+    <Email>Deborah323410273@gmail.com</Email>
+    <Level>Guide</Level>
+    <Cost>0</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>387979179</Id>
+    <Name>Sarah Stein</Name>
+    <Email>Sarah387979179@gmail.com</Email>
+    <Level>Guide</Level>
+    <Cost>0</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>223189978</Id>
+    <Name>Miriam Cohen</Name>
+    <Email>Miriam223189978@gmail.com</Email>
+    <Level>Coordinator</Level>
+    <Cost>200</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>373050453</Id>
+    <Name>Leah Friedman</Name>
+    <Email>Leah373050453@gmail.com</Email>
+    <Level>Teacher</Level>
+    <Cost>100</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>230945452</Id>
+    <Name>Chava Levi</Name>
+    <Email>Chava230945452@gmail.com</Email>
+    <Level>Student</Level>
+    <Cost>0</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>251378237</Id>
+    <Name>Rebecca Schwartz</Name>
+    <Email>Rebecca251378237@gmail.com</Email>
+    <Level>Guide</Level>
+    <Cost>0</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>392320400</Id>
+    <Name>Malka Rosenberg</Name>
+    <Email>Malka392320400@gmail.com</Email>
+    <Level>Student</Level>
+    <Cost>0</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>399012273</Id>
+    <Name>Esther Goldstein</Name>
+    <Email>Esther399012273@gmail.com</Email>
+    <Level>Teacher</Level>
+    <Cost>100</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>355120677</Id>
+    <Name>Deborah Weiss</Name>
+    <Email>Deborah355120677@gmail.com</Email>
+    <Level>Teacher</Level>
+    <Cost>100</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>236355267</Id>
+    <Name>Sarah Stein</Name>
+    <Email>Sarah236355267@gmail.com</Email>
+    <Level>Student</Level>
+    <Cost>0</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>230314352</Id>
+    <Name>Miriam Cohen</Name>
+    <Email>Miriam230314352@gmail.com</Email>
+    <Level>Coordinator</Level>
+    <Cost>200</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>224720224</Id>
+    <Name>Leah Friedman</Name>
+    <Email>Leah224720224@gmail.com</Email>
+    <Level>Teacher</Level>
+    <Cost>100</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>310272903</Id>
+    <Name>Chava Levi</Name>
+    <Email>Chava310272903@gmail.com</Email>
+    <Level>Guide</Level>
+    <Cost>0</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>248987055</Id>
+    <Name>Rebecca Schwartz</Name>
+    <Email>Rebecca248987055@gmail.com</Email>
+    <Level>Student</Level>
+    <Cost>0</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>379505024</Id>
+    <Name>Malka Rosenberg</Name>
+    <Email>Malka379505024@gmail.com</Email>
+    <Level>Teacher</Level>
+    <Cost>100</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>245717201</Id>
+    <Name>Esther Goldstein</Name>
+    <Email>Esther245717201@gmail.com</Email>
+    <Level>Teacher</Level>
+    <Cost>100</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>333763301</Id>
+    <Name>Deborah Weiss</Name>
+    <Email>Deborah333763301@gmail.com</Email>
+    <Level>Student</Level>
+    <Cost>0</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>389984668</Id>
+    <Name>Sarah Stein</Name>
+    <Email>Sarah389984668@gmail.com</Email>
+    <Level>Student</Level>
+    <Cost>0</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>273372613</Id>
+    <Name>Miriam Cohen</Name>
+    <Email>Miriam273372613@gmail.com</Email>
+    <Level>Coordinator</Level>
+    <Cost>200</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>213615131</Id>
+    <Name>Leah Friedman</Name>
+    <Email>Leah213615131@gmail.com</Email>
+    <Level>Guide</Level>
+    <Cost>0</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>297723443</Id>
+    <Name>Chava Levi</Name>
+    <Email>Chava297723443@gmail.com</Email>
+    <Level>Teacher</Level>
+    <Cost>100</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>385031491</Id>
+    <Name>Rebecca Schwartz</Name>
+    <Email>Rebecca385031491@gmail.com</Email>
+    <Level>Guide</Level>
+    <Cost>0</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>331287578</Id>
+    <Name>Malka Rosenberg</Name>
+    <Email>Malka331287578@gmail.com</Email>
+    <Level>Guide</Level>
+    <Cost>0</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>262157970</Id>
+    <Name>Esther Goldstein</Name>
+    <Email>Esther262157970@gmail.com</Email>
+    <Level>Guide</Level>
+    <Cost>0</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>248134364</Id>
+    <Name>Deborah Weiss</Name>
+    <Email>Deborah248134364@gmail.com</Email>
+    <Level>Guide</Level>
+    <Cost>0</Cost>
+  </Engineer>
+  <Engineer>
+    <Id>240838818</Id>
+    <Name>Sarah Stein</Name>
+    <Email>Sarah240838818@gmail.com</Email>
+    <Level>Teacher</Level>
+    <Cost>100</Cost>
+  </Engineer>
 </ArrayOfEngineer>

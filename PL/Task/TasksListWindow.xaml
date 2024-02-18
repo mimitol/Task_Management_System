@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL.Task"
         mc:Ignorable="d"
-        Title="TasksListWindow" Height="640" Width="800">
+        Title="TasksListWindow" Height="640" Width="800"
+        DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
     <Grid>
         <Grid.RowDefinitions>
         <RowDefinition Height="40*"/>
@@ -13,24 +14,24 @@
         <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <!--Internal, Upper Grid-->
-        <Grid HorizontalAlignment="Stretch" Height="auto" Grid.Row="0" VerticalAlignment="Stretch" Width="auto">
+        <Grid HorizontalAlignment="Stretch" Height="auto" Grid.Row="0" VerticalAlignment="Stretch" Width="auto" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Content="Label" HorizontalAlignment="Left" Margin="62,0,0,0" VerticalAlignment="Center"/>
-            <ComboBox Grid.Column="1" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"/>
+            <ComboBox Grid.Column="1" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"
+                      ItemsSource="{StaticResource TaskSearchCategories}"/>
         </Grid>
-        <ListView Grid.Row="1" ItemsSource="{Binding Path=TasksList}">
+        <ListView Grid.Row="1" ItemsSource="{Binding TasksList, Mode=TwoWay}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
+        
         <Button Content="Add" Grid.Row="2" HorizontalAlignment="Center" Height="50" Width="100"/>
-
-
 
     </Grid>
 </Window>

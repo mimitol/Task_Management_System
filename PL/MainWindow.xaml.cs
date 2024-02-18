@@ -21,6 +21,7 @@ namespace PL
     /// </summary>
     public partial class MainWindow : Window
     {
+        static readonly BlApi.IBl s_bl = BlApi.Factory.Get();
         public MainWindow()
         {
             InitializeComponent();
@@ -35,10 +36,14 @@ namespace PL
         {
             //TODO
             //להוסיף הודעה האם הוא בטוח שהוא רוצה איך לעשות את זה בלי לגשת ישירות לMASSEGEBOX
-            //השורה שאמורה להיות:
-            //BL.Bl.InitializeDB();
-            //במקום זה כרגע:
-            DalTest.Initialization.Do();
+            if (MessageBox.Show("האם אתה בטוח שברצונך לאתחל?", "הודעה", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                s_bl.InitializeDB();
+            
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }
