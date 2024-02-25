@@ -18,12 +18,18 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Content="Label" HorizontalAlignment="Left" Margin="62,0,0,0" VerticalAlignment="Center"/>
+            <Label Grid.Column="0" Content="סינון לפי סטטוס" HorizontalAlignment="Left" Margin="62,0,0,0" VerticalAlignment="Center"/>
             <ComboBox Grid.Column="1" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"
-                      ItemsSource="{StaticResource TaskSearchCategories}"/>
+                      ItemsSource="{StaticResource TaskSearchCategories}"
+                      SelectedItem="{Binding SelectedStatus}"
+                      SelectionChanged="ComboBox_SelectionChanged"/>
+            <Button Grid.Column="2" Content="נקה סינון" Click="Button_Click"/>
         </Grid>
-        <ListView Grid.Row="1" ItemsSource="{Binding TasksList, Mode=TwoWay}">
+        <ListView Grid.Row="1" ItemsSource="{Binding TasksList, Mode=TwoWay}"
+                  SelectedItem="{Binding SelectedTaskInList}"
+                  SelectionChanged="ListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
@@ -31,7 +37,8 @@
             </ListView.View>
         </ListView>
         
-        <Button Content="Add" Grid.Row="2" HorizontalAlignment="Center" Height="50" Width="100"/>
+        <Button Content="Add" Grid.Row="2" HorizontalAlignment="Center" Height="50" Width="100"
+                Click="Button_Click_1"/>
 
     </Grid>
 </Window>

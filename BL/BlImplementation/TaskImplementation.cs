@@ -67,6 +67,11 @@ internal class TaskImplementation : ITask
     {
         IEnumerable<Task> tasks = _dal.Task.ReadAll().Select(ConvertFromDOTaskToBOTask);
         return condition == null ? tasks : tasks.Where(t => condition(t));
+    } 
+    public IEnumerable<TaskInList?> ReadAllTaskInList(Predicate<BO.TaskInList>? condition = null)
+    {
+        IEnumerable<TaskInList> tasks = _dal.Task.ReadAll().Select(ConvertDoTaksToTaskInList);
+        return condition == null ? tasks : tasks.Where(t => condition(t));
     }
 
     public void Update(Task boTask)
@@ -98,6 +103,18 @@ internal class TaskImplementation : ITask
         catch (DO.DalDoesNotExistException exception)
         {
             throw new BO.BlDoesNotExistException($"task with id: {id} does not exist", exception);
+        }
+    }
+
+    private BO.TaskInList ConvertDoTaksToTaskInList(DO.Task task)
+    {
+        try
+        {
+            return new TaskInList { Id = task.Id, Alias = task.Alias, Description = task.Description, Status = GetStatus(task) };
+        }
+        catch (DO.DalDoesNotExistException exception)
+        {
+            throw new BO.BlDoesNotExistException($"task with id: {task.Id} does not exist", exception);
         }
     }
     private BO.MilestoneInList ReadMilestoneInList(int id)

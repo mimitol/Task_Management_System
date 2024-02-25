@@ -5,5 +5,8 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <local:TaskSearchCategories x:Key="TaskSearchCategories"/>
+        <local:ComplexityLevel x:Key="ComplexityLevels"/>
+        <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <local:BoolToNotVisibilityConverter x:Key="BoolToNotVisibilityConverter"/>
     </Application.Resources>
 </Application>

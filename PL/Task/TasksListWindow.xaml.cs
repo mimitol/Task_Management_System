@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BO;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -30,24 +31,60 @@ namespace PL.Task
 
 
 
-        public ObservableCollection<BO.Task> TasksList
+        public ObservableCollection<BO.TaskInList> TasksList
         {
-            get { return (ObservableCollection<BO.Task>)GetValue(TasksListProperty); }
+            get { return (ObservableCollection<BO.TaskInList>)GetValue(TasksListProperty); }
             set { SetValue(TasksListProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for TasksList.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TasksListProperty =
-            DependencyProperty.Register("TasksList", typeof(ObservableCollection<BO.Task>), typeof(TasksListWindow), new PropertyMetadata(null));
+            DependencyProperty.Register("TasksList", typeof(ObservableCollection<BO.TaskInList>), typeof(TasksListWindow), new PropertyMetadata(null));
 
 
 
+
+        public Status? SelectedStatus
+        {
+            get { return (Status?)GetValue(SelectedStatusProperty); }
+            set { SetValue(SelectedStatusProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for SelectedStatus.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty SelectedStatusProperty =
+            DependencyProperty.Register("SelectedStatus", typeof(Status?), typeof(TasksListWindow), new PropertyMetadata(null));
+
+        public TaskInList SelectedTaskInList { get; set; }
 
 
         public TasksListWindow()
         {
             InitializeComponent();
-            TasksList = new ObservableCollection<BO.Task>(s_bl.Task.ReadAll());
+            TasksList = new ObservableCollection<BO.TaskInList>(s_bl.Task.ReadAllTaskInList());
+            SelectedStatus = null;
+            
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            TasksList = new ObservableCollection<BO.TaskInList>(s_bl.Task.ReadAllTaskInList(t=>t.Status==SelectedStatus));
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SelectedStatus = null;
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            TaskWindow taskWindow = new TaskWindow(SelectedTaskInList.Id);
+            taskWindow.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            TaskWindow taskWindow = new TaskWindow();
+            taskWindow.Show();
         }
     }
 }
