@@ -96,6 +96,10 @@ namespace BlImplementation
                 throw new BO.BlDoesNotExistException($"Engineer with id:{boEngineer.Id} does not Exist", exception);
             }
         }
+        public IEnumerable<BO.EngineerInTask> ReadAllEngineerInTask(Predicate<BO.Engineer>? filter = null)
+        {
+            return ReadAll(filter).Select(e => new EngineerInTask { Id = e.Id, Name = e.Name });
+        }
         private BO.Engineer ConvertFromDOEngineerToBOEngineer(DO.Engineer doEngineer)
         {
             DO.Task? doEngineersTask = (from t in _dal.Task.ReadAll()

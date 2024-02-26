@@ -67,7 +67,7 @@ internal class TaskImplementation : ITask
     {
         IEnumerable<Task> tasks = _dal.Task.ReadAll().Select(ConvertFromDOTaskToBOTask);
         return condition == null ? tasks : tasks.Where(t => condition(t));
-    } 
+    }
     public IEnumerable<TaskInList?> ReadAllTaskInList(Predicate<BO.TaskInList>? condition = null)
     {
         IEnumerable<TaskInList> tasks = _dal.Task.ReadAll().Select(ConvertDoTaksToTaskInList);
@@ -84,8 +84,12 @@ internal class TaskImplementation : ITask
             _dal.Task.Update(doTask);
             foreach (DO.Dependency d in _dal.Dependency.ReadAll(d => d.DependentTask == boTask.Id))
                 _dal.Dependency.Delete(d.Id);
-            foreach (BO.TaskInList t in boTask.Dependencies)
-                _dal.Dependency.Create(new DO.Dependency { DependsOnTask = t.Id, DependentTask = boTask.Id });
+            if (boTask.Dependencies != null)
+            {
+                foreach (BO.TaskInList t in boTask.Dependencies)
+                    _dal.Dependency.Create(new DO.Dependency { DependsOnTask = t.Id, DependentTask = boTask.Id });
+            }
+
         }
         catch (DO.DalDoesNotExistException ex)
         {
@@ -168,7 +172,7 @@ internal class TaskImplementation : ITask
             Deliverables = doTask.Deliverables,
             Remarks = doTask.Remarks,
             Engineer = doTask.EngineerId != null ? ReadEngineerInTask(doTask.EngineerId!.Value) : null,
-            Dependencies = doTask.IsMileStone && dependencies.Count() > 0 ? dependencies.Select(d => ReadTaskInList(d.DependsOnTask)) : null,
+            Dependencies = dependencies.Count() > 0 ? dependencies.Select(d => ReadTaskInList(d.DependsOnTask)) : null,
             ComplexityLevel = (BO.EngineerExperience)doTask.ComlexityLevel,
             Status = GetStatus(doTask)
         };

@@ -12,7 +12,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid DataContext="{Binding Task, Mode=TwoWay}">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -39,43 +39,49 @@
 
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Content="Id" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding Id, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding Task.Id, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <Label Grid.Row="1" Grid.Column="0" Content="Description" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Description, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Task.Description, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <Label Grid.Row="2" Grid.Column="0" Content="Alias" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Alias, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Task.Alias, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <Label Grid.Row="3" Grid.Column="0" Content="RequiredEffortTime" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding RequiredEffortTime, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding Task.RequiredEffortTime, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <Label Grid.Row="4" Grid.Column="0" Content="CreatedAtDate" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <DatePicker Grid.Row="4" Grid.Column="2" IsEnabled="False" SelectedDate="{Binding CreatedAtDate, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <DatePicker Grid.Row="4" Grid.Column="2" IsEnabled="False" SelectedDate="{Binding Task.CreatedAtDate, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <Label Grid.Row="5" Grid.Column="0" Content="StartedDate" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <DatePicker Grid.Row="5" Grid.Column="2" SelectedDate="{Binding StartedDate, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <DatePicker Grid.Row="5" Grid.Column="2" SelectedDate="{Binding Task.StartedDate, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <Label Grid.Row="6" Grid.Column="0" Content="ScheduledDate" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <DatePicker Grid.Row="6" Grid.Column="2" IsEnabled="False" SelectedDate="{Binding ScheduledDate, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <DatePicker Grid.Row="6" Grid.Column="2" IsEnabled="False" SelectedDate="{Binding Task.ScheduledDate, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <Label Grid.Row="7" Grid.Column="0" Content="ForeCastDate" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <DatePicker Grid.Row="7" Grid.Column="2" IsEnabled="False" SelectedDate="{Binding ForeCastDate, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <DatePicker Grid.Row="7" Grid.Column="2" IsEnabled="False" SelectedDate="{Binding Task.ForeCastDate, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <Label Grid.Row="8" Grid.Column="0" Content="DeadLineDate" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <DatePicker Grid.Row="8" Grid.Column="2" IsEnabled="False" SelectedDate="{Binding DeadLineDate, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <DatePicker Grid.Row="8" Grid.Column="2" IsEnabled="False" SelectedDate="{Binding Task.DeadLineDate, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <Label Grid.Row="9" Grid.Column="0" Content="CompleteDate" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <DatePicker Grid.Row="9" Grid.Column="2" IsEnabled="False" SelectedDate="{Binding CompleteDate, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <DatePicker Grid.Row="9" Grid.Column="2" IsEnabled="False" SelectedDate="{Binding Task.CompleteDate, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <Label Grid.Row="10" Grid.Column="0" Content="Milestone" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <TextBlock Grid.Row="10" Grid.Column="2" Text="{Binding Milestone.Id, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBlock Grid.Row="10" Grid.Column="2" Text="{Binding Task.Milestone.Id, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <Label Grid.Row="11" Grid.Column="0" Content="Deliverables" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <TextBox Grid.Row="11" Grid.Column="2" Text="{Binding Deliverables, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBox Grid.Row="11" Grid.Column="2" Text="{Binding Task.Deliverables, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <Label Grid.Row="12" Grid.Column="0" Content="Remarks" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <TextBox Grid.Row="12" Grid.Column="2" Text="{Binding Remarks, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBox Grid.Row="12" Grid.Column="2" Text="{Binding Task.Remarks, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <Label Grid.Row="13" Grid.Column="0" Content="Engineer" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <TextBlock Grid.Row="13" Grid.Column="2" Text="{Binding Engineer.Name, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <ComboBox Grid.Row="13" Grid.Column="2" ItemsSource="{Binding Engineers}" SelectedItem="{Binding SelectedEngineer, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
             <Label Grid.Row="14" Grid.Column="0" Content="Dependencies" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <!--TODO-->
             <Label Grid.Row="15" Grid.Column="0" Content="ComplexityLevel" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <ComboBox Grid.Row="15" Grid.Column="2" ItemsSource="{StaticResource ComplexityLevels}" SelectedItem="{Binding ComplexityLevel, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <ComboBox Grid.Row="15" Grid.Column="2" ItemsSource="{StaticResource ComplexityLevels}" SelectedItem="{Binding Task.ComplexityLevel, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" SelectionChanged="ComboBox_SelectionChanged" />
             <Label Grid.Row="16" Grid.Column="0" Content="Status" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <ComboBox Grid.Row="16" Grid.Column="2" IsEnabled="False" ItemsSource="{StaticResource TaskSearchCategories}" SelectedItem="{Binding Status, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <ComboBox Grid.Row="16" Grid.Column="2" IsEnabled="False" ItemsSource="{StaticResource TaskSearchCategories}" SelectedItem="{Binding Task.Status, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
         </Grid>
         <Button Grid.Row="1" Content="Save" HorizontalAlignment="Center" VerticalAlignment="Center"
-                Visibility="{Binding IsAdd, Converter={StaticResource BoolToVisibilityConverter},Mode=OneTime}"/>
-        <Button Grid.Row="1" Content="Update" HorizontalAlignment="Center" VerticalAlignment="Center"
-                Visibility="{Binding IsAdd, Converter={StaticResource BoolToNotVisibilityConverter},Mode=OneTime}"/>
+                Visibility="{Binding IsAdd, Converter={StaticResource BoolToVisibilityConverter},Mode=OneTime}" Click="BtnClickAddTask"/>
+        <Button Grid.Row="1" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Center"
+                Visibility="{Binding IsAdd, Converter={StaticResource BoolToNotVisibilityConverter},Mode=OneTime}" Click="BtnClickUpdateTask" RenderTransformOrigin="-0.528,0.399" Margin="317,0,0,0"/>
     </Grid>
 </Window>

@@ -55,8 +55,7 @@ namespace PL.Task
             DependencyProperty.Register("SelectedStatus", typeof(Status?), typeof(TasksListWindow), new PropertyMetadata(null));
 
         public TaskInList SelectedTaskInList { get; set; }
-
-
+        
         public TasksListWindow()
         {
             InitializeComponent();
@@ -73,17 +72,21 @@ namespace PL.Task
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             SelectedStatus = null;
+            TasksList = new ObservableCollection<BO.TaskInList>(s_bl.Task.ReadAllTaskInList());
+
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             TaskWindow taskWindow = new TaskWindow(SelectedTaskInList.Id);
+            Close();
             taskWindow.Show();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             TaskWindow taskWindow = new TaskWindow();
+            Close();
             taskWindow.Show();
         }
     }

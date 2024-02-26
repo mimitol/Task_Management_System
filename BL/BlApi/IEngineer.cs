@@ -27,6 +27,8 @@ public interface IEngineer
     /// </summary>
     /// <returns>list of Engineers</returns>
     public IEnumerable<BO.Engineer> ReadAll(Predicate<BO.Engineer>? filter = null);
+
+    public IEnumerable<BO.EngineerInTask> ReadAllEngineerInTask(Predicate<BO.Engineer>? filter = null);
     /// <summary>
     /// Update Engineer
     /// </summary>
