@@ -29,7 +29,7 @@ namespace PL
 
         private void BtnTasksClick(object sender, RoutedEventArgs e)
         {
-            new TasksListWindow().Show();
+            new TasksListWindow().ShowDialog();
         }
 
         private void BtnInitClick(object sender, RoutedEventArgs e)
@@ -42,9 +42,24 @@ namespace PL
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ResetDB(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                s_bl.ResetDB();
+                MessageBox.Show("DB reseted sucessfully!");
 
+            }
+            catch
+            {
+                MessageBox.Show("DB didn't reset sucessfully!");
+
+            }
+        }
+
+        private void Schedule(object sender, RoutedEventArgs e)
+        {
+            new ScheduleWindow().ShowDialog();
         }
     }
 }

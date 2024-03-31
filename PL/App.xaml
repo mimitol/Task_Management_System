@@ -8,5 +8,7 @@
         <local:ComplexityLevel x:Key="ComplexityLevels"/>
         <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
         <local:BoolToNotVisibilityConverter x:Key="BoolToNotVisibilityConverter"/>
+        <local:NotNullToIsEnabledConverter x:Key="NotNullToIsEnabledConverter"/>
+        <local:InverseBoolConverter x:Key="InverseBoolConverter"/>
     </Application.Resources>
 </Application>

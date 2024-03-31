@@ -14,4 +14,11 @@ sealed internal class DalList : IDal
 
     public DateTime? ProjectStartDate { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     public DateTime? ProjectEndDate { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+    public void Reset()
+    {
+        DataSource.Engineers.Clear();
+        DataSource.Dependencys.Clear();
+        DataSource.Tasks.Clear();
+    }
 }

@@ -16,5 +16,7 @@ namespace BlImplementation
         public IMilestone Milestone =>new MilestoneImplementation();
         public void InitializeDB() => DalTest.Initialization.Do();
 
+        public void ResetDB() => DalTest.Initialization.Reset();
+
     }
 }

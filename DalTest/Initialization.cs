@@ -26,6 +26,12 @@ public static class Initialization
         createTasks();
         createDependencies();
     }
+
+    public static void Reset()
+    {
+        s_dal = DalApi.Factory.Get;
+        s_dal.Reset();
+    }
     private static void createEngineers()
     {
 

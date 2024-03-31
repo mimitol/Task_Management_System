@@ -50,7 +50,7 @@ namespace PL.Task
         public BO.EngineerInTask? SelectedEngineer
         {
             get { return (BO.EngineerInTask)GetValue(SelectedEngineerProperty); }
-            set { SetValue(SelectedEngineerProperty, value);}
+            set { SetValue(SelectedEngineerProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for SelectedEngineer.  This enables animation, styling, binding, etc...
@@ -59,11 +59,13 @@ namespace PL.Task
 
 
 
-
         public bool IsAdd { get; set; }
         public bool IsScheduled { get; set; }
-        public TaskWindow(int id=-1)
+        public TaskWindow(int id = -1)
         {
+            IsAdd = id == -1;
+            IsScheduled = s_bl.Task.IsScheduled();
+            InitializeComponent();
             if (id == -1)
             {
                 Task = new BO.Task();
@@ -76,15 +78,25 @@ namespace PL.Task
                 {
                     IsAdd = false;
                     Task = s_bl.Task.Read(id);
-                    Engineers = new ObservableCollection<BO.EngineerInTask>(s_bl.Engineer.ReadAllEngineerInTask(E=>E.Level >= Task.ComplexityLevel));
-                    SelectedEngineer = Task.Engineer;
+                    Engineers = new ObservableCollection<BO.EngineerInTask>(s_bl.Engineer.ReadAllEngineerInTask(E => E.Level >= Task.ComplexityLevel));
+                    SelectedEngineer = Engineers.First(e => e.Id == Task.Engineer.Id);
                 }
                 catch (BO.BlDoesNotExistException)
                 {
                     MessageBox.Show("Task doesn't exist");
                     this.Close();
                 }
-            InitializeComponent();
+
+            if (Task.Dependencies == null)
+            {
+                DependenciesToAdd = new(s_bl.Task.ReadAllTaskInList());
+                DependenciesToRemove = null;
+            }
+            else
+            {
+                DependenciesToAdd = new(s_bl.Task.ReadAllTaskInList(t => !Task.Dependencies!.Select(d => d.Id).Contains(t.Id)));
+                DependenciesToRemove = new(Task.Dependencies);
+            }
         }
 
         private void BtnClickUpdateTask(object sender, RoutedEventArgs e)
@@ -92,6 +104,7 @@ namespace PL.Task
             try
             {
                 Task.Engineer = SelectedEngineer;
+                Task.Dependencies = DependenciesToRemove;
                 s_bl.Task.Update(Task);
                 MessageBox.Show("Task update sucssesfully");
                 Close();
@@ -109,6 +122,8 @@ namespace PL.Task
         {
             try
             {
+                Task.Engineer = SelectedEngineer;
+                Task.Dependencies = DependenciesToRemove;
                 s_bl.Task.Create(Task);
                 MessageBox.Show("Task created sucssesfully");
                 Close();
@@ -116,7 +131,7 @@ namespace PL.Task
                 tasksListWindow.Show();
 
             }
-            
+
             catch (BlInvalidPropertyException)
             {
                 MessageBox.Show("Invalid input!");
@@ -124,9 +139,73 @@ namespace PL.Task
             }
         }
 
+
+
+        public ObservableCollection<TaskInList?> DependenciesToAdd
+        {
+            get { return (ObservableCollection<TaskInList>)GetValue(DependenciesToAddProperty); }
+            set { SetValue(DependenciesToAddProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for DependenciesToAdd.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty DependenciesToAddProperty =
+            DependencyProperty.Register("DependenciesToAdd", typeof(ObservableCollection<TaskInList>), typeof(TaskWindow), new PropertyMetadata(null));
+
+
+
+        public TaskInList SelectedDependencyToAdd
+        {
+            get { return (TaskInList)GetValue(SelectedDependencyToAddProperty); }
+            set { SetValue(SelectedDependencyToAddProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for SelectedDependencyToAdd.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty SelectedDependencyToAddProperty =
+            DependencyProperty.Register("SelectedDependencyToAdd", typeof(TaskInList), typeof(TaskWindow), new PropertyMetadata(null));
+
+
+
+        public ObservableCollection<TaskInList> DependenciesToRemove
+        {
+            get { return (ObservableCollection<TaskInList>)GetValue(DependenciesToRemoveProperty); }
+            set { SetValue(DependenciesToRemoveProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for DependenciesToRemove.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty DependenciesToRemoveProperty =
+            DependencyProperty.Register("DependenciesToRemove", typeof(ObservableCollection<TaskInList>), typeof(TaskWindow), new PropertyMetadata(null));
+
+
+
+        public TaskInList SelectedDependencyToRemove
+        {
+            get { return (TaskInList)GetValue(SelectedDependencyToRemoveProperty); }
+            set { SetValue(SelectedDependencyToRemoveProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for SelectedDependencyToRemove.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty SelectedDependencyToRemoveProperty =
+            DependencyProperty.Register("SelectedDependencyToRemove", typeof(TaskInList), typeof(TaskWindow), new PropertyMetadata(null));
+
+
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Engineers = new ObservableCollection<BO.EngineerInTask>(s_bl.Engineer.ReadAllEngineerInTask(E => E.Level >= Task.ComplexityLevel));
+        }
+
+        private void BtnClickAddDependency(object sender, RoutedEventArgs e)
+        {
+            if (DependenciesToRemove == null)
+                DependenciesToRemove = new () { SelectedDependencyToAdd };
+            else
+                DependenciesToRemove.Add(SelectedDependencyToAdd);
+            DependenciesToAdd.Remove(SelectedDependencyToAdd);
+        }
+
+        private void BtnClickRemoveDependency(object sender, RoutedEventArgs e)
+        {
+            DependenciesToRemove.Remove(DependenciesToRemove.First(d => d.Id == SelectedDependencyToRemove.Id));
+            DependenciesToAdd.Add(SelectedDependencyToRemove);
         }
     }
 }

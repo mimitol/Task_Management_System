@@ -38,7 +38,8 @@
         </ListView>
         
         <Button Content="Add" Grid.Row="2" HorizontalAlignment="Center" Height="50" Width="100"
-                Click="Button_Click_1"/>
+                Click="Button_Click_1"
+                Visibility="{Binding IsScheduled,Converter={StaticResource BoolToNotVisibilityConverter}}"/>
 
     </Grid>
 </Window>

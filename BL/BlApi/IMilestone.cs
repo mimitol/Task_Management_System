@@ -1,4 +1,5 @@
 ﻿using BO;
+using DalApi;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,4 +28,15 @@ public interface IMilestone
     /// <param name="milestone">Milestone to update</param>
     /// <returns>A Milestone</returns>
     public BO.Milestone? Update(Milestone milestone);
+
+    /// <summary>
+    /// Set start date of the project
+    /// </summary>
+    /// <param name="startDate">Start date of the project</param>
+    public void SetStartDate(DateTime? startDate);
+    /// <summary>
+    /// Set end date of the project
+    /// </summary>
+    /// <param name="startDate">End date of the project</param>
+    public void SetEndDate(DateTime? endDate);
 }

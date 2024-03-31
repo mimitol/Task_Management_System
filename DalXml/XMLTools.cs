@@ -65,6 +65,13 @@ static class XMLTools
         element.SetValue(date);
         XMLTools.SaveListToXMLElement(root, data_config_xml);
     }
+    public static void SetIdFromConfig(string data_config_xml, string elemName,int id)
+    {
+        XElement root = XMLTools.LoadListFromXMLElement(data_config_xml);
+        XElement element =  root.Element(elemName) ?? throw new FormatException($"can't find element.  {data_config_xml}, {elemName}");
+        element.SetValue(id);
+        XMLTools.SaveListToXMLElement(root, data_config_xml);
+    }
 
     #endregion
 

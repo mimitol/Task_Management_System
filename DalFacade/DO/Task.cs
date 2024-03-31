@@ -22,7 +22,7 @@
 /// <param name="Deliverables">product</param>
 /// <param name="Remarks">Remarks</param>
 /// <param name="EngineerId">id of engineer that will do the task</param>
-/// <param name="ComlexityLevel">The difficulty level of the task</param>
+/// <param name="ComplexityLevel">The difficulty level of the task</param>
 public record Task
 (
       int Id,
@@ -39,11 +39,11 @@ public record Task
       string? Deliverables,
       string? Remarks,
       int? EngineerId,
-      EngineerExperience? ComlexityLevel
+      EngineerExperience? ComplexityLevel
 )
 {
     public Task() : this(0,"","",false,null,DateTime.Now,null, null, null, null, null, "","",0,0) { }//empty ctor
-    //public Task(int Id,string? Description,string? Alias,bool IsMileStone,DateTime CreatedAtDate,DateTime StartedDate,DateTime ScheduledDate,DateTime ForeCastDate,DateTime DeadLineDate,DateTime CompleteDate,string? Deliverables,string? Remarks,int EngineerId, EngineerExperience ComlexityLevel)
+    //public Task(int Id,string? Description,string? Alias,bool IsMileStone,DateTime CreatedAtDate,DateTime StartedDate,DateTime ScheduledDate,DateTime ForeCastDate,DateTime DeadLineDate,DateTime CompleteDate,string? Deliverables,string? Remarks,int EngineerId, EngineerExperience ComplexityLevel)
     //{
     //    this.Id = Id;
     //    this.Description = Description;
@@ -57,6 +57,6 @@ public record Task
     //    this.Deliverables = Deliverables;
     //    this.Remarks = Remarks;
     //    this.EngineerId = EngineerId;
-    //    this.ComlexityLevel = ComlexityLevel;
+    //    this.ComplexityLevel = ComplexityLevel;
     //}
 }

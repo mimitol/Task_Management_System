@@ -42,4 +42,10 @@ public interface ITask
     /// </summary>
     /// <param name="id">id of task to delete</param>
     public void Delete(int id);
+    /// <summary>
+    /// returns if the project is already scheduled
+    /// </summary>
+    /// <returns></returns>
+    public bool IsScheduled();
+
 }

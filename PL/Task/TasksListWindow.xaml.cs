@@ -55,13 +55,16 @@ namespace PL.Task
             DependencyProperty.Register("SelectedStatus", typeof(Status?), typeof(TasksListWindow), new PropertyMetadata(null));
 
         public TaskInList SelectedTaskInList { get; set; }
-        
+
+
+        public bool IsScheduled { get; set; }
+
         public TasksListWindow()
         {
             InitializeComponent();
             TasksList = new ObservableCollection<BO.TaskInList>(s_bl.Task.ReadAllTaskInList());
             SelectedStatus = null;
-            
+            IsScheduled = s_bl.Task.IsScheduled();
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -20,7 +20,7 @@ namespace BO
 /// "Deliverables"-product
 /// "Remarks"-Remarks
 /// "EngineerId"-id of engineer that will do the task
-/// "ComlexityLevel"-The difficulty level of the task
+/// "ComplexityLevel"-The difficulty level of the task
 /// </summary>
     public class Task
     {

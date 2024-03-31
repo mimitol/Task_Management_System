@@ -114,7 +114,7 @@ internal class MilestoneImplementation : IMilestone
                    milestone.Alias, milestone.IsMileStone, milestone.RequiredEffortTime, milestone.CreatedAtDate, milestone.StartedDate,
                    scheduledDate, //עדכון תאריך התחלה
                    milestone.ForeCastDate, milestone.DeadLineDate, milestone.CompleteDate, milestone.Deliverables,
-                   milestone.Remarks, milestone.EngineerId, milestone.ComlexityLevel));
+                   milestone.Remarks, milestone.EngineerId, milestone.ComplexityLevel));
         }
 
 
@@ -131,7 +131,7 @@ internal class MilestoneImplementation : IMilestone
                     milestone.ScheduledDate, milestone.ForeCastDate,
                     DeadLine, //עדכון תאריך הסיום
                     milestone.CompleteDate, milestone.Deliverables,
-                    milestone.Remarks, milestone.EngineerId, milestone.ComlexityLevel));
+                    milestone.Remarks, milestone.EngineerId, milestone.ComplexityLevel));
 
         if (milestone.Alias == "Start")
         {
@@ -155,7 +155,7 @@ internal class MilestoneImplementation : IMilestone
                 task.ForeCastDate,
                 DeadLine, //עדכון תאריך אחרון לסיום
                 task.CompleteDate, task.Deliverables,
-                task.Remarks, task.EngineerId, task.ComlexityLevel));
+                task.Remarks, task.EngineerId, task.ComplexityLevel));
 
                 milestoneId = _dal.Dependency.Read(d => d.DependentTask == task.Id).DependsOnTask;
                 milestoneDedLine = DeadLine.Subtract(task.RequiredEffortTime!.Value);

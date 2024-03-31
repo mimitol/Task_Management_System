@@ -36,16 +36,25 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="10"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
 
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Content="Id" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding Task.Id, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <Label Grid.Row="1" Grid.Column="0" Content="Description" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Task.Description, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBox Grid.Row="1" Grid.Column="2" 
+                     IsEnabled="{Binding IsScheduled, Converter={StaticResource InverseBoolConverter}}"
+                     Text="{Binding Task.Description, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <Label Grid.Row="2" Grid.Column="0" Content="Alias" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Task.Alias, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBox Grid.Row="2" Grid.Column="2" 
+                     IsEnabled="{Binding IsScheduled, Converter={StaticResource InverseBoolConverter}}"
+                     Text="{Binding Task.Alias, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <Label Grid.Row="3" Grid.Column="0" Content="RequiredEffortTime" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding Task.RequiredEffortTime, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBox Grid.Row="3" Grid.Column="2" 
+                     IsEnabled="{Binding IsScheduled, Converter={StaticResource InverseBoolConverter}}"
+                     Text="{Binding Task.RequiredEffortTime, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <Label Grid.Row="4" Grid.Column="0" Content="CreatedAtDate" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <DatePicker Grid.Row="4" Grid.Column="2" IsEnabled="False" SelectedDate="{Binding Task.CreatedAtDate, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <Label Grid.Row="5" Grid.Column="0" Content="StartedDate" HorizontalAlignment="Left" VerticalAlignment="Center" />
@@ -59,29 +68,62 @@
             <Label Grid.Row="9" Grid.Column="0" Content="CompleteDate" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <DatePicker Grid.Row="9" Grid.Column="2" IsEnabled="False" SelectedDate="{Binding Task.CompleteDate, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <Label Grid.Row="10" Grid.Column="0" Content="Milestone" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <TextBlock Grid.Row="10" Grid.Column="2" Text="{Binding Task.Milestone.Id, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBlock Grid.Row="10" Grid.Column="2" IsEnabled="False" Text="{Binding Task.Milestone.Id, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <Label Grid.Row="11" Grid.Column="0" Content="Deliverables" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <TextBox Grid.Row="11" Grid.Column="2" Text="{Binding Task.Deliverables, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBox Grid.Row="11" Grid.Column="2" 
+                     IsEnabled="{Binding IsScheduled, Converter={StaticResource InverseBoolConverter}}"
+                     Text="{Binding Task.Deliverables, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <Label Grid.Row="12" Grid.Column="0" Content="Remarks" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <TextBox Grid.Row="12" Grid.Column="2" Text="{Binding Task.Remarks, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBox Grid.Row="12" Grid.Column="2" 
+                     IsEnabled="{Binding IsScheduled, Converter={StaticResource InverseBoolConverter}}"
+                     Text="{Binding Task.Remarks, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <Label Grid.Row="13" Grid.Column="0" Content="Engineer" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <ComboBox Grid.Row="13" Grid.Column="2" ItemsSource="{Binding Engineers}" SelectedItem="{Binding SelectedEngineer, Mode=TwoWay}">
+            <ComboBox Grid.Row="13" Grid.Column="2" 
+                     IsEnabled="{Binding IsScheduled, Converter={StaticResource InverseBoolConverter}}"
+                     ItemsSource="{Binding Engineers}" SelectedItem="{Binding SelectedEngineer, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Name}" />
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <Label Grid.Row="14" Grid.Column="0" Content="Dependencies" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <Label Grid.Row="14" Grid.Column="0" Content="ComplexityLevel" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <ComboBox Grid.Row="14" Grid.Column="2" 
+                     IsEnabled="{Binding IsScheduled, Converter={StaticResource InverseBoolConverter}}"
+                     ItemsSource="{StaticResource ComplexityLevels}" SelectedItem="{Binding Task.ComplexityLevel, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" SelectionChanged="ComboBox_SelectionChanged" />
+            <Label Grid.Row="15" Grid.Column="0" Content="Status" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <ComboBox Grid.Row="15" Grid.Column="2" 
+                     IsEnabled="False" ItemsSource="{StaticResource TaskSearchCategories}" SelectedItem="{Binding Task.Status, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+
+
+            <Label Grid.Row="1" Grid.Column="4" Content="Dependencies" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <ListView Grid.Row="2" Grid.Column="4" Grid.RowSpan="12" 
+                     IsEnabled="{Binding IsScheduled, Converter={StaticResource InverseBoolConverter}}"
+                     SelectedItem="{Binding SelectedDependencyToRemove, Mode=OneWayToSource}"
+                ItemsSource="{Binding DependenciesToRemove}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Description}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Grid.Row="14" Grid.Column="4" Content="RemoveSelected" HorizontalAlignment="Left" VerticalAlignment="Center"
+                    Visibility="{Binding IsScheduled,Converter={StaticResource BoolToNotVisibilityConverter}}"
+                        IsEnabled="{Binding SelectedDependencyToRemove, Converter={StaticResource NotNullToIsEnabledConverter}, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
+                    Click="BtnClickRemoveDependency"/>
+            <StackPanel Grid.Row="15" Grid.Column="4" Orientation="Horizontal"
+                    Visibility="{Binding IsScheduled,Converter={StaticResource BoolToNotVisibilityConverter}}">
+  <Button Content="Add" HorizontalAlignment="Right" VerticalAlignment="Center"
+                        IsEnabled="{Binding SelectedDependencyToAdd, Converter={StaticResource NotNullToIsEnabledConverter}, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
+                        Click="BtnClickAddDependency"/>
+                <ComboBox ItemsSource="{Binding DependenciesToAdd}" SelectedItem="{Binding SelectedDependencyToAdd, Mode=OneWayToSource}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </StackPanel>
+
             <!--TODO-->
-            <Label Grid.Row="15" Grid.Column="0" Content="ComplexityLevel" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <ComboBox Grid.Row="15" Grid.Column="2" ItemsSource="{StaticResource ComplexityLevels}" SelectedItem="{Binding Task.ComplexityLevel, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" SelectionChanged="ComboBox_SelectionChanged" />
-            <Label Grid.Row="16" Grid.Column="0" Content="Status" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <ComboBox Grid.Row="16" Grid.Column="2" IsEnabled="False" ItemsSource="{StaticResource TaskSearchCategories}" SelectedItem="{Binding Task.Status, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" />
         </Grid>
         <Button Grid.Row="1" Content="Save" HorizontalAlignment="Center" VerticalAlignment="Center"
                 Visibility="{Binding IsAdd, Converter={StaticResource BoolToVisibilityConverter},Mode=OneTime}" Click="BtnClickAddTask"/>
-        <Button Grid.Row="1" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Center"
-                Visibility="{Binding IsAdd, Converter={StaticResource BoolToNotVisibilityConverter},Mode=OneTime}" Click="BtnClickUpdateTask" RenderTransformOrigin="-0.528,0.399" Margin="317,0,0,0"/>
+        <Button Content="Update" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center"
+                Visibility="{Binding IsAdd, Converter={StaticResource BoolToNotVisibilityConverter},Mode=OneTime}" Click="BtnClickUpdateTask"/>
     </Grid>
 </Window>

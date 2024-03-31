@@ -78,7 +78,12 @@ internal class TaskImplementation : ITask
     {
         if (boTask.Alias == null)
             throw new BO.BlInvalidPropertyException("you entered an invalid Alias");
-        DO.Task doTask = new DO.Task(boTask.Id, boTask.Description, boTask.Alias, boTask.Milestone == null, boTask.RequiredEffortTime, boTask.CreatedAtDate, boTask.StartedDate, boTask.ScheduledDate, boTask.ForeCastDate, boTask.DeadLineDate, boTask.CompleteDate, boTask.Deliverables, boTask.Remarks, boTask.Engineer.Id, (DO.EngineerExperience)boTask.ComplexityLevel);
+        DO.Task doTask = _dal.Task.Read(boTask.Id);
+        if (doTask.DeadLineDate != null) //project is already scheduled. Enable to change only StartedDate and CompleteDate
+            doTask = new DO.Task(doTask.Id, doTask.Description, doTask.Alias, doTask.IsMileStone, doTask.RequiredEffortTime, doTask.CreatedAtDate, boTask.StartedDate, doTask.ScheduledDate, doTask.ForeCastDate, doTask.DeadLineDate, boTask.CompleteDate, doTask.Deliverables, doTask.Remarks, boTask.Engineer.Id, doTask.ComplexityLevel);
+        else
+            doTask = new DO.Task(boTask.Id, boTask.Description, boTask.Alias, boTask.Milestone == null, boTask.RequiredEffortTime, boTask.CreatedAtDate, boTask.StartedDate, boTask.ScheduledDate, boTask.ForeCastDate, boTask.DeadLineDate, boTask.CompleteDate, boTask.Deliverables, boTask.Remarks, boTask.Engineer.Id, (DO.EngineerExperience)boTask.ComplexityLevel);
+
         try
         {
             _dal.Task.Update(doTask);
@@ -153,6 +158,12 @@ internal class TaskImplementation : ITask
             : task.ScheduledDate != null ? Status.Scheduled
             : Status.Unscheduled;
     }
+    public bool IsScheduled()
+    {
+        if (_dal.Task.ReadAll(t => t.ScheduledDate != null).Count() > 0)
+            return true;
+        return false;
+    }
     private BO.Task ConvertFromDOTaskToBOTask(DO.Task doTask)
     {
         IEnumerable<DO.Dependency?> dependencies = _dal.Dependency.ReadAll(d => d.DependentTask == doTask.Id);
@@ -173,7 +184,7 @@ internal class TaskImplementation : ITask
             Remarks = doTask.Remarks,
             Engineer = doTask.EngineerId != null ? ReadEngineerInTask(doTask.EngineerId!.Value) : null,
             Dependencies = dependencies.Count() > 0 ? dependencies.Select(d => ReadTaskInList(d.DependsOnTask)) : null,
-            ComplexityLevel = (BO.EngineerExperience)doTask.ComlexityLevel,
+            ComplexityLevel = (BO.EngineerExperience)doTask.ComplexityLevel,
             Status = GetStatus(doTask)
         };
     }
