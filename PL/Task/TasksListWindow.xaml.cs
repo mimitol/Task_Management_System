@@ -61,10 +61,10 @@ namespace PL.Task
 
         public TasksListWindow()
         {
+            IsScheduled = s_bl.Task.IsScheduled();
             InitializeComponent();
             TasksList = new ObservableCollection<BO.TaskInList>(s_bl.Task.ReadAllTaskInList());
             SelectedStatus = null;
-            IsScheduled = s_bl.Task.IsScheduled();
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

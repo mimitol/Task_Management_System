@@ -38,6 +38,7 @@ namespace PL
                 s_bl.Milestone.SetEndDate(EndDate);
                 s_bl.Milestone.CreateProjectSchedule();
                 MessageBox.Show("Schedule Succeded");
+                this.Close();
             }
             catch (Exception ex)
             {

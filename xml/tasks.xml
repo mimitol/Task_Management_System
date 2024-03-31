@@ -1,88 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfTask xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Task>
-    <Id>0</Id>
-    <Description>Reserving a hotel</Description>
-    <Alias>Alias forReserving a hotel</Alias>
-    <IsMileStone>false</IsMileStone>
-    <RequiredEffortTime>P1D</RequiredEffortTime>
-    <CreatedAtDate>2024-03-31T12:58:23.4347468+03:00</CreatedAtDate>
-    <StartedDate xsi:nil="true" />
-    <ScheduledDate xsi:nil="true" />
-    <ForeCastDate xsi:nil="true" />
-    <DeadLineDate xsi:nil="true" />
-    <CompleteDate xsi:nil="true" />
-    <Deliverables>Product of Reserving a hotel</Deliverables>
-    <Remarks>Remarks of Reserving a hotel</Remarks>
-    <EngineerId>325895495</EngineerId>
-    <ComplexityLevel>Coordinator</ComplexityLevel>
-  </Task>
-  <Task>
-    <Id>1</Id>
-    <Description>Government approvals</Description>
-    <Alias>Alias forGovernment approvals</Alias>
-    <IsMileStone>false</IsMileStone>
-    <RequiredEffortTime>P3D</RequiredEffortTime>
-    <CreatedAtDate>2024-03-31T12:58:23.447948+03:00</CreatedAtDate>
-    <StartedDate xsi:nil="true" />
-    <ScheduledDate xsi:nil="true" />
-    <ForeCastDate xsi:nil="true" />
-    <DeadLineDate xsi:nil="true" />
-    <CompleteDate xsi:nil="true" />
-    <Deliverables>Product of Government approvals</Deliverables>
-    <Remarks>Remarks of Government approvals</Remarks>
-    <EngineerId>325895495</EngineerId>
-    <ComplexityLevel>Coordinator</ComplexityLevel>
-  </Task>
-  <Task>
-    <Id>2</Id>
-    <Description>Management approvals</Description>
-    <Alias>Alias forManagement approvals</Alias>
-    <IsMileStone>false</IsMileStone>
-    <RequiredEffortTime>P1D</RequiredEffortTime>
-    <CreatedAtDate>2024-03-31T12:58:23.4601844+03:00</CreatedAtDate>
-    <StartedDate xsi:nil="true" />
-    <ScheduledDate xsi:nil="true" />
-    <ForeCastDate xsi:nil="true" />
-    <DeadLineDate xsi:nil="true" />
-    <CompleteDate xsi:nil="true" />
-    <Deliverables>Product of Management approvals</Deliverables>
-    <Remarks>Remarks of Management approvals</Remarks>
-    <EngineerId>325895495</EngineerId>
-    <ComplexityLevel>Coordinator</ComplexityLevel>
-  </Task>
-  <Task>
     <Id>3</Id>
     <Description>Reserving attractions</Description>
     <Alias>Alias forReserving attractions</Alias>
     <IsMileStone>false</IsMileStone>
-    <RequiredEffortTime>P1D</RequiredEffortTime>
-    <CreatedAtDate>2024-03-31T12:58:23.4662299+03:00</CreatedAtDate>
+    <RequiredEffortTime>PT0S</RequiredEffortTime>
+    <CreatedAtDate>2024-03-31T13:02:31.1313957+03:00</CreatedAtDate>
     <StartedDate xsi:nil="true" />
-    <ScheduledDate xsi:nil="true" />
+    <ScheduledDate>2024-05-11T00:00:00</ScheduledDate>
     <ForeCastDate xsi:nil="true" />
-    <DeadLineDate xsi:nil="true" />
+    <DeadLineDate>2024-05-11T00:00:00</DeadLineDate>
     <CompleteDate xsi:nil="true" />
     <Deliverables>Product of Reserving attractions</Deliverables>
     <Remarks>Remarks of Reserving attractions</Remarks>
-    <EngineerId>325895495</EngineerId>
-    <ComplexityLevel>Coordinator</ComplexityLevel>
-  </Task>
-  <Task>
-    <Id>4</Id>
-    <Description>Choosing itineraries</Description>
-    <Alias>Alias forChoosing itineraries</Alias>
-    <IsMileStone>false</IsMileStone>
-    <RequiredEffortTime>P3D</RequiredEffortTime>
-    <CreatedAtDate>2024-03-31T12:58:23.4736488+03:00</CreatedAtDate>
-    <StartedDate xsi:nil="true" />
-    <ScheduledDate xsi:nil="true" />
-    <ForeCastDate xsi:nil="true" />
-    <DeadLineDate xsi:nil="true" />
-    <CompleteDate xsi:nil="true" />
-    <Deliverables>Product of Choosing itineraries</Deliverables>
-    <Remarks>Remarks of Choosing itineraries</Remarks>
-    <EngineerId>325895495</EngineerId>
+    <EngineerId>363563119</EngineerId>
     <ComplexityLevel>Coordinator</ComplexityLevel>
   </Task>
   <Task>
@@ -90,16 +22,16 @@
     <Description>Reserving external programs</Description>
     <Alias>Alias forReserving external programs</Alias>
     <IsMileStone>false</IsMileStone>
-    <RequiredEffortTime>P1D</RequiredEffortTime>
-    <CreatedAtDate>2024-03-31T12:58:23.4797395+03:00</CreatedAtDate>
+    <RequiredEffortTime>PT0S</RequiredEffortTime>
+    <CreatedAtDate>2024-03-31T13:02:31.1454736+03:00</CreatedAtDate>
     <StartedDate xsi:nil="true" />
-    <ScheduledDate xsi:nil="true" />
+    <ScheduledDate>2024-05-11T00:00:00</ScheduledDate>
     <ForeCastDate xsi:nil="true" />
-    <DeadLineDate xsi:nil="true" />
+    <DeadLineDate>2024-05-11T00:00:00</DeadLineDate>
     <CompleteDate xsi:nil="true" />
     <Deliverables>Product of Reserving external programs</Deliverables>
     <Remarks>Remarks of Reserving external programs</Remarks>
-    <EngineerId>325895495</EngineerId>
+    <EngineerId>363563119</EngineerId>
     <ComplexityLevel>Coordinator</ComplexityLevel>
   </Task>
   <Task>
@@ -107,16 +39,16 @@
     <Description>Reserving catering</Description>
     <Alias>Alias forReserving catering</Alias>
     <IsMileStone>false</IsMileStone>
-    <RequiredEffortTime>P2D</RequiredEffortTime>
-    <CreatedAtDate>2024-03-31T12:58:23.4865599+03:00</CreatedAtDate>
+    <RequiredEffortTime>P1D</RequiredEffortTime>
+    <CreatedAtDate>2024-03-31T13:02:31.1510632+03:00</CreatedAtDate>
     <StartedDate xsi:nil="true" />
-    <ScheduledDate xsi:nil="true" />
+    <ScheduledDate>2024-05-10T00:00:00</ScheduledDate>
     <ForeCastDate xsi:nil="true" />
-    <DeadLineDate xsi:nil="true" />
+    <DeadLineDate>2024-05-11T00:00:00</DeadLineDate>
     <CompleteDate xsi:nil="true" />
     <Deliverables>Product of Reserving catering</Deliverables>
     <Remarks>Remarks of Reserving catering</Remarks>
-    <EngineerId>325895495</EngineerId>
+    <EngineerId>363563119</EngineerId>
     <ComplexityLevel>Coordinator</ComplexityLevel>
   </Task>
   <Task>
@@ -124,16 +56,16 @@
     <Description>Hiring security guards</Description>
     <Alias>Alias forHiring security guards</Alias>
     <IsMileStone>false</IsMileStone>
-    <RequiredEffortTime>P2D</RequiredEffortTime>
-    <CreatedAtDate>2024-03-31T12:58:23.494485+03:00</CreatedAtDate>
+    <RequiredEffortTime>PT0S</RequiredEffortTime>
+    <CreatedAtDate>2024-03-31T13:02:31.1581421+03:00</CreatedAtDate>
     <StartedDate xsi:nil="true" />
-    <ScheduledDate xsi:nil="true" />
+    <ScheduledDate>2024-05-11T00:00:00</ScheduledDate>
     <ForeCastDate xsi:nil="true" />
-    <DeadLineDate xsi:nil="true" />
+    <DeadLineDate>2024-05-11T00:00:00</DeadLineDate>
     <CompleteDate xsi:nil="true" />
     <Deliverables>Product of Hiring security guards</Deliverables>
     <Remarks>Remarks of Hiring security guards</Remarks>
-    <EngineerId>325895495</EngineerId>
+    <EngineerId>363563119</EngineerId>
     <ComplexityLevel>Coordinator</ComplexityLevel>
   </Task>
   <Task>
@@ -142,15 +74,15 @@
     <Alias>Alias forHiring a tour guide</Alias>
     <IsMileStone>false</IsMileStone>
     <RequiredEffortTime>PT0S</RequiredEffortTime>
-    <CreatedAtDate>2024-03-31T12:58:23.4999463+03:00</CreatedAtDate>
+    <CreatedAtDate>2024-03-31T13:02:31.1640944+03:00</CreatedAtDate>
     <StartedDate xsi:nil="true" />
-    <ScheduledDate xsi:nil="true" />
+    <ScheduledDate>2024-05-11T00:00:00</ScheduledDate>
     <ForeCastDate xsi:nil="true" />
-    <DeadLineDate xsi:nil="true" />
+    <DeadLineDate>2024-05-11T00:00:00</DeadLineDate>
     <CompleteDate xsi:nil="true" />
     <Deliverables>Product of Hiring a tour guide</Deliverables>
     <Remarks>Remarks of Hiring a tour guide</Remarks>
-    <EngineerId>325895495</EngineerId>
+    <EngineerId>363563119</EngineerId>
     <ComplexityLevel>Coordinator</ComplexityLevel>
   </Task>
   <Task>
@@ -159,151 +91,66 @@
     <Alias>Alias forBudgets</Alias>
     <IsMileStone>false</IsMileStone>
     <RequiredEffortTime>P3D</RequiredEffortTime>
-    <CreatedAtDate>2024-03-31T12:58:23.5083154+03:00</CreatedAtDate>
+    <CreatedAtDate>2024-03-31T13:02:31.1703862+03:00</CreatedAtDate>
     <StartedDate xsi:nil="true" />
-    <ScheduledDate xsi:nil="true" />
+    <ScheduledDate>2024-05-08T00:00:00</ScheduledDate>
     <ForeCastDate xsi:nil="true" />
-    <DeadLineDate xsi:nil="true" />
+    <DeadLineDate>2024-05-11T00:00:00</DeadLineDate>
     <CompleteDate xsi:nil="true" />
     <Deliverables>Product of Budgets</Deliverables>
     <Remarks>Remarks of Budgets</Remarks>
-    <EngineerId>325895495</EngineerId>
+    <EngineerId>363563119</EngineerId>
     <ComplexityLevel>Coordinator</ComplexityLevel>
-  </Task>
-  <Task>
-    <Id>10</Id>
-    <Description>choosing a concept</Description>
-    <Alias>Alias forchoosing a concept</Alias>
-    <IsMileStone>false</IsMileStone>
-    <RequiredEffortTime>P1D</RequiredEffortTime>
-    <CreatedAtDate>2024-03-31T12:58:23.5148587+03:00</CreatedAtDate>
-    <StartedDate xsi:nil="true" />
-    <ScheduledDate xsi:nil="true" />
-    <ForeCastDate xsi:nil="true" />
-    <DeadLineDate xsi:nil="true" />
-    <CompleteDate xsi:nil="true" />
-    <Deliverables>Product of choosing a concept</Deliverables>
-    <Remarks>Remarks of choosing a concept</Remarks>
-    <EngineerId>245767913</EngineerId>
-    <ComplexityLevel>Guide</ComplexityLevel>
   </Task>
   <Task>
     <Id>11</Id>
     <Description>Request a lecture</Description>
     <Alias>Alias forRequest a lecture</Alias>
     <IsMileStone>false</IsMileStone>
-    <RequiredEffortTime>P1D</RequiredEffortTime>
-    <CreatedAtDate>2024-03-31T12:58:23.5252302+03:00</CreatedAtDate>
+    <RequiredEffortTime>P3D</RequiredEffortTime>
+    <CreatedAtDate>2024-03-31T13:02:31.1822494+03:00</CreatedAtDate>
     <StartedDate xsi:nil="true" />
-    <ScheduledDate xsi:nil="true" />
+    <ScheduledDate>2024-05-08T00:00:00</ScheduledDate>
     <ForeCastDate xsi:nil="true" />
-    <DeadLineDate xsi:nil="true" />
+    <DeadLineDate>2024-05-11T00:00:00</DeadLineDate>
     <CompleteDate xsi:nil="true" />
     <Deliverables>Product of Request a lecture</Deliverables>
     <Remarks>Remarks of Request a lecture</Remarks>
-    <EngineerId>371872439</EngineerId>
+    <EngineerId>363563119</EngineerId>
     <ComplexityLevel>Teacher</ComplexityLevel>
-  </Task>
-  <Task>
-    <Id>12</Id>
-    <Description>choosing students for roles</Description>
-    <Alias>Alias forchoosing students for roles</Alias>
-    <IsMileStone>false</IsMileStone>
-    <RequiredEffortTime>P3D</RequiredEffortTime>
-    <CreatedAtDate>2024-03-31T12:58:23.5328364+03:00</CreatedAtDate>
-    <StartedDate xsi:nil="true" />
-    <ScheduledDate xsi:nil="true" />
-    <ForeCastDate xsi:nil="true" />
-    <DeadLineDate xsi:nil="true" />
-    <CompleteDate xsi:nil="true" />
-    <Deliverables>Product of choosing students for roles</Deliverables>
-    <Remarks>Remarks of choosing students for roles</Remarks>
-    <EngineerId>282180748</EngineerId>
-    <ComplexityLevel>Guide</ComplexityLevel>
-  </Task>
-  <Task>
-    <Id>13</Id>
-    <Description>preparing internal programs</Description>
-    <Alias>Alias forpreparing internal programs</Alias>
-    <IsMileStone>false</IsMileStone>
-    <RequiredEffortTime>PT0S</RequiredEffortTime>
-    <CreatedAtDate>2024-03-31T12:58:23.5417028+03:00</CreatedAtDate>
-    <StartedDate xsi:nil="true" />
-    <ScheduledDate xsi:nil="true" />
-    <ForeCastDate xsi:nil="true" />
-    <DeadLineDate xsi:nil="true" />
-    <CompleteDate xsi:nil="true" />
-    <Deliverables>Product of preparing internal programs</Deliverables>
-    <Remarks>Remarks of preparing internal programs</Remarks>
-    <EngineerId>325895495</EngineerId>
-    <ComplexityLevel>Student</ComplexityLevel>
-  </Task>
-  <Task>
-    <Id>14</Id>
-    <Description>recordings</Description>
-    <Alias>Alias forrecordings</Alias>
-    <IsMileStone>false</IsMileStone>
-    <RequiredEffortTime>PT0S</RequiredEffortTime>
-    <CreatedAtDate>2024-03-31T12:58:23.5485755+03:00</CreatedAtDate>
-    <StartedDate xsi:nil="true" />
-    <ScheduledDate xsi:nil="true" />
-    <ForeCastDate xsi:nil="true" />
-    <DeadLineDate xsi:nil="true" />
-    <CompleteDate xsi:nil="true" />
-    <Deliverables>Product of recordings</Deliverables>
-    <Remarks>Remarks of recordings</Remarks>
-    <EngineerId>325895495</EngineerId>
-    <ComplexityLevel>Student</ComplexityLevel>
   </Task>
   <Task>
     <Id>15</Id>
     <Description>filming</Description>
     <Alias>Alias forfilming</Alias>
     <IsMileStone>false</IsMileStone>
-    <RequiredEffortTime>P1D</RequiredEffortTime>
-    <CreatedAtDate>2024-03-31T12:58:23.5571038+03:00</CreatedAtDate>
+    <RequiredEffortTime>PT0S</RequiredEffortTime>
+    <CreatedAtDate>2024-03-31T13:02:31.2065075+03:00</CreatedAtDate>
     <StartedDate xsi:nil="true" />
-    <ScheduledDate xsi:nil="true" />
+    <ScheduledDate>2024-05-11T00:00:00</ScheduledDate>
     <ForeCastDate xsi:nil="true" />
-    <DeadLineDate xsi:nil="true" />
+    <DeadLineDate>2024-05-11T00:00:00</DeadLineDate>
     <CompleteDate xsi:nil="true" />
     <Deliverables>Product of filming</Deliverables>
     <Remarks>Remarks of filming</Remarks>
-    <EngineerId>277896302</EngineerId>
+    <EngineerId>332911025</EngineerId>
     <ComplexityLevel>Student</ComplexityLevel>
-  </Task>
-  <Task>
-    <Id>16</Id>
-    <Description>graphic work</Description>
-    <Alias>Alias forgraphic work</Alias>
-    <IsMileStone>false</IsMileStone>
-    <RequiredEffortTime>P1D</RequiredEffortTime>
-    <CreatedAtDate>2024-03-31T12:58:23.5645588+03:00</CreatedAtDate>
-    <StartedDate xsi:nil="true" />
-    <ScheduledDate xsi:nil="true" />
-    <ForeCastDate xsi:nil="true" />
-    <DeadLineDate xsi:nil="true" />
-    <CompleteDate xsi:nil="true" />
-    <Deliverables>Product of graphic work</Deliverables>
-    <Remarks>Remarks of graphic work</Remarks>
-    <EngineerId>277896302</EngineerId>
-    <ComplexityLevel>Teacher</ComplexityLevel>
   </Task>
   <Task>
     <Id>17</Id>
     <Description>choir training</Description>
     <Alias>Alias forchoir training</Alias>
     <IsMileStone>false</IsMileStone>
-    <RequiredEffortTime>P3D</RequiredEffortTime>
-    <CreatedAtDate>2024-03-31T12:58:23.5721727+03:00</CreatedAtDate>
+    <RequiredEffortTime>P1D</RequiredEffortTime>
+    <CreatedAtDate>2024-03-31T13:02:31.2177613+03:00</CreatedAtDate>
     <StartedDate xsi:nil="true" />
-    <ScheduledDate xsi:nil="true" />
+    <ScheduledDate>2024-05-10T00:00:00</ScheduledDate>
     <ForeCastDate xsi:nil="true" />
-    <DeadLineDate xsi:nil="true" />
+    <DeadLineDate>2024-05-11T00:00:00</DeadLineDate>
     <CompleteDate xsi:nil="true" />
     <Deliverables>Product of choir training</Deliverables>
     <Remarks>Remarks of choir training</Remarks>
-    <EngineerId>277896302</EngineerId>
+    <EngineerId>377518275</EngineerId>
     <ComplexityLevel>Guide</ComplexityLevel>
   </Task>
   <Task>
@@ -311,16 +158,16 @@
     <Description>printing</Description>
     <Alias>Alias forprinting</Alias>
     <IsMileStone>false</IsMileStone>
-    <RequiredEffortTime>P2D</RequiredEffortTime>
-    <CreatedAtDate>2024-03-31T12:58:23.5788377+03:00</CreatedAtDate>
+    <RequiredEffortTime>PT0S</RequiredEffortTime>
+    <CreatedAtDate>2024-03-31T13:02:31.2248228+03:00</CreatedAtDate>
     <StartedDate xsi:nil="true" />
-    <ScheduledDate xsi:nil="true" />
+    <ScheduledDate>2024-05-11T00:00:00</ScheduledDate>
     <ForeCastDate xsi:nil="true" />
-    <DeadLineDate xsi:nil="true" />
+    <DeadLineDate>2024-05-11T00:00:00</DeadLineDate>
     <CompleteDate xsi:nil="true" />
     <Deliverables>Product of printing</Deliverables>
     <Remarks>Remarks of printing</Remarks>
-    <EngineerId>325895495</EngineerId>
+    <EngineerId>382339247</EngineerId>
     <ComplexityLevel>Student</ComplexityLevel>
   </Task>
   <Task>
@@ -328,34 +175,17 @@
     <Description>buying equipment for programs</Description>
     <Alias>Alias forbuying equipment for programs</Alias>
     <IsMileStone>false</IsMileStone>
-    <RequiredEffortTime>P1D</RequiredEffortTime>
-    <CreatedAtDate>2024-03-31T12:58:23.5855432+03:00</CreatedAtDate>
+    <RequiredEffortTime>P2D</RequiredEffortTime>
+    <CreatedAtDate>2024-03-31T13:02:31.230536+03:00</CreatedAtDate>
     <StartedDate xsi:nil="true" />
-    <ScheduledDate xsi:nil="true" />
+    <ScheduledDate>2024-05-09T00:00:00</ScheduledDate>
     <ForeCastDate xsi:nil="true" />
-    <DeadLineDate xsi:nil="true" />
+    <DeadLineDate>2024-05-11T00:00:00</DeadLineDate>
     <CompleteDate xsi:nil="true" />
     <Deliverables>Product of buying equipment for programs</Deliverables>
     <Remarks>Remarks of buying equipment for programs</Remarks>
-    <EngineerId>325895495</EngineerId>
+    <EngineerId>363563119</EngineerId>
     <ComplexityLevel>Coordinator</ComplexityLevel>
-  </Task>
-  <Task>
-    <Id>20</Id>
-    <Description>student registration</Description>
-    <Alias>Alias forstudent registration</Alias>
-    <IsMileStone>false</IsMileStone>
-    <RequiredEffortTime>P2D</RequiredEffortTime>
-    <CreatedAtDate>2024-03-31T12:58:23.5919575+03:00</CreatedAtDate>
-    <StartedDate xsi:nil="true" />
-    <ScheduledDate xsi:nil="true" />
-    <ForeCastDate xsi:nil="true" />
-    <DeadLineDate xsi:nil="true" />
-    <CompleteDate xsi:nil="true" />
-    <Deliverables>Product of student registration</Deliverables>
-    <Remarks>Remarks of student registration</Remarks>
-    <EngineerId>325895495</EngineerId>
-    <ComplexityLevel>Guide</ComplexityLevel>
   </Task>
   <Task>
     <Id>21</Id>
@@ -363,15 +193,15 @@
     <Alias>Alias forBooking buses</Alias>
     <IsMileStone>false</IsMileStone>
     <RequiredEffortTime>P1D</RequiredEffortTime>
-    <CreatedAtDate>2024-03-31T12:58:23.5987103+03:00</CreatedAtDate>
+    <CreatedAtDate>2024-03-31T13:02:31.2433105+03:00</CreatedAtDate>
     <StartedDate xsi:nil="true" />
-    <ScheduledDate xsi:nil="true" />
+    <ScheduledDate>2024-05-10T00:00:00</ScheduledDate>
     <ForeCastDate xsi:nil="true" />
-    <DeadLineDate xsi:nil="true" />
+    <DeadLineDate>2024-05-11T00:00:00</DeadLineDate>
     <CompleteDate xsi:nil="true" />
     <Deliverables>Product of Booking buses</Deliverables>
     <Remarks>Remarks of Booking buses</Remarks>
-    <EngineerId>277896302</EngineerId>
+    <EngineerId>332911025</EngineerId>
     <ComplexityLevel>Teacher</ComplexityLevel>
   </Task>
   <Task>
@@ -379,16 +209,16 @@
     <Description>Allocating rooms</Description>
     <Alias>Alias forAllocating rooms</Alias>
     <IsMileStone>false</IsMileStone>
-    <RequiredEffortTime>P1D</RequiredEffortTime>
-    <CreatedAtDate>2024-03-31T12:58:23.6058641+03:00</CreatedAtDate>
+    <RequiredEffortTime>P2D</RequiredEffortTime>
+    <CreatedAtDate>2024-03-31T13:02:31.2496143+03:00</CreatedAtDate>
     <StartedDate xsi:nil="true" />
-    <ScheduledDate xsi:nil="true" />
+    <ScheduledDate>2024-05-09T00:00:00</ScheduledDate>
     <ForeCastDate xsi:nil="true" />
-    <DeadLineDate xsi:nil="true" />
+    <DeadLineDate>2024-05-11T00:00:00</DeadLineDate>
     <CompleteDate xsi:nil="true" />
     <Deliverables>Product of Allocating rooms</Deliverables>
     <Remarks>Remarks of Allocating rooms</Remarks>
-    <EngineerId>325895495</EngineerId>
+    <EngineerId>363563119</EngineerId>
     <ComplexityLevel>Coordinator</ComplexityLevel>
   </Task>
   <Task>
@@ -397,15 +227,474 @@
     <Alias>Alias forCollecting permits</Alias>
     <IsMileStone>false</IsMileStone>
     <RequiredEffortTime>P3D</RequiredEffortTime>
-    <CreatedAtDate>2024-03-31T12:58:23.6125637+03:00</CreatedAtDate>
+    <CreatedAtDate>2024-03-31T13:02:31.2564838+03:00</CreatedAtDate>
     <StartedDate xsi:nil="true" />
-    <ScheduledDate xsi:nil="true" />
+    <ScheduledDate>2024-05-08T00:00:00</ScheduledDate>
     <ForeCastDate xsi:nil="true" />
-    <DeadLineDate xsi:nil="true" />
+    <DeadLineDate>2024-05-11T00:00:00</DeadLineDate>
     <CompleteDate xsi:nil="true" />
     <Deliverables>Product of Collecting permits</Deliverables>
     <Remarks>Remarks of Collecting permits</Remarks>
-    <EngineerId>277896302</EngineerId>
+    <EngineerId>363563119</EngineerId>
     <ComplexityLevel>Teacher</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>4</Id>
+    <Description>Choosing itineraries</Description>
+    <Alias>Alias forChoosing itineraries</Alias>
+    <IsMileStone>false</IsMileStone>
+    <RequiredEffortTime>PT0S</RequiredEffortTime>
+    <CreatedAtDate>2024-03-31T13:02:31.1389359+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-05-11T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-11T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of Choosing itineraries</Deliverables>
+    <Remarks>Remarks of Choosing itineraries</Remarks>
+    <EngineerId>363563119</EngineerId>
+    <ComplexityLevel>Coordinator</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>1</Id>
+    <Description>Government approvals</Description>
+    <Alias>Alias forGovernment approvals</Alias>
+    <IsMileStone>false</IsMileStone>
+    <RequiredEffortTime>PT0S</RequiredEffortTime>
+    <CreatedAtDate>2024-03-31T13:02:31.1190616+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-05-08T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-08T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of Government approvals</Deliverables>
+    <Remarks>Remarks of Government approvals</Remarks>
+    <EngineerId>363563119</EngineerId>
+    <ComplexityLevel>Coordinator</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>0</Id>
+    <Description>Reserving a hotel</Description>
+    <Alias>Alias forReserving a hotel</Alias>
+    <IsMileStone>false</IsMileStone>
+    <RequiredEffortTime>PT0S</RequiredEffortTime>
+    <CreatedAtDate>2024-03-31T13:02:31.1101269+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-05-08T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-08T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of Reserving a hotel</Deliverables>
+    <Remarks>Remarks of Reserving a hotel</Remarks>
+    <EngineerId>363563119</EngineerId>
+    <ComplexityLevel>Coordinator</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>14</Id>
+    <Description>recordings</Description>
+    <Alias>Alias forrecordings</Alias>
+    <IsMileStone>false</IsMileStone>
+    <RequiredEffortTime>PT0S</RequiredEffortTime>
+    <CreatedAtDate>2024-03-31T13:02:31.1998073+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-05-10T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-10T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of recordings</Deliverables>
+    <Remarks>Remarks of recordings</Remarks>
+    <EngineerId>382339247</EngineerId>
+    <ComplexityLevel>Student</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>16</Id>
+    <Description>graphic work</Description>
+    <Alias>Alias forgraphic work</Alias>
+    <IsMileStone>false</IsMileStone>
+    <RequiredEffortTime>P1D</RequiredEffortTime>
+    <CreatedAtDate>2024-03-31T13:02:31.2121338+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-05-10T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-11T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of graphic work</Deliverables>
+    <Remarks>Remarks of graphic work</Remarks>
+    <EngineerId>363563119</EngineerId>
+    <ComplexityLevel>Teacher</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>13</Id>
+    <Description>preparing internal programs</Description>
+    <Alias>Alias forpreparing internal programs</Alias>
+    <IsMileStone>false</IsMileStone>
+    <RequiredEffortTime>P2D</RequiredEffortTime>
+    <CreatedAtDate>2024-03-31T13:02:31.1943194+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-05-07T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-09T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of preparing internal programs</Deliverables>
+    <Remarks>Remarks of preparing internal programs</Remarks>
+    <EngineerId>382339247</EngineerId>
+    <ComplexityLevel>Student</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>12</Id>
+    <Description>choosing students for roles</Description>
+    <Alias>Alias forchoosing students for roles</Alias>
+    <IsMileStone>false</IsMileStone>
+    <RequiredEffortTime>P1D</RequiredEffortTime>
+    <CreatedAtDate>2024-03-31T13:02:31.1887227+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-05-06T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-07T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of choosing students for roles</Deliverables>
+    <Remarks>Remarks of choosing students for roles</Remarks>
+    <EngineerId>362570335</EngineerId>
+    <ComplexityLevel>Guide</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>10</Id>
+    <Description>choosing a concept</Description>
+    <Alias>Alias forchoosing a concept</Alias>
+    <IsMileStone>false</IsMileStone>
+    <RequiredEffortTime>P3D</RequiredEffortTime>
+    <CreatedAtDate>2024-03-31T13:02:31.1764418+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-05-03T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-06T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of choosing a concept</Deliverables>
+    <Remarks>Remarks of choosing a concept</Remarks>
+    <EngineerId>377518275</EngineerId>
+    <ComplexityLevel>Guide</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>2</Id>
+    <Description>Management approvals</Description>
+    <Alias>Alias forManagement approvals</Alias>
+    <IsMileStone>false</IsMileStone>
+    <RequiredEffortTime>P3D</RequiredEffortTime>
+    <CreatedAtDate>2024-03-31T13:02:31.1254397+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-04-30T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-03T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of Management approvals</Deliverables>
+    <Remarks>Remarks of Management approvals</Remarks>
+    <EngineerId>363563119</EngineerId>
+    <ComplexityLevel>Coordinator</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>20</Id>
+    <Description>student registration</Description>
+    <Alias>Alias forstudent registration</Alias>
+    <IsMileStone>false</IsMileStone>
+    <RequiredEffortTime>P2D</RequiredEffortTime>
+    <CreatedAtDate>2024-03-31T13:02:31.2373515+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-05-07T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-09T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Product of student registration</Deliverables>
+    <Remarks>Remarks of student registration</Remarks>
+    <EngineerId>362570335</EngineerId>
+    <ComplexityLevel>Guide</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>40</Id>
+    <Description>milestone31</Description>
+    <Alias>End</Alias>
+    <IsMileStone>true</IsMileStone>
+    <RequiredEffortTime xsi:nil="true" />
+    <CreatedAtDate>2024-03-31T13:02:52.4510766+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-05-08T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-11T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables />
+    <Remarks />
+    <EngineerId>0</EngineerId>
+    <ComplexityLevel>Student</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>25</Id>
+    <Description>milestone1</Description>
+    <Alias>M2</Alias>
+    <IsMileStone>true</IsMileStone>
+    <RequiredEffortTime xsi:nil="true" />
+    <CreatedAtDate>2024-03-31T13:02:52.3521815+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-04-30T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-11T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables />
+    <Remarks />
+    <EngineerId>0</EngineerId>
+    <ComplexityLevel>Student</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>27</Id>
+    <Description>milestone5</Description>
+    <Alias>M6</Alias>
+    <IsMileStone>true</IsMileStone>
+    <RequiredEffortTime xsi:nil="true" />
+    <CreatedAtDate>2024-03-31T13:02:52.3604457+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-05-08T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-10T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables />
+    <Remarks />
+    <EngineerId>0</EngineerId>
+    <ComplexityLevel>Student</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>34</Id>
+    <Description>milestone19</Description>
+    <Alias>M20</Alias>
+    <IsMileStone>true</IsMileStone>
+    <RequiredEffortTime xsi:nil="true" />
+    <CreatedAtDate>2024-03-31T13:02:52.4059072+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-05-11T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-11T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables />
+    <Remarks />
+    <EngineerId>0</EngineerId>
+    <ComplexityLevel>Student</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>26</Id>
+    <Description>milestone3</Description>
+    <Alias>M4</Alias>
+    <IsMileStone>true</IsMileStone>
+    <RequiredEffortTime xsi:nil="true" />
+    <CreatedAtDate>2024-03-31T13:02:52.3551023+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-05-08T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-11T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables />
+    <Remarks />
+    <EngineerId>0</EngineerId>
+    <ComplexityLevel>Student</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>30</Id>
+    <Description>milestone11</Description>
+    <Alias>M12</Alias>
+    <IsMileStone>true</IsMileStone>
+    <RequiredEffortTime xsi:nil="true" />
+    <CreatedAtDate>2024-03-31T13:02:52.3796994+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-05-08T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-08T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables />
+    <Remarks />
+    <EngineerId>0</EngineerId>
+    <ComplexityLevel>Student</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>29</Id>
+    <Description>milestone9</Description>
+    <Alias>M10</Alias>
+    <IsMileStone>true</IsMileStone>
+    <RequiredEffortTime xsi:nil="true" />
+    <CreatedAtDate>2024-03-31T13:02:52.3736631+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-05-03T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-08T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables />
+    <Remarks />
+    <EngineerId>0</EngineerId>
+    <ComplexityLevel>Student</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>39</Id>
+    <Description>milestone29</Description>
+    <Alias>M30</Alias>
+    <IsMileStone>true</IsMileStone>
+    <RequiredEffortTime xsi:nil="true" />
+    <CreatedAtDate>2024-03-31T13:02:52.4452974+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-05-10T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-10T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables />
+    <Remarks />
+    <EngineerId>0</EngineerId>
+    <ComplexityLevel>Student</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>35</Id>
+    <Description>milestone21</Description>
+    <Alias>M22</Alias>
+    <IsMileStone>true</IsMileStone>
+    <RequiredEffortTime xsi:nil="true" />
+    <CreatedAtDate>2024-03-31T13:02:52.4129278+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-05-03T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-10T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables />
+    <Remarks />
+    <EngineerId>0</EngineerId>
+    <ComplexityLevel>Student</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>38</Id>
+    <Description>milestone27</Description>
+    <Alias>M28</Alias>
+    <IsMileStone>true</IsMileStone>
+    <RequiredEffortTime xsi:nil="true" />
+    <CreatedAtDate>2024-03-31T13:02:52.4356759+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-05-10T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-11T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables />
+    <Remarks />
+    <EngineerId>0</EngineerId>
+    <ComplexityLevel>Student</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>36</Id>
+    <Description>milestone23</Description>
+    <Alias>M24</Alias>
+    <IsMileStone>true</IsMileStone>
+    <RequiredEffortTime xsi:nil="true" />
+    <CreatedAtDate>2024-03-31T13:02:52.4218082+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-05-03T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-10T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables />
+    <Remarks />
+    <EngineerId>0</EngineerId>
+    <ComplexityLevel>Student</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>37</Id>
+    <Description>milestone25</Description>
+    <Alias>M26</Alias>
+    <IsMileStone>true</IsMileStone>
+    <RequiredEffortTime xsi:nil="true" />
+    <CreatedAtDate>2024-03-31T13:02:52.4292331+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-05-07T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-09T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables />
+    <Remarks />
+    <EngineerId>0</EngineerId>
+    <ComplexityLevel>Student</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>31</Id>
+    <Description>milestone13</Description>
+    <Alias>M14</Alias>
+    <IsMileStone>true</IsMileStone>
+    <RequiredEffortTime xsi:nil="true" />
+    <CreatedAtDate>2024-03-31T13:02:52.3861354+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-04-30T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-07T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables />
+    <Remarks />
+    <EngineerId>0</EngineerId>
+    <ComplexityLevel>Student</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>32</Id>
+    <Description>milestone15</Description>
+    <Alias>M16</Alias>
+    <IsMileStone>true</IsMileStone>
+    <RequiredEffortTime xsi:nil="true" />
+    <CreatedAtDate>2024-03-31T13:02:52.3925706+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-04-30T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-06T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables />
+    <Remarks />
+    <EngineerId>0</EngineerId>
+    <ComplexityLevel>Student</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>33</Id>
+    <Description>milestone17</Description>
+    <Alias>M18</Alias>
+    <IsMileStone>true</IsMileStone>
+    <RequiredEffortTime xsi:nil="true" />
+    <CreatedAtDate>2024-03-31T13:02:52.3996723+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-04-30T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-03T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables />
+    <Remarks />
+    <EngineerId>0</EngineerId>
+    <ComplexityLevel>Student</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>24</Id>
+    <Description>milestone0</Description>
+    <Alias>Start</Alias>
+    <IsMileStone>true</IsMileStone>
+    <RequiredEffortTime xsi:nil="true" />
+    <CreatedAtDate>2024-03-31T13:02:52.3318592+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-03-31T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-04-30T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables />
+    <Remarks />
+    <EngineerId>0</EngineerId>
+    <ComplexityLevel>Student</ComplexityLevel>
+  </Task>
+  <Task>
+    <Id>28</Id>
+    <Description>milestone7</Description>
+    <Alias>M8</Alias>
+    <IsMileStone>true</IsMileStone>
+    <RequiredEffortTime xsi:nil="true" />
+    <CreatedAtDate>2024-03-31T13:02:52.3669058+03:00</CreatedAtDate>
+    <StartedDate xsi:nil="true" />
+    <ScheduledDate>2024-05-07T00:00:00</ScheduledDate>
+    <ForeCastDate xsi:nil="true" />
+    <DeadLineDate>2024-05-09T00:00:00</DeadLineDate>
+    <CompleteDate xsi:nil="true" />
+    <Deliverables />
+    <Remarks />
+    <EngineerId>0</EngineerId>
+    <ComplexityLevel>Student</ComplexityLevel>
   </Task>
 </ArrayOfTask>
