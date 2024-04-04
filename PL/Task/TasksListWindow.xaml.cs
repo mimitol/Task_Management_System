@@ -67,7 +67,7 @@ namespace PL.Task
             SelectedStatus = null;
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ByStatus(object sender, SelectionChangedEventArgs e)
         {
             TasksList = new ObservableCollection<BO.TaskInList>(s_bl.Task.ReadAllTaskInList(t=>t.Status==SelectedStatus));
         }

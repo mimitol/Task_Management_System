@@ -20,12 +20,12 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Content="סינון לפי סטטוס" HorizontalAlignment="Left" Margin="62,0,0,0" VerticalAlignment="Center"/>
+            <Label Grid.Column="0" Content="by status:" HorizontalAlignment="Left" Margin="62,0,0,0" VerticalAlignment="Center"/>
             <ComboBox Grid.Column="1" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"
                       ItemsSource="{StaticResource TaskSearchCategories}"
                       SelectedItem="{Binding SelectedStatus}"
-                      SelectionChanged="ComboBox_SelectionChanged"/>
-            <Button Grid.Column="2" Content="נקה סינון" Click="Button_Click"/>
+                      SelectionChanged="ByStatus"/>
+            <Button Grid.Column="2" Content="clear" Click="Button_Click"/>
         </Grid>
         <ListView Grid.Row="1" ItemsSource="{Binding TasksList, Mode=TwoWay}"
                   SelectedItem="{Binding SelectedTaskInList}"

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using PL.Task;
 using System.Windows.Shapes;
+using PL.Engineer;
 
 namespace PL
 {
@@ -34,8 +35,6 @@ namespace PL
 
         private void BtnInitClick(object sender, RoutedEventArgs e)
         {
-            //TODO
-            //להוסיף הודעה האם הוא בטוח שהוא רוצה איך לעשות את זה בלי לגשת ישירות לMASSEGEBOX
             if (MessageBox.Show("האם אתה בטוח שברצונך לאתחל?", "הודעה", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 s_bl.InitializeDB();
             
@@ -60,6 +59,12 @@ namespace PL
         private void Schedule(object sender, RoutedEventArgs e)
         {
             new ScheduleWindow().ShowDialog();
+        }
+
+        private void BtnEngineersClick(object sender, RoutedEventArgs e)
+        {
+            new EngineersListWindow().ShowDialog();
+
         }
     }
 }

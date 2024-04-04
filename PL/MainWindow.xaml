@@ -11,6 +11,7 @@
         <Button Content="initialize DB" HorizontalAlignment="Left" Margin="302,133,0,0" VerticalAlignment="Top" Height="65" Width="98" Click="BtnInitClick"/>
         <Button Content="reset DB" HorizontalAlignment="Left" Margin="425,133,0,0" VerticalAlignment="Top" Height="65" Width="104" Click="ResetDB"/>
         <Button Content="schedule" HorizontalAlignment="Left" Margin="552,133,0,0" VerticalAlignment="Top" Height="65" Width="104" Click="Schedule"/>
+        <Button Content="Engineers" HorizontalAlignment="Left" Margin="36,133,0,0" VerticalAlignment="Top" Height="65" Width="98" RenderTransformOrigin="0.787,0.374" Click="BtnEngineersClick"/>
 
     </Grid>
 </Window>

@@ -119,7 +119,6 @@
                 <ComboBox ItemsSource="{Binding DependenciesToAdd}" SelectedItem="{Binding SelectedDependencyToAdd, Mode=OneWayToSource}" HorizontalAlignment="Center" VerticalAlignment="Center" />
             </StackPanel>
 
-            <!--TODO-->
         </Grid>
         <Button Grid.Row="1" Content="Save" HorizontalAlignment="Center" VerticalAlignment="Center"
                 Visibility="{Binding IsAdd, Converter={StaticResource BoolToVisibilityConverter},Mode=OneTime}" Click="BtnClickAddTask"/>
